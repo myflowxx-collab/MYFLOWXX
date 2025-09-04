@@ -149,48 +149,66 @@
 <body>
 
     <div class="main-container">
-        <!-- Marca con efecto 3D -->
         <h1 class="brand-3d">MYFLOWXX</h1>
 
-        <!-- Formulario de suscripción -->
-        <form id="subscribe-form" class="email-form">
-            <input type="email" id="email" class="email-input" placeholder="entradaanticipada.com" required>
+        <!-- =================================================================== -->
+        <!-- == CAMBIO IMPORTANTE: Reemplaza la URL de 'action' con la tuya   == -->
+        <!-- =================================================================== -->
+        <form id="subscribe-form" action="https://formspree.io/f/mrbaoqay" method="POST" class="email-form">
+            <!-- Se ha añadido el atributo 'name' para que Formspree lo reconozca -->
+            <input type="email" id="email" name="email" class="email-input" placeholder="entradaanticipada.com" required>
             <button type="submit" class="submit-button">Unirse</button>
         </form>
         <div id="confirmation-message"></div>
         
-        <!-- Eslogan con efecto moderno -->
         <p class="slogan">esto no es ropa, es vestirse de quién quieres ser.</p>
     </div>
 
+    <!-- =================================================================== -->
+    <!-- == CAMBIO IMPORTANTE: El script ahora envía los datos sin recargar == -->
+    <!-- =================================================================== -->
     <script>
         const form = document.getElementById('subscribe-form');
-        const emailInput = document.getElementById('email');
         const confirmationMessage = document.getElementById('confirmation-message');
 
-        form.addEventListener('submit', (event) => {
-            // Previene el envío del formulario que recargaría la página
-            event.preventDefault(); 
+        async function handleSubmit(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            const formData = new FormData(event.target);
             
-            const email = emailInput.value;
-            
-            if (email) {
-                // Muestra el correo en la consola (simulando el guardado)
-                console.log('Correo electrónico suscrito:', email);
-                
-                // Muestra un mensaje de confirmación al usuario
-                confirmationMessage.textContent = `¡Gracias por unirte, ${email}!`;
+            try {
+                const response = await fetch(event.target.action, {
+                    method: event.target.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // El correo se envió correctamente a Formspree
+                    confirmationMessage.textContent = `¡Gracias por unirte!`;
+                    confirmationMessage.style.color = 'var(--brand-green)';
+                    confirmationMessage.style.opacity = '1';
+                    form.reset(); // Limpia el campo de entrada
+                    setTimeout(() => {
+                        confirmationMessage.style.opacity = '0';
+                        confirmationMessage.textContent = '';
+                    }, 4000);
+                } else {
+                    // Hubo un error al enviar a Formspree
+                    throw new Error('Network response was not ok.');
+                }
+            } catch (error) {
+                // Hubo un error de red o de otro tipo
+                confirmationMessage.textContent = 'Error al enviar. Inténtalo de nuevo.';
+                confirmationMessage.style.color = 'red';
                 confirmationMessage.style.opacity = '1';
-                
-                // Limpia el campo de entrada y el mensaje después de unos segundos
-                emailInput.value = '';
-                setTimeout(() => {
-                    confirmationMessage.style.opacity = '0';
-                    confirmationMessage.textContent = '';
-                }, 4000);
             }
-        });
+        }
+
+        form.addEventListener('submit', handleSubmit);
     </script>
 
 </body>
 </html>
+
