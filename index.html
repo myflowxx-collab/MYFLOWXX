@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYFLOWXX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados y animaciones */
+        :root {
+            --brand-green: #a0ff8d;
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #111;
+            /* Animación del fondo dinámico */
+            background: linear-gradient(270deg, #000000, #1a1a1a, #2b2b2b, #000000);
+            background-size: 800% 800%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Contenedor principal para centrar todo */
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            perspective: 1000px; /* Perspectiva para el efecto 3D */
+        }
+
+        /* Estilo y animación 3D para la marca */
+        .brand-3d {
+            font-size: clamp(3rem, 12vw, 6rem); /* Tamaño de fuente adaptable */
+            font-weight: 900;
+            color: #f0f0f0;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate3D 10s linear infinite;
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.2),
+                0 0 10px var(--brand-green),
+                0 0 20px rgba(160, 255, 141, 0.5);
+        }
+
+        @keyframes rotate3D {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+        
+        /* Estilo del formulario */
+        .email-form {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .email-input {
+            width: 100%;
+            background: transparent;
+            border: 2px solid #555;
+            border-radius: 8px;
+            padding: 1rem 1rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .email-input::placeholder {
+            color: #777;
+        }
+
+        .email-input:focus {
+            border-color: var(--brand-green);
+            box-shadow: 0 0 15px rgba(160, 255, 141, 0.5);
+        }
+
+        .submit-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--brand-green);
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 0 10px var(--brand-green);
+        }
+        
+        /* Estilo y animación del eslogan */
+        .slogan {
+            margin-top: 3rem;
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #ffffff, #bbbbbb, #ffffff);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 5s linear infinite;
+        }
+
+        @keyframes textShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        /* Mensaje de confirmación */
+        #confirmation-message {
+            margin-top: 1rem;
+            color: var(--brand-green);
+            font-weight: 700;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            height: 24px; /* Altura fija para evitar saltos de diseño */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Marca con efecto 3D -->
+        <h1 class="brand-3d">MYFLOWXX</h1>
+
+        <!-- Formulario de suscripción -->
+        <form id="subscribe-form" class="email-form">
+            <input type="email" id="email" class="email-input" placeholder="entradaanticipada.com" required>
+            <button type="submit" class="submit-button">Unirse</button>
+        </form>
+        <div id="confirmation-message"></div>
+        
+        <!-- Eslogan con efecto moderno -->
+        <p class="slogan">esto no es ropa, es vestirse de quién quieres ser.</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('subscribe-form');
+        const emailInput = document.getElementById('email');
+        const confirmationMessage = document.getElementById('confirmation-message');
+
+        form.addEventListener('submit', (event) => {
+            // Previene el envío del formulario que recargaría la página
+            event.preventDefault(); 
+            
+            const email = emailInput.value;
+            
+            if (email) {
+                // Muestra el correo en la consola (simulando el guardado)
+                console.log('Correo electrónico suscrito:', email);
+                
+                // Muestra un mensaje de confirmación al usuario
+                confirmationMessage.textContent = `¡Gracias por unirte, ${email}!`;
+                confirmationMessage.style.opacity = '1';
+                
+                // Limpia el campo de entrada y el mensaje después de unos segundos
+                emailInput.value = '';
+                setTimeout(() => {
+                    confirmationMessage.style.opacity = '0';
+                    confirmationMessage.textContent = '';
+                }, 4000);
+            }
+        });
+    </script>
+
+</body>
+</html>
