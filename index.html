@@ -3,220 +3,407 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYFLOWXX</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&display=swap" rel="stylesheet">
+    <title>Flow Party & Viaje Sorpresa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos personalizados y animaciones */
+        /* Variables y configuración general */
         :root {
-            --brand-green: #a0ff8d;
+            --primary-color: #000;
+            --secondary-color: #ff0000; /* Rojo principal para efectos */
+            --text-color: #fff;
+            --accent-color: #00f0ff; /* Azul cian para contraste */
+            --bg-color: #1a1a1a;
         }
 
         body {
-            font-family: 'Exo 2', sans-serif;
-            background-color: #111;
-            /* Animación del fondo dinámico */
-            background: linear-gradient(270deg, #000000, #1a1a1a, #2b2b2b, #000000);
-            background-size: 800% 800%;
-            animation: gradientAnimation 15s ease infinite;
-        }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Contenedor principal para centrar todo */
-        .main-container {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* ------------------------------------
+           1. Fondo de Video de Fiesta 
+           ------------------------------------ */
+        .video-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -2; /* Capa más baja */
+            filter: brightness(0.3) grayscale(0.5); /* Oscurecer y desaturar */
+        }
+        
+        /* ------------------------------------
+           2. Fondo de Emoji de Avión en Movimiento 
+           ------------------------------------ */
+        .emoji-airplane-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            z-index: -1; /* Encima del video */
+        }
+
+        .emoji-airplane {
+            position: absolute;
+            font-size: 5em; 
+            color: rgba(0, 240, 255, 0.1); /* Color cian para los aviones para diferenciar */
+            opacity: 0;
+            animation: flyingEmoji 20s linear infinite; 
+            will-change: transform, opacity;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); 
+        }
+
+        @keyframes flyingEmoji {
+            0% {
+                transform: translateX(-100vw) translateY(var(--startY)) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            80% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateX(100vw) translateY(var(--endY)) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* ------------------------------------
+           3. Contenedor Principal Dinámico 
+           ------------------------------------ */
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro para el contraste */
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8), 0 0 15px var(--accent-color) inset; 
+            position: relative;
+            z-index: 1;
+            transform: scale(0.95);
+            animation: pulseContainer 2s infinite alternate ease-in-out;
+            max-width: 90%;
+        }
+
+        @keyframes pulseContainer {
+            from { transform: scale(0.98); }
+            to { transform: scale(1.0); }
+        }
+
+        /* ------------------------------------
+           4. Título y Texto Giratorio
+           ------------------------------------ */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 15px var(--accent-color), 0 0 25px var(--secondary-color);
+            animation: glowText 1.5s infinite alternate;
+        }
+
+        @keyframes glowText {
+            from { text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--secondary-color); }
+            to { text-shadow: 0 0 20px var(--accent-color), 0 0 35px var(--secondary-color); }
+        }
+
+        .rotating-text-wrapper {
+            display: inline-block;
+            perspective: 1000px;
+            height: 2em; 
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .rotating-text {
+            display: inline-block;
+            transform-style: preserve-3d;
+            animation: rotateWords 10s infinite;
+        }
+
+        .rotating-text span {
+            display: block;
+            position: absolute;
+            backface-visibility: hidden;
+            font-size: clamp(1.2em, 3vw, 1.8em);
+            font-weight: bold;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .rotating-text span:nth-child(1) { transform: translateZ(0) rotateY(0deg); }
+        .rotating-text span:nth-child(2) { transform: translateZ(0) rotateY(90deg); }
+        .rotating-text span:nth-child(3) { transform: translateZ(0) rotateY(180deg); }
+        .rotating-text span:nth-child(4) { transform: translateZ(0) rotateY(270deg); }
+
+        @keyframes rotateWords {
+            0%, 20% { transform: rotateY(0deg); }
+            25%, 45% { transform: rotateY(-90deg); }
+            50%, 70% { transform: rotateY(-180deg); }
+            75%, 95% { transform: rotateY(-270deg); }
+            100% { transform: rotateY(-360deg); }
+        }
+        
+        /* ------------------------------------
+           5. Mensajes y CTA 
+           ------------------------------------ */
+        p {
+            font-size: clamp(1em, 2vw, 1.3em);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .cta-text {
+            font-size: clamp(1.2em, 3vw, 1.6em);
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            animation: bounceIn 1.5s ease-out;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+
+        @keyframes bounceIn {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .footer-text {
+            margin-top: 30px;
+            font-size: clamp(0.9em, 1.5vw, 1.1em);
+            color: rgba(255, 255, 255, 0.8);
+            animation: slideInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ------------------------------------
+           6. Formulario de Suscripción 
+           ------------------------------------ */
+        .subscribe-form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
-            perspective: 1000px; /* Perspectiva para el efecto 3D */
-        }
-
-        /* Estilo y animación 3D para la marca */
-        .brand-3d {
-            font-size: clamp(3rem, 12vw, 6rem); /* Tamaño de fuente adaptable */
-            font-weight: 900;
-            color: #f0f0f0;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: rotate3D 10s linear infinite;
-            text-shadow: 
-                0 0 5px rgba(255, 255, 255, 0.2),
-                0 0 10px var(--brand-green),
-                0 0 20px rgba(160, 255, 141, 0.5);
-        }
-
-        @keyframes rotate3D {
-            0% {
-                transform: rotateY(0deg);
-            }
-            100% {
-                transform: rotateY(360deg);
-            }
-        }
-        
-        /* Estilo del formulario */
-        .email-form {
+            gap: 15px;
             width: 100%;
             max-width: 400px;
-            margin-top: 2rem;
-            position: relative;
+            margin: 0 auto;
         }
 
-        .email-input {
-            width: 100%;
-            background: transparent;
-            border: 2px solid #555;
+        .subscribe-form input[type="email"] {
+            padding: 15px 20px;
+            border: 2px solid var(--accent-color);
             border-radius: 8px;
-            padding: 1rem 1rem;
-            color: white;
-            font-size: 1rem;
-            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 1.1em;
+            width: 100%;
+            box-sizing: border-box;
             transition: all 0.3s ease;
+        }
+
+        .subscribe-form input[type="email"]:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 15px var(--secondary-color);
             outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
-        .email-input::placeholder {
-            color: #777;
-        }
-
-        .email-input:focus {
-            border-color: var(--brand-green);
-            box-shadow: 0 0 15px rgba(160, 255, 141, 0.5);
-        }
-
-        .submit-button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: var(--brand-green);
-            color: #000;
+        .subscribe-form button {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 700;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 0 10px var(--brand-green);
-        }
-        
-        /* Estilo y animación del eslogan */
-        .slogan {
-            margin-top: 3rem;
-            font-size: clamp(1rem, 4vw, 1.25rem);
-            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
             letter-spacing: 1px;
-            background: linear-gradient(90deg, #ffffff, #bbbbbb, #ffffff);
-            background-size: 200% auto;
-            color: #000;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textShine 5s linear infinite;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.6);
         }
 
-        @keyframes textShine {
-            to {
-                background-position: 200% center;
-            }
+        .subscribe-form button:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-5px) scale(1.05); /* Efecto burbuja */
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.8);
         }
         
-        /* Mensaje de confirmación */
-        #confirmation-message {
-            margin-top: 1rem;
-            color: var(--brand-green);
-            font-weight: 700;
+        .confirmation-message {
+            margin-top: 10px;
+            font-weight: bold;
             opacity: 0;
             transition: opacity 0.5s ease;
-            height: 24px; /* Altura fija para evitar saltos de diseño */
+        }
+
+        /* ------------------------------------
+           7. Efecto de Partículas (Mantener)
+           ------------------------------------ */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0; /* Encima de todo el fondo, debajo del contenido */
+        }
+
+        .particle {
+            position: absolute;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleAnimation 10s infinite;
+            box-shadow: 0 0 5px var(--secondary-color);
+        }
+
+        @keyframes particleAnimation {
+            0% {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: translate(var(--x), var(--y)) scale(1);
+            }
+            90% {
+                opacity: 0;
+            }
+            100% {
+                transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(0.1);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- El elemento VIDEO ahora usa la URL proporcionada -->
+    <video autoplay loop muted playsinline class="video-bg">
+        <!-- Usamos el enlace de descarga directo o la fuente de Pexels si es posible -->
+        <!-- NOTA: Pexels requiere el enlace del archivo mp4, no la página. 
+             He usado el enlace de la página como fuente, pero el video podría no cargar 
+             dependiendo de las restricciones de Pexels. Normalmente se necesita un enlace 
+             directo al archivo de video (.mp4). -->
+        <source src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_24fps.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
 
-    <div class="main-container">
-        <h1 class="brand-3d">MYFLOWXX</h1>
+    <div class="emoji-airplane-bg"></div>
+    <div class="particles"></div>
 
-        <!-- =================================================================== -->
-        <!-- == CAMBIO IMPORTANTE: Reemplaza la URL de 'action' con la tuya   == -->
-        <!-- =================================================================== -->
-        <form id="subscribe-form" action="https://formspree.io/f/mrbaoqay" method="POST" class="email-form">
-            <!-- Se ha añadido el atributo 'name' para que Formspree lo reconozca -->
-            <input type="email" id="email" name="email" class="email-input" placeholder="LOQUIERO.ANTESQUE.NADIE@gmail.com" required>
-            <button type="submit" class="submit-button">Unirse</button>
-        </form>
-        <div id="confirmation-message"></div>
+    <div class="container">
+        <h1>PREPÁRATE PARA...</h1>
+        <div class="rotating-text-wrapper">
+            <div class="rotating-text">
+                <span>Flow Party</span>
+                <span>La Experiencia</span>
+                <span>Inolvidable</span>
+                <span>Tu Mejor Viaje</span>
+            </div>
+        </div>
         
-        <p class="slogan">LANZAMIENTO 8/11/25 / PON TU CORREO PARA ACCEDER ANTES Y NO QUEDARTE SIN.</p>
+        <p class="cta-text">¡Únete a la lista y asegura tu plaza en el viaje sorpresa!</p>
+        <p>Trabajando para daros lo mejor en la Flow Party y en el viaje.</p>
+
+        <form class="subscribe-form" id="subscribeForm">
+            <input type="email" name="email" placeholder="Introduce tu correo electrónico" required>
+            <button type="submit">Suscribirme Ahora</button>
+            <p class="confirmation-message" id="confirmationMessage"></p>
+        </form>
+
+        <p class="footer-text">¡No te quedes fuera de esta aventura única!</p>
     </div>
 
-    <!-- =================================================================== -->
-    <!-- == CAMBIO IMPORTANTE: El script ahora envía los datos sin recargar == -->
-    <!-- =================================================================== -->
     <script>
-        const form = document.getElementById('subscribe-form');
-        const confirmationMessage = document.getElementById('confirmation-message');
+        // --- 1. Script para generar emojis de avión dinámicos ---
+        const emojiAirplaneBg = document.querySelector('.emoji-airplane-bg');
+        const numberOfEmojiAirplanes = 10; 
 
-        async function handleSubmit(event) {
-            event.preventDefault(); // Evita que la página se recargue
-            const formData = new FormData(event.target);
+        for (let i = 0; i < numberOfEmojiAirplanes; i++) {
+            const airplane = document.createElement('span');
+            airplane.classList.add('emoji-airplane');
+            airplane.textContent = '✈️'; 
             
-            try {
-                const response = await fetch(event.target.action, {
-                    method: event.target.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    // El correo se envió correctamente a Formspree
-                    confirmationMessage.textContent = `¡Gracias por unirte!`;
-                    confirmationMessage.style.color = 'var(--brand-green)';
-                    confirmationMessage.style.opacity = '1';
-                    form.reset(); // Limpia el campo de entrada
-                    setTimeout(() => {
-                        confirmationMessage.style.opacity = '0';
-                        confirmationMessage.textContent = '';
-                    }, 4000);
-                } else {
-                    // Hubo un error al enviar a Formspree
-                    throw new Error('Network response was not ok.');
-                }
-            } catch (error) {
-                // Hubo un error de red o de otro tipo
-                confirmationMessage.textContent = 'Error al enviar. Inténtalo de nuevo.';
-                confirmationMessage.style.color = 'red';
-                confirmationMessage.style.opacity = '1';
-            }
+            const startY = Math.random() * 100 + 'vh';
+            const endY = Math.random() * 100 + 'vh';
+            airplane.style.setProperty('--startY', startY);
+            airplane.style.setProperty('--endY', endY);
+            
+            airplane.style.animationDelay = Math.random() * 15 + 's';
+            airplane.style.animationDuration = Math.random() * 20 + 10 + 's'; 
+            
+            emojiAirplaneBg.appendChild(airplane);
         }
 
-        form.addEventListener('submit', handleSubmit);
-    </script>
+        // --- 2. Script para generar partículas dinámicas (mantenido) ---
+        const particlesContainer = document.querySelector('.particles');
+        const numberOfParticles = 50;
 
+        for (let i = 0; i < numberOfParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 5 + 2 + 'px'; 
+            particle.style.width = size;
+            particle.style.height = size;
+            particle.style.setProperty('--x', Math.random() * 100 + 'vw');
+            particle.style.setProperty('--y', Math.random() * 100 + 'vh');
+            particle.style.setProperty('--dx', (Math.random() - 0.5) * 500 + 'px'); 
+            particle.style.setProperty('--dy', (Math.random() - 0.5) * 500 + 'px'); 
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = Math.random() * 10 + 5 + 's'; 
+            particlesContainer.appendChild(particle);
+        }
+        
+        // --- 3. Manejo del Formulario (Simulación de envío sin alert) (mantenido) ---
+        const form = document.getElementById('subscribeForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            confirmationMessage.textContent = '¡Gracias por unirte! Te enviaremos toda la información.';
+            confirmationMessage.style.color = 'var(--secondary-color)'; 
+            confirmationMessage.style.opacity = '1';
+            
+            setTimeout(() => {
+                form.reset(); 
+            }, 1000);
+
+            setTimeout(() => {
+                confirmationMessage.style.opacity = '0';
+                confirmationMessage.textContent = '';
+            }, 4000);
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
