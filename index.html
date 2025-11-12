@@ -309,11 +309,6 @@
 <body>
     <!-- El elemento VIDEO ahora usa la URL proporcionada -->
     <video autoplay loop muted playsinline class="video-bg">
-        <!-- Usamos el enlace de descarga directo o la fuente de Pexels si es posible -->
-        <!-- NOTA: Pexels requiere el enlace del archivo mp4, no la página. 
-             He usado el enlace de la página como fuente, pero el video podría no cargar 
-             dependiendo de las restricciones de Pexels. Normalmente se necesita un enlace 
-             directo al archivo de video (.mp4). -->
         <source src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_24fps.mp4" type="video/mp4">
         Tu navegador no soporta el elemento de video.
     </video>
@@ -335,8 +330,10 @@
         <p class="cta-text">¡Únete a la lista y asegura tu plaza en el viaje sorpresa!</p>
         <p>Trabajando para daros lo mejor en la Flow Party y en el viaje.</p>
 
-        <form class="subscribe-form" id="subscribeForm">
-            <input type="email" name="email" placeholder="Introduce tu correo electrónico" required>
+        <!-- CONFIGURACIÓN DE FORMSPREE: URL REEMPLAZADA -->
+        <form class="subscribe-form" id="subscribeForm" method="POST" action="https://formspree.io/f/xrbrzwkq">
+            <!-- Usamos name="_replyto" para que Formspree use este campo como el email de respuesta -->
+            <input type="email" name="_replyto" placeholder="Introduce tu correo electrónico" required> 
             <button type="submit">Suscribirme Ahora</button>
             <p class="confirmation-message" id="confirmationMessage"></p>
         </form>
@@ -365,7 +362,7 @@
             emojiAirplaneBg.appendChild(airplane);
         }
 
-        // --- 2. Script para generar partículas dinámicas (mantenido) ---
+        // --- 2. Script para generar partículas dinámicas ---
         const particlesContainer = document.querySelector('.particles');
         const numberOfParticles = 50;
 
@@ -384,21 +381,51 @@
             particlesContainer.appendChild(particle);
         }
         
-        // --- 3. Manejo del Formulario (Simulación de envío sin alert) (mantenido) ---
+        // --- 3. Manejo del Formulario (Formspree Asíncrono) ---
         const form = document.getElementById('subscribeForm');
         const confirmationMessage = document.getElementById('confirmationMessage');
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); 
-
-            confirmationMessage.textContent = '¡Gracias por unirte! Te enviaremos toda la información.';
-            confirmationMessage.style.color = 'var(--secondary-color)'; 
-            confirmationMessage.style.opacity = '1';
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita el envío tradicional
             
-            setTimeout(() => {
-                form.reset(); 
-            }, 1000);
+            const formData = new FormData(event.target);
+            
+            try {
+                // Desactivamos el botón mientras se envía
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                confirmationMessage.textContent = 'Enviando...';
+                confirmationMessage.style.color = 'var(--accent-color)';
+                confirmationMessage.style.opacity = '1';
 
+                const response = await fetch(event.target.action, {
+                    method: event.target.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                submitButton.disabled = false; // Reactivamos el botón
+
+                if (response.ok) {
+                    // Si Formspree responde OK
+                    confirmationMessage.textContent = '¡Gracias por unirte! Te enviaremos toda la información.';
+                    confirmationMessage.style.color = 'var(--secondary-color)'; 
+                    form.reset(); 
+                } else {
+                    // Si hay un error de Formspree
+                    confirmationMessage.textContent = 'Error: No pudimos registrar tu correo. Inténtalo más tarde.';
+                    confirmationMessage.style.color = 'var(--secondary-color)'; 
+                }
+            } catch (error) {
+                // Si hay un error de red
+                form.querySelector('button[type="submit"]').disabled = false;
+                confirmationMessage.textContent = 'Error de conexión. Revisa tu internet.';
+                confirmationMessage.style.color = 'var(--secondary-color)';
+            }
+            
+            // Ocultar mensaje después de 4 segundos
             setTimeout(() => {
                 confirmationMessage.style.opacity = '0';
                 confirmationMessage.textContent = '';
