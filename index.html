@@ -3,434 +3,819 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Party & Viaje Sorpresa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <title>Propuesta Agencia Social Media</title>
+    
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#050505',
+                        primary: '#6d28d9', // Morado intenso
+                        accent: '#06b6d4',  // Cyan/Turquesa
+                        success: '#10b981', // Esmeralda para el nuevo modulo
+                        glass: 'rgba(255, 255, 255, 0.05)',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pan': 'pan 15s linear infinite alternate', // Nueva animación para las fotos
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pan: {
+                            '0%': { objectPosition: 'center top' },
+                            '100%': { objectPosition: 'center bottom' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* Variables y configuración general */
-        :root {
-            --primary-color: #000;
-            --secondary-color: #ff0000; /* Rojo principal para efectos */
-            --text-color: #fff;
-            --accent-color: #00f0ff; /* Azul cian para contraste */
-            --bg-color: #1a1a1a;
-        }
-
+        /* Estilos personalizados */
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
+            background-color: #050505;
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* ------------------------------------
-           1. Fondo de Video de Fiesta 
-           ------------------------------------ */
-        .video-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -2; /* Capa más baja */
-            filter: brightness(0.3) grayscale(0.5); /* Oscurecer y desaturar */
+        .gradient-text {
+            background: linear-gradient(to right, #c084fc, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
         
-        /* ------------------------------------
-           2. Fondo de Emoji de Avión en Movimiento 
-           ------------------------------------ */
-        .emoji-airplane-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; 
-            z-index: -1; /* Encima del video */
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #06b6d4;
+            outline: none;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
         }
 
-        .emoji-airplane {
-            position: absolute;
-            font-size: 5em; 
-            color: rgba(0, 240, 255, 0.1); /* Color cian para los aviones para diferenciar */
-            opacity: 0;
-            animation: flyingEmoji 20s linear infinite; 
-            will-change: transform, opacity;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); 
-        }
-
-        @keyframes flyingEmoji {
-            0% {
-                transform: translateX(-100vw) translateY(var(--startY)) scale(0.5);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            80% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateX(100vw) translateY(var(--endY)) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        /* ------------------------------------
-           3. Contenedor Principal Dinámico 
-           ------------------------------------ */
-        .container {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro para el contraste */
-            padding: 40px 60px;
-            border-radius: 15px;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8), 0 0 15px var(--accent-color) inset; 
-            position: relative;
-            z-index: 1;
-            transform: scale(0.95);
-            animation: pulseContainer 2s infinite alternate ease-in-out;
-            max-width: 90%;
-        }
-
-        @keyframes pulseContainer {
-            from { transform: scale(0.98); }
-            to { transform: scale(1.0); }
-        }
-
-        /* ------------------------------------
-           4. Título y Texto Giratorio
-           ------------------------------------ */
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2em, 5vw, 3.5em);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 15px var(--accent-color), 0 0 25px var(--secondary-color);
-            animation: glowText 1.5s infinite alternate;
-        }
-
-        @keyframes glowText {
-            from { text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--secondary-color); }
-            to { text-shadow: 0 0 20px var(--accent-color), 0 0 35px var(--secondary-color); }
-        }
-
-        .rotating-text-wrapper {
-            display: inline-block;
-            perspective: 1000px;
-            height: 2em; 
-            overflow: hidden;
-            margin-bottom: 25px;
-        }
-
-        .rotating-text {
-            display: inline-block;
-            transform-style: preserve-3d;
-            animation: rotateWords 10s infinite;
-        }
-
-        .rotating-text span {
-            display: block;
-            position: absolute;
-            backface-visibility: hidden;
-            font-size: clamp(1.2em, 3vw, 1.8em);
-            font-weight: bold;
-            color: var(--accent-color);
-            text-shadow: 0 0 10px var(--accent-color);
-        }
-
-        .rotating-text span:nth-child(1) { transform: translateZ(0) rotateY(0deg); }
-        .rotating-text span:nth-child(2) { transform: translateZ(0) rotateY(90deg); }
-        .rotating-text span:nth-child(3) { transform: translateZ(0) rotateY(180deg); }
-        .rotating-text span:nth-child(4) { transform: translateZ(0) rotateY(270deg); }
-
-        @keyframes rotateWords {
-            0%, 20% { transform: rotateY(0deg); }
-            25%, 45% { transform: rotateY(-90deg); }
-            50%, 70% { transform: rotateY(-180deg); }
-            75%, 95% { transform: rotateY(-270deg); }
-            100% { transform: rotateY(-360deg); }
-        }
-        
-        /* ------------------------------------
-           5. Mensajes y CTA 
-           ------------------------------------ */
-        p {
-            font-size: clamp(1em, 2vw, 1.3em);
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: var(--text-color);
-            animation: fadeIn 2s ease-out;
-        }
-        
-        .cta-text {
-            font-size: clamp(1.2em, 3vw, 1.6em);
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-            animation: bounceIn 1.5s ease-out;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-        }
-
-        @keyframes bounceIn {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            60% { transform: translateY(-15px); }
-        }
-
-        .footer-text {
-            margin-top: 30px;
-            font-size: clamp(0.9em, 1.5vw, 1.1em);
-            color: rgba(255, 255, 255, 0.8);
-            animation: slideInUp 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ------------------------------------
-           6. Formulario de Suscripción 
-           ------------------------------------ */
-        .subscribe-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .subscribe-form input[type="email"] {
-            padding: 15px 20px;
-            border: 2px solid var(--accent-color);
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-            font-size: 1.1em;
-            width: 100%;
-            box-sizing: border-box;
+        .glass-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
-        .subscribe-form input[type="email"]:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 15px var(--secondary-color);
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.2);
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
-        .subscribe-form button {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .tech-switch {
+            position: relative;
+            display: inline-flex;
+            background: #1a1a1a;
+            border-radius: 9999px;
+            padding: 4px;
+            border: 1px solid #333;
+        }
+
+        .tech-switch input {
+            display: none;
+        }
+
+        .switch-label {
+            padding: 10px 24px;
+            border-radius: 9999px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.6);
+            font-weight: 600;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
         }
 
-        .subscribe-form button:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            transform: translateY(-5px) scale(1.05); /* Efecto burbuja */
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.8);
+        .slider {
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            border-radius: 9999px;
+            background: linear-gradient(90deg, #7c3aed, #d946ef);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        body.mode-ai .slider {
+            transform: translateX(100%);
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
         }
         
-        .confirmation-message {
-            margin-top: 10px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease-out;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
         }
 
-        /* ------------------------------------
-           7. Efecto de Partículas (Mantener)
-           ------------------------------------ */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0; /* Encima de todo el fondo, debajo del contenido */
+        .accordion-icon {
+            transition: transform 0.3s ease;
         }
 
-        .particle {
-            position: absolute;
-            background-color: var(--secondary-color);
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .ai-loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
             border-radius: 50%;
-            opacity: 0;
-            animation: particleAnimation 10s infinite;
-            box-shadow: 0 0 5px var(--secondary-color);
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
         }
-
-        @keyframes particleAnimation {
-            0% {
-                transform: translate(var(--x), var(--y)) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-                transform: translate(var(--x), var(--y)) scale(1);
-            }
-            90% {
-                opacity: 0;
-            }
-            100% {
-                transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(0.1);
-                opacity: 0;
-            }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- El elemento VIDEO ahora usa la URL proporcionada -->
-    <video autoplay loop muted playsinline class="video-bg">
-        <source src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_24fps.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-    </video>
 
-    <div class="emoji-airplane-bg"></div>
-    <div class="particles"></div>
+    <div class="bg-gradient-orb w-96 h-96 bg-purple-600 top-0 left-0 animate-blob"></div>
+    <div class="bg-gradient-orb w-96 h-96 bg-cyan-600 bottom-0 right-0 animate-blob animation-delay-2000"></div>
 
-    <div class="container">
-        <h1>PREPÁRATE PARA...</h1>
-        <div class="rotating-text-wrapper">
-            <div class="rotating-text">
-                <span>Flow Party</span>
-                <span>La Experiencia</span>
-                <span>Inolvidable</span>
-                <span>Tu Mejor Viaje</span>
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 px-6 py-4 glass-card border-b-0 rounded-none bg-black/80">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-display font-bold tracking-tighter">
+                EASYYOU<span class="text-primary">.</span>
+            </div>
+            <a href="#precios" onclick="event.preventDefault(); document.getElementById('precios').scrollIntoView({behavior: 'smooth', block: 'center'});" class="glass-button px-6 py-2 rounded-full text-sm font-semibold">
+                Contactar
+            </a>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN 1: HERO -->
+    <header class="min-h-screen flex items-center justify-center relative pt-20">
+        <div class="container mx-auto px-4 text-center z-10">
+            <div class="reveal">
+                <div class="flex justify-center gap-6 mb-8 animate-float">
+                    <i class="fa-brands fa-instagram text-5xl text-pink-500 hover:scale-110 transition-transform duration-300"></i>
+                    <i class="fa-brands fa-tiktok text-5xl text-white hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"></i>
+                    <i class="fa-brands fa-facebook text-5xl text-blue-600 hover:scale-110 transition-transform duration-300"></i>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-display font-bold mb-6 leading-tight">
+                    Consigue más ventas<br>
+                    <span class="gradient-text">con visitas en redes sociales.</span>
+                </h1>
+                <p class="text-gray-400 text-xl md:text-2xl mb-12 max-w-2xl mx-auto">
+                    SIN INVERTIR EN PUBLICIDAD.
+                </p>
+                <div class="inline-block glass-card px-8 py-4 rounded-2xl border-l-4 border-l-accent animate-pulse">
+                    <p class="text-sm md:text-base font-semibold text-gray-200">
+                        <i class="fa-solid fa-shield-halved text-accent mr-2"></i>
+                        Estamos tan seguros, de que si en <span class="text-accent">3 meses</span> no has obtenido resultados, te devolvemos el dinero.
+                    </p>
+                </div>
             </div>
         </div>
+    </header>
+
+    <!-- SECCIÓN 2: LA VERDAD -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-4 max-w-4xl text-center reveal">
+            <h2 class="text-4xl md:text-6xl font-display font-bold mb-8">
+                <span class="text-red-500">-1 Año</span> en el mercado 
+                <i class="fa-solid fa-arrow-right-long text-gray-500 mx-4"></i>
+            </h2>
+            <p class="text-2xl md:text-3xl text-gray-300 font-light">
+                Por lo que tenemos <span class="font-bold text-white">mucha hambre</span> y los precios <span class="font-bold text-white underline decoration-primary">tirados</span>.
+                <br><br>
+                <span class="text-sm text-gray-500 uppercase tracking-widest">Hay que ser sinceros.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: SERVICIOS COMPARATIVA -->
+    <section class="py-20 bg-black/30">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h3 class="text-3xl font-display font-bold text-center mb-16">Elige tu Estrategia</h3>
+
+            <!-- CAMBIO: Ahora es una rejilla de 3 columnas en pantallas grandes (lg:grid-cols-3) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                
+                <!-- PLAN 1: CONTENIDO REAL -->
+                <div class="glass-card rounded-3xl p-8 hover:border-primary/50 transition-colors duration-300 reveal flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-primary/20 p-4 rounded-2xl text-primary">
+                            <i class="fa-solid fa-camera text-3xl"></i>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">85% MÁS DE INTERACCIONES</span>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-3xl font-bold mb-4">Contenido Real</h4>
+                    <p class="text-gray-400 mb-6 border-b border-gray-800 pb-4">
+                        Grabación presencial. La máxima calidad y confianza para tu marca.
+                    </p>
+
+                    <div class="accordion-item bg-white/5 rounded-xl mb-4 overflow-hidden">
+                        <button class="w-full px-6 py-4 flex justify-between items-center text-left font-semibold focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>¿Qué incluye este plan?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon text-gray-400"></i>
+                        </button>
+                        <div class="accordion-content bg-black/20">
+                            <div class="px-6 py-4 space-y-3 text-gray-300 text-sm">
+                                <p class="text-primary font-bold"><i class="fa-solid fa-check mr-2"></i>Grabación Presencial (Diferencial)</p>
+								 <p class="text-primary font-bold"><i class="fa-solid fa-check mr-2"></i>Sin límites de revisión</p>
+								 <p class="text-primary font-bold"><i class="fa-solid fa-check mr-2"></i>Asistencia gratuita a eventos en comunidad</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>mínimo 4 Reels / mes</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Automatización Instagram</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Guiones Virales</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Estudio de Mercado</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Optimización Redes (#/SEO)</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>mínimo 4 Posts + 20 Historias / mes</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>1 Llamada Feedback mensual</p>
+                                <p class="text-xs text-gray-500 mt-2">*Más videos disponibles como suplemento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AUDITORÍA REAL -->
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <p class="text-xs text-primary font-bold mb-2 uppercase tracking-wider">
+                            <i class="fa-solid fa-sparkles mr-1"></i> ¿Sirve para mi nicho?
+                        </p>
+                        <div class="flex gap-2">
+                            <input type="text" id="audit-niche-input-real" placeholder="Tu nicho (ej: Moda, Fitness)" class="glass-input w-full px-3 py-2 rounded-lg text-sm">
+                            <button onclick="auditNiche('real')" id="audit-btn-real" class="bg-primary text-white font-bold px-4 rounded-lg hover:bg-white hover:text-primary transition-colors">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                        <div id="audit-result-real" class="hidden mt-3 text-xs bg-primary/10 p-3 rounded-lg border border-primary/20">
+                            <!-- Resultado IA aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PLAN 2: CONTENIDO IA -->
+                <div class="glass-card rounded-3xl p-8 hover:border-accent/50 transition-colors duration-300 reveal delay-200 relative overflow-hidden flex flex-col h-full">
+                    
+                    <div class="absolute top-5 -right-12 w-48 py-1 bg-accent text-black font-bold text-xs text-center rotate-45 shadow-lg z-10">
+                        1 CAFÉ/DÍA€
+                    </div>
+
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-accent/20 p-4 rounded-2xl text-accent">
+                            <i class="fa-solid fa-robot text-3xl"></i>
+                        </div>
+                        <div class="text-right mt-8 z-0 relative pr-4">
+                            <p class="text-gray-400 text-sm font-bold mt-2">Menos conversión, <br> <span class="text-accent">Máxima Rentabilidad</span></p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-3xl font-bold mb-4 font-mono">Contenido IA</h4>
+                    <p class="text-gray-400 mb-6 border-b border-gray-800 pb-4">
+                        Sin grabaciones. Sin mostrar la cara. Tecnología pura.
+                    </p>
+
+                    <div class="accordion-item bg-white/5 rounded-xl mb-4 overflow-hidden">
+                        <button class="w-full px-6 py-4 flex justify-between items-center text-left font-semibold focus:outline-none" onclick="toggleAccordion(this)">
+                            <span>¿Qué incluye este plan?</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon text-gray-400"></i>
+                        </button>
+                        <div class="accordion-content bg-black/20">
+                            <div class="px-6 py-4 space-y-3 text-gray-300 text-sm">
+                                <p class="text-accent font-bold"><i class="fa-solid fa-check mr-2"></i>Generación 100% Digital</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>mínimo 4 Reels IA / mes</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Automatización Instagram</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Guiones Virales</p>
+                                <p><i class="fa-solid fa-check mr-2"></i>Estudio de Mercado</p>
+								<p><i class="fa-solid fa-check mr-2"></i>1 Llamada Feedback mensual</p>
+								<p><i class="fa-solid fa-check mr-2"></i>mínimo 4 Posts + 20 Historias / mes</p>
+								<p><i class="fa-solid fa-check mr-2"></i>Optimización Redes (#/SEO)</p>
+								<p class="text-xs text-gray-500 mt-2">*Más videos disponibles como suplemento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AUDITORÍA IA -->
+                    <div class="mt-auto pt-4 border-t border-gray-700">
+                        <p class="text-xs text-accent font-bold mb-2 uppercase tracking-wider">
+                            <i class="fa-solid fa-sparkles mr-1"></i> ¿Sirve para mi nicho?
+                        </p>
+                        <div class="flex gap-2">
+                            <input type="text" id="audit-niche-input-ai" placeholder="Tu nicho (ej: Crypto, Finanzas)" class="glass-input w-full px-3 py-2 rounded-lg text-sm">
+                            <button onclick="auditNiche('ai')" id="audit-btn-ai" class="bg-accent text-black font-bold px-4 rounded-lg hover:bg-white transition-colors">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                        <div id="audit-result-ai" class="hidden mt-3 text-xs bg-accent/10 p-3 rounded-lg border border-accent/20">
+                            <!-- Resultado IA aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NUEVO PLAN 3: CONTENIDO QUE FUNCIONA (NUEVO) -->
+                <div class="glass-card rounded-3xl p-8 hover:border-success/50 transition-colors duration-300 reveal delay-200 flex flex-col h-full relative overflow-hidden">
+                    <!-- Efecto de borde superior sutil -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-success to-emerald-600"></div>
+
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="bg-success/20 p-4 rounded-2xl text-success">
+                            <i class="fa-solid fa-chart-line text-3xl"></i>
+                        </div>
+                        <div class="text-right">
+                             <span class="bg-success/20 text-success text-xs font-bold px-3 py-1 rounded-full border border-success/30">PAGO ÚNICO</span>
+                        </div>
+                    </div>
+
+                    <h4 class="text-2xl font-bold mb-1">Contenido que FUNCIONA</h4>
+                    <p class="text-xs text-gray-500 font-bold mb-4 uppercase tracking-wider">O no publiques nada</p>
+                    
+                    <p class="text-gray-400 mb-6 border-b border-gray-800 pb-4 text-sm leading-relaxed">
+                        Deja de perder tiempo creando a ciegas. Este módulo analiza tu mercado y te dice <strong>exactamente qué publicar</strong> para conseguir visitas.
+                    </p>
+
+                    <!-- Lista de beneficios -->
+                    <div class="space-y-3 text-gray-300 text-sm flex-1 mb-6">
+                        <p><i class="fa-solid fa-check text-success mr-2"></i>Decide en 10 seg, no en 8 horas</p>
+                        <p><i class="fa-solid fa-check text-success mr-2"></i>Ideas directas a tu calendario</p>
+                        <p><i class="fa-solid fa-check text-success mr-2"></i>Marca ❌ o ✔️ lo que funciona</p>
+                        <p><i class="fa-solid fa-check text-success mr-2"></i>El sistema aprende de ti</p>
+                        <p><i class="fa-solid fa-check text-success mr-2"></i>Configuración nicho incluida</p>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="mb-6 p-4 bg-white/5 rounded-xl border border-white/10 text-center relative group overflow-hidden">
+                        <div class="absolute inset-0 bg-success/5 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                        <span class="block text-4xl font-bold text-white relative z-10">49 €</span>
+                        <span class="text-xs text-gray-400 block mt-1 relative z-10">Tuyo para siempre. Sin cuotas.</span>
+                    </div>
+
+                    <!-- Desplegable Visual App -->
+                    <div class="accordion-item bg-black/40 rounded-xl overflow-hidden mb-4 border border-white/5">
+                        <button class="w-full px-4 py-3 flex justify-between items-center text-left text-xs font-bold text-gray-300 hover:text-white transition-colors focus:outline-none" onclick="toggleAccordion(this)">
+                            <span><i class="fa-regular fa-eye mr-2 text-success"></i>MIRA LA INTERFAZ DE LA APP</span>
+                            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-4 space-y-4">
+                                <p class="text-xs text-gray-500 mb-2">Entiende en segundos por qué esto lo cambia todo:</p>
+                                <!-- IMAGEN 1: CAMBIA EL SRC POR TU FOTO DE LA APP -->
+                                <div class="rounded-lg overflow-hidden border border-white/10 relative group h-32">
+                                    <img src="<a href="https://ibb.co/gZxQwMSn"><img src="https://i.ibb.co/pjSNZvfm/Captura-de-pantalla-2025-12-19-161509.png" alt="Captura-de-pantalla-2025-12-19-161509" border="0"></a>" 
+                                         alt="Interfaz App 1" 
+                                         class="w-full h-full object-cover transform transition-transform duration-[10s] hover:scale-110">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
+                                        <span class="text-xs font-bold text-white">1. Análisis de Mercado</span>
+                                    </div>
+                                </div>
+                                <!-- IMAGEN 2: CAMBIA EL SRC POR TU FOTO DE LA APP -->
+                                <div class="rounded-lg overflow-hidden border border-white/10 relative group h-32">
+                                    <img src="<a href="https://ibb.co/NdgTPpN7"><img src="https://i.ibb.co/ksVmf0DM/Captura-de-pantalla-2025-12-19-161435.png" alt="Captura-de-pantalla-2025-12-19-161435" border="0"></a>" 
+                                         alt="Interfaz App 2" 
+                                         class="w-full h-full object-cover transform transition-transform duration-[10s] hover:scale-110">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
+                                        <span class="text-xs font-bold text-white">2. Calendario Inteligente</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enlace Final -->
+                    <div class="mt-auto text-center pt-2">
+                        <a href="#precios" onclick="event.preventDefault(); document.getElementById('precios').scrollIntoView({behavior: 'smooth', block: 'center'});" class="text-sm font-bold text-success hover:text-white transition-colors underline decoration-success/50 underline-offset-4 flex items-center justify-center gap-2">
+                            Si quieres más información contáctanos <i class="fa-solid fa-arrow-right -rotate-45"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: DEMO IA GENERADOR DE GANCHOS -->
+    <section class="py-20 relative border-t border-b border-gray-800 bg-gradient-to-r from-gray-900 to-black">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
         
-        <p class="cta-text">¡Únete a la lista y asegura tu plaza en el viaje sorpresa!</p>
-        <p>Trabajando para daros lo mejor en la Flow Party y en el viaje.</p>
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-accent/20 text-accent text-xs font-bold tracking-widest mb-4 border border-accent/50">
+                <i class="fa-solid fa-sparkles mr-2"></i>DEMO GRATUITA
+            </span>
+            <h3 class="text-4xl font-display font-bold mb-4">Prueba nuestra <span class="gradient-text">IA Generativa</span></h3>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                Escribe tu nicho y deja que nuestra IA te genere 3 ideas de contenido viral en segundos.
+            </p>
 
-        <!-- CONFIGURACIÓN DE FORMSPREE: URL REEMPLAZADA -->
-        <form class="subscribe-form" id="subscribeForm" method="POST" action="https://formspree.io/f/xrbrzwkq">
-            <!-- Usamos name="_replyto" para que Formspree use este campo como el email de respuesta -->
-            <input type="email" name="_replyto" placeholder="Introduce tu correo electrónico" required> 
-            <button type="submit">Suscribirme Ahora</button>
-            <p class="confirmation-message" id="confirmationMessage"></p>
-        </form>
+            <div class="glass-card p-8 rounded-3xl max-w-2xl mx-auto text-left relative overflow-hidden group">
+                <div class="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 blur-3xl rounded-full"></div>
 
-        <p class="footer-text">¡No te quedes fuera de esta aventura única!</p>
-    </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-bold text-gray-400 mb-2">¿De qué es tu negocio?</label>
+                    <input type="text" id="ai-niche-input" placeholder="Ej: Panadería artesanal, Coach de fitness..." class="glass-input w-full px-4 py-3 rounded-xl text-lg">
+                </div>
+                
+                <button onclick="generateIdeas()" id="ai-generate-btn" class="w-full bg-gradient-to-r from-accent to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-bold py-3 px-6 rounded-xl transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)] flex justify-center items-center">
+                    <span>GENERAR IDEAS VIRALES ✨</span>
+                </button>
+
+                <div id="ai-result-container" class="mt-8 hidden border-t border-gray-700 pt-6">
+                    <h4 class="text-accent font-bold mb-4 flex items-center"><i class="fa-solid fa-robot mr-2"></i> Estrategia Generada:</h4>
+                    <div id="ai-result-content" class="space-y-4 text-sm text-gray-300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: INTERACTIVO - PERFIL IDEAL -->
+    <section class="py-24 relative transition-colors duration-700" id="profile-section">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-display font-bold mb-6">¿Qué perfil te encaja mejor?</h3>
+                <div class="tech-switch">
+                    <div class="slider"></div>
+                    <label class="switch-label text-white" onclick="setMode('human')">
+                        <i class="fa-solid fa-user mr-2"></i> Humano / Real
+                    </label>
+                    <label class="switch-label text-white" onclick="setMode('ai')">
+                        <i class="fa-solid fa-microchip mr-2"></i> IA / Anónimo
+                    </label>
+                </div>
+            </div>
+
+            <div id="content-human" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 opacity-100">
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-primary">
+                    <h4 class="font-bold text-xl mb-2 text-primary">Marca Personal</h4>
+                    <p class="text-gray-400 text-sm">Negocios que quieren dar la cara. Coaches, terapeutas.</p>
+                </div>
+                <!-- ... otros items humanos ... -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-primary">
+                    <h4 class="font-bold text-xl mb-2 text-primary">Influencers</h4>
+                    <p class="text-gray-400 text-sm">Donde el rostro y la presencia son clave.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-primary">
+                    <h4 class="font-bold text-xl mb-2 text-primary">Carisma Puro</h4>
+                    <p class="text-gray-400 text-sm">Personas con buena presencia en cámara.</p>
+                </div>
+            </div>
+
+            <div id="content-ai" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 hidden opacity-0 transition-opacity duration-500">
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-accent">
+                    <h4 class="font-bold text-xl mb-2 text-accent">Privacidad Total</h4>
+                    <p class="text-gray-400 text-sm">Personas que no quieren mostrar su rostro.</p>
+                </div>
+                <!-- ... otros items IA ... -->
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-accent">
+                    <h4 class="font-bold text-xl mb-2 text-accent">Sin Tiempo</h4>
+                    <p class="text-gray-400 text-sm">Creadores que no tienen tiempo para grabar.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border-l-4 border-accent">
+                    <h4 class="font-bold text-xl mb-2 text-accent">Ahorro en costes</h4>
+                    <p class="text-gray-400 text-sm">Logística más sencilla, costes más sencillos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: DIFERENCIADORES (RESTAURADA) -->
+    <section class="py-24 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-display font-bold text-center mb-16">¿En qué somos <span class="text-primary">distintos</span>?</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="reveal p-6">
+                    <i class="fa-solid fa-tags text-4xl text-primary mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Precios Ultra Competitivos</h4>
+                    <p class="text-gray-400">Al ser una agencia joven (< 1 año), ofrecemos grabación y producción muy por debajo del mercado.</p>
+                </div>
+
+                <div class="reveal p-6 delay-100">
+                    <i class="fa-solid fa-microchip text-4xl text-accent mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Ahorro Logístico IA</h4>
+                    <p class="text-gray-400">Dominamos la IA para automatizar y reducir procesos. Menor coste para ti.</p>
+                </div>
+
+                <div class="reveal p-6 delay-200">
+                    <i class="fa-solid fa-bolt text-4xl text-yellow-400 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Equipo Generación Z</h4>
+                    <p class="text-gray-400">Entendemos profundamente qué formatos se consumen y qué conecta realmente.</p>
+                </div>
+
+                <div class="reveal p-6">
+                    <i class="fa-solid fa-rotate-left text-4xl text-green-400 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Garantía Real</h4>
+                    <p class="text-gray-400">Si en 2 meses no hay resultados, te devolvemos el dinero. Cero riesgo.</p>
+                </div>
+
+                <div class="reveal p-6 delay-100">
+                    <i class="fa-solid fa-key text-4xl text-pink-400 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Llave en Mano</h4>
+                    <p class="text-gray-400">Especialistas en microcontenido. Facilitamos todo para producir rápido.</p>
+                </div>
+
+                <div class="reveal p-6 delay-200">
+                    <i class="fa-solid fa-hand-holding-heart text-4xl text-red-400 mb-4"></i>
+                    <h4 class="text-xl font-bold mb-2">Trato Humano</h4>
+                    <p class="text-gray-400">Equipo accesible, transparente y comprometido. Si tú ganas, nosotros ganamos.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CEO FUNDADOR (NUEVA) -->
+    <section class="py-24 relative">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="glass-card p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center gap-8 md:gap-12 reveal border border-white/10">
+                
+                <!-- Imagen del CEO -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+                        <!-- INSTRUCCIONES: PEGA AQUÍ ABAJO EL ENLACE DE TU FOTO (O el nombre del archivo si lo tienes en tu PC) -->
+                        <img src="https://i.ibb.co/Y4svDJJM/mifotopersonalweb.jpg" 
+                             alt="CEO Fundador" 
+                             class="w-full h-full object-cover transform transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+
+                <!-- Texto -->
+                <div class="text-center md:text-left flex-1">
+                    <span class="text-accent font-bold tracking-widest text-xs uppercase mb-2 block">cumpliendo sueños</span>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold mb-2">DIEGO TORRES</h3>
+                    <p class="text-primary font-semibold mb-6">CEO & Fundador</p>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        "Fundé EASY YOU con una obsesión: demostrar que todo es posible si te lo propones, siguiendo tu propóstito y luchando. Esto va a llegar muy lejos"
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-4">
+                         <a href="https://www.linkedin.com/in/diego-torres-alb%C3%A1izar-2a7255390/" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                         <a href="https://www.instagram.com/_diegootoorres_/?__pwa=1" target="_blank" class="text-gray-500 hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <!-- CAMBIO AQUÍ: Se añade el ID "precios" para que funcione el enlace del menú -->
+    <section id="precios" class="py-12 text-center">
+        <a href="https://forms.gle/ouyhBMybV1NQVGy19" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-accent hover:from-purple-500 hover:to-cyan-400 text-white font-bold py-4 px-10 rounded-full text-xl shadow-[0_0_20px_rgba(124,58,237,0.5)] transition-all transform hover:scale-105">
+            QUIERO SABER PRECIOS / CONTACTAR <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </section>
+
+    <!-- SECCIÓN: REDES SOCIALES (NUEVA) -->
+    <section class="py-20 bg-white/5 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-8">MIRA EJEMPLOS</h2>
+            <p class="text-gray-400 text-lg mb-10">Echa un vistazo a cómo hacemos crecer las redes poco a poco.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/easyyouagency/?__pwa=1" target="_blank" class="flex-1 glass-card p-6 rounded-2xl group hover:bg-pink-900/20 transition-all duration-300 border border-pink-500/20 hover:border-pink-500 flex items-center justify-center gap-4">
+                    <i class="fa-brands fa-instagram text-5xl text-pink-500 group-hover:scale-110 transition-transform"></i>
+                    <div class="text-left">
+                        <span class="block text-xs text-pink-400 font-bold tracking-widest">SÍGUENOS EN</span>
+                        <span class="block text-2xl font-bold">Instagram</span>
+                    </div>
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@easyyou.agency?lang=es" target="_blank" class="flex-1 glass-card p-6 rounded-2xl group hover:bg-black/40 transition-all duration-300 border border-gray-600 hover:border-white flex items-center justify-center gap-4">
+                    <i class="fa-brands fa-tiktok text-5xl text-white group-hover:scale-110 transition-transform drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"></i>
+                    <div class="text-left">
+                        <span class="block text-xs text-gray-400 font-bold tracking-widest">SÍGUENOS EN</span>
+                        <span class="block text-2xl font-bold">TikTok</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="py-12 border-t border-gray-800 text-center text-gray-500">
+        <p class="mb-4">EASYYOUagency © 2026</p>
+        <div class="flex justify-center gap-4 text-2xl">
+            <a href="https://www.instagram.com/easyyouagency/?__pwa=1" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@easyyou.agency?lang=es" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </footer>
 
     <script>
-        // --- 1. Script para generar emojis de avión dinámicos ---
-        const emojiAirplaneBg = document.querySelector('.emoji-airplane-bg');
-        const numberOfEmojiAirplanes = 10; 
-
-        for (let i = 0; i < numberOfEmojiAirplanes; i++) {
-            const airplane = document.createElement('span');
-            airplane.classList.add('emoji-airplane');
-            airplane.textContent = '✈️'; 
-            
-            const startY = Math.random() * 100 + 'vh';
-            const endY = Math.random() * 100 + 'vh';
-            airplane.style.setProperty('--startY', startY);
-            airplane.style.setProperty('--endY', endY);
-            
-            airplane.style.animationDelay = Math.random() * 15 + 's';
-            airplane.style.animationDuration = Math.random() * 20 + 10 + 's'; 
-            
-            emojiAirplaneBg.appendChild(airplane);
-        }
-
-        // --- 2. Script para generar partículas dinámicas ---
-        const particlesContainer = document.querySelector('.particles');
-        const numberOfParticles = 50;
-
-        for (let i = 0; i < numberOfParticles; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            const size = Math.random() * 5 + 2 + 'px'; 
-            particle.style.width = size;
-            particle.style.height = size;
-            particle.style.setProperty('--x', Math.random() * 100 + 'vw');
-            particle.style.setProperty('--y', Math.random() * 100 + 'vh');
-            particle.style.setProperty('--dx', (Math.random() - 0.5) * 500 + 'px'); 
-            particle.style.setProperty('--dy', (Math.random() - 0.5) * 500 + 'px'); 
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = Math.random() * 10 + 5 + 's'; 
-            particlesContainer.appendChild(particle);
-        }
+        // ==============================================================================
+        // INSTRUCCIONES PARA QUE FUNCIONE EN TU PÁGINA WEB:
+        // 1. Ve a https://aistudio.google.com/app/apikey y crea una "API Key" gratuita.
+        // 2. Copia esa clave (es un código largo).
+        // 3. Pega esa clave DENTRO de las comillas en la línea de abajo.
+        // ==============================================================================
         
-        // --- 3. Manejo del Formulario (Formspree Asíncrono) ---
-        const form = document.getElementById('subscribeForm');
-        const confirmationMessage = document.getElementById('confirmationMessage');
+        const apiKey = "AIzaSyDkEnZ4BSsDvtl5aN5CjL5rBA4t0QT3dTI"; // <--- ¡¡¡PEGA TU API KEY AQUÍ ENTRE LAS COMILLAS CUANDO LO DESCARGUES!!!
 
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Evita el envío tradicional
+        // NOTA: Déjalo vacío ("") si solo lo estás probando aquí en el chat.
+        
+        // --- FUNCIÓN 1: AUDITORÍA DE NICHO ---
+        async function auditNiche(type) {
+            const inputId = `audit-niche-input-${type}`;
+            const resultId = `audit-result-${type}`;
+            const btnId = `audit-btn-${type}`;
+
+            const niche = document.getElementById(inputId).value;
+            const resultBox = document.getElementById(resultId);
+            const btn = document.getElementById(btnId);
+
+            if (!niche) return;
+
+            // Guardar el icono original
+            const originalIcon = btn.innerHTML;
+            btn.innerHTML = '<div class="ai-loader" style="width:12px;height:12px;margin:0"></div>';
             
-            const formData = new FormData(event.target);
-            
-            try {
-                // Desactivamos el botón mientras se envía
-                const submitButton = form.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                confirmationMessage.textContent = 'Enviando...';
-                confirmationMessage.style.color = 'var(--accent-color)';
-                confirmationMessage.style.opacity = '1';
-
-                const response = await fetch(event.target.action, {
-                    method: event.target.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                submitButton.disabled = false; // Reactivamos el botón
-
-                if (response.ok) {
-                    // Si Formspree responde OK
-                    confirmationMessage.textContent = '¡Gracias por unirte! Te enviaremos toda la información.';
-                    confirmationMessage.style.color = 'var(--secondary-color)'; 
-                    form.reset(); 
-                } else {
-                    // Si hay un error de Formspree
-                    confirmationMessage.textContent = 'Error: No pudimos registrar tu correo. Inténtalo más tarde.';
-                    confirmationMessage.style.color = 'var(--secondary-color)'; 
-                }
-            } catch (error) {
-                // Si hay un error de red
-                form.querySelector('button[type="submit"]').disabled = false;
-                confirmationMessage.textContent = 'Error de conexión. Revisa tu internet.';
-                confirmationMessage.style.color = 'var(--secondary-color)';
+            let prompt = "";
+            if (type === 'real') {
+                 prompt = `Evalúa del 0 al 100% cuánto sentido tiene hacer una estrategia de "contenido real grabado presencialmente" para el nicho: "${niche}". Sé breve. Formato: 
+                <strong>Compatibilidad: X%</strong><br>Veredicto en 1 frase corta.`;
+            } else {
+                 prompt = `Evalúa del 0 al 100% cuánto sentido tiene hacer una estrategia de "redes sociales automatizada sin rostro (IA)" para el nicho: "${niche}". Sé breve. Formato: 
+                <strong>Compatibilidad: X%</strong><br>Veredicto en 1 frase corta.`;
             }
-            
-            // Ocultar mensaje después de 4 segundos
-            setTimeout(() => {
-                confirmationMessage.style.opacity = '0';
-                confirmationMessage.textContent = '';
-            }, 4000);
-        });
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+
+                resultBox.innerHTML = data.candidates[0].content.parts[0].text;
+                resultBox.classList.remove('hidden');
+            } catch (e) {
+                console.error(e);
+                let msg = "Error al consultar la IA.";
+                if(e.message.includes("API key")) {
+                    msg = "¡Falta la API Key! Recuerda ponerla en el código.";
+                }
+                resultBox.innerHTML = msg;
+                resultBox.classList.remove('hidden');
+            } finally {
+                // Restaurar el icono original
+                btn.innerHTML = originalIcon;
+            }
+        }
+
+        // --- FUNCIÓN 2: GENERADOR DE GANCHOS ---
+        async function generateIdeas() {
+            const niche = document.getElementById('ai-niche-input').value;
+            const btn = document.getElementById('ai-generate-btn');
+            const resultContainer = document.getElementById('ai-result-container');
+            const resultContent = document.getElementById('ai-result-content');
+
+            if (!niche) { alert("Escribe un nicho."); return; }
+
+            const originalBtnText = btn.innerHTML;
+            btn.innerHTML = 'PENSANDO... <div class="ai-loader"></div>';
+            btn.disabled = true;
+            resultContainer.classList.add('hidden');
+
+            const prompt = `Actúa como estratega. Nicho: "${niche}". Genera 3 ideas de videos cortos virales. Formato HTML simple <ul><li>.`;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error.message);
+                }
+
+                resultContent.innerHTML = data.candidates[0].content.parts[0].text;
+                resultContainer.classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                let msg = "Hubo un error al contactar con la IA.";
+                if(error.message.includes("API key")) {
+                    msg = "¡Falta la API Key! No has puesto tu clave en el código.";
+                }
+                alert(msg);
+            } finally {
+                btn.innerHTML = originalBtnText;
+                btn.disabled = false;
+            }
+        }
+
+        // --- UI UTILS ---
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            item.classList.toggle('active');
+        }
+
+        function setMode(mode) {
+            const humanContent = document.getElementById('content-human');
+            const aiContent = document.getElementById('content-ai');
+            const body = document.body;
+
+            if (mode === 'ai') {
+                body.classList.add('mode-ai');
+                humanContent.style.opacity = '0';
+                setTimeout(() => {
+                    humanContent.classList.add('hidden');
+                    aiContent.classList.remove('hidden');
+                    setTimeout(() => aiContent.style.opacity = '1', 50);
+                }, 300);
+            } else {
+                body.classList.remove('mode-ai');
+                aiContent.style.opacity = '0';
+                setTimeout(() => {
+                    aiContent.classList.add('hidden');
+                    humanContent.classList.remove('hidden');
+                    setTimeout(() => humanContent.style.opacity = '1', 50);
+                }, 300);
+            }
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
     </script>
 </body>
 </html>
