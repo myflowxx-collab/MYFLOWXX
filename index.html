@@ -1,435 +1,711 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow Party & Viaje Sorpresa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <title>myflowxx | Comunidad de Emprendedores Jóvenes en España</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="La comunidad exclusiva de jóvenes emprendedores (16-28 años) en España. Networking real, sinergias y eventos presenciales secretos en Madrid.">
+    <meta name="keywords" content="emprendedores, networking, madrid, jovenes emprendedores, eventos networking, startups, myflowxx">
+    <meta property="og:title" content="myflowxx | Comunidad de Emprendedores Jóvenes">
+    <meta property="og:description" content="Conecta con mentes ambiciosas de 16 a 28 años en eventos presenciales únicos en Madrid. Con o sin proyecto, aquí creamos el futuro.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050507',
+                            dark: '#0d0d11',
+                            darkGray: '#16161f',
+                            red: '#ff1111',
+                            lightRed: '#ff4444',
+                            glow: 'rgba(255, 17, 17, 0.15)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        hand: ['"Caveat"', 'cursive'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-medium': 'float 4s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        /* Variables y configuración general */
-        :root {
-            --primary-color: #000;
-            --secondary-color: #ff0000; /* Rojo principal para efectos */
-            --text-color: #fff;
-            --accent-color: #00f0ff; /* Azul cian para contraste */
-            --bg-color: #1a1a1a;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            overflow: hidden; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
+        .glow-border {
+            box-shadow: 0 0 15px rgba(255, 17, 17, 0.1);
+            transition: all 0.3s ease-in-out;
         }
-
-        /* ------------------------------------
-           1. Fondo de Video de Fiesta 
-           ------------------------------------ */
-        .video-bg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -2; /* Capa más baja */
-            filter: brightness(0.3) grayscale(0.5); /* Oscurecer y desaturar */
+        .glow-border:hover {
+            box-shadow: 0 0 25px rgba(255, 17, 17, 0.3);
+            border-color: rgba(255, 17, 17, 0.6);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 17, 17, 0.5);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050507;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f1f2e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff1111;
         }
         
-        /* ------------------------------------
-           2. Fondo de Emoji de Avión en Movimiento 
-           ------------------------------------ */
-        .emoji-airplane-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; 
-            z-index: -1; /* Encima del video */
-        }
-
-        .emoji-airplane {
-            position: absolute;
-            font-size: 5em; 
-            color: rgba(0, 240, 255, 0.1); /* Color cian para los aviones para diferenciar */
+        /* Fade-in scroll animations utility */
+        .reveal {
             opacity: 0;
-            animation: flyingEmoji 20s linear infinite; 
-            will-change: transform, opacity;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); 
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
-
-        @keyframes flyingEmoji {
-            0% {
-                transform: translateX(-100vw) translateY(var(--startY)) scale(0.5);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            80% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateX(100vw) translateY(var(--endY)) scale(1.2);
-                opacity: 0;
-            }
-        }
-
-        /* ------------------------------------
-           3. Contenedor Principal Dinámico 
-           ------------------------------------ */
-        .container {
-            text-align: center;
-            background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro para el contraste */
-            padding: 40px 60px;
-            border-radius: 15px;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.8), 0 0 15px var(--accent-color) inset; 
-            position: relative;
-            z-index: 1;
-            transform: scale(0.95);
-            animation: pulseContainer 2s infinite alternate ease-in-out;
-            max-width: 90%;
-        }
-
-        @keyframes pulseContainer {
-            from { transform: scale(0.98); }
-            to { transform: scale(1.0); }
-        }
-
-        /* ------------------------------------
-           4. Título y Texto Giratorio
-           ------------------------------------ */
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2em, 5vw, 3.5em);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 15px var(--accent-color), 0 0 25px var(--secondary-color);
-            animation: glowText 1.5s infinite alternate;
-        }
-
-        @keyframes glowText {
-            from { text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--secondary-color); }
-            to { text-shadow: 0 0 20px var(--accent-color), 0 0 35px var(--secondary-color); }
-        }
-
-        .rotating-text-wrapper {
-            display: inline-block;
-            perspective: 1000px;
-            height: 2em; 
-            overflow: hidden;
-            margin-bottom: 25px;
-        }
-
-        .rotating-text {
-            display: inline-block;
-            transform-style: preserve-3d;
-            animation: rotateWords 10s infinite;
-        }
-
-        .rotating-text span {
-            display: block;
-            position: absolute;
-            backface-visibility: hidden;
-            font-size: clamp(1.2em, 3vw, 1.8em);
-            font-weight: bold;
-            color: var(--accent-color);
-            text-shadow: 0 0 10px var(--accent-color);
-        }
-
-        .rotating-text span:nth-child(1) { transform: translateZ(0) rotateY(0deg); }
-        .rotating-text span:nth-child(2) { transform: translateZ(0) rotateY(90deg); }
-        .rotating-text span:nth-child(3) { transform: translateZ(0) rotateY(180deg); }
-        .rotating-text span:nth-child(4) { transform: translateZ(0) rotateY(270deg); }
-
-        @keyframes rotateWords {
-            0%, 20% { transform: rotateY(0deg); }
-            25%, 45% { transform: rotateY(-90deg); }
-            50%, 70% { transform: rotateY(-180deg); }
-            75%, 95% { transform: rotateY(-270deg); }
-            100% { transform: rotateY(-360deg); }
-        }
-        
-        /* ------------------------------------
-           5. Mensajes y CTA 
-           ------------------------------------ */
-        p {
-            font-size: clamp(1em, 2vw, 1.3em);
-            line-height: 1.6;
-            margin-bottom: 15px;
-            color: var(--text-color);
-            animation: fadeIn 2s ease-out;
-        }
-        
-        .cta-text {
-            font-size: clamp(1.2em, 3vw, 1.6em);
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 25px;
-            animation: bounceIn 1.5s ease-out;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-        }
-
-        @keyframes bounceIn {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-30px); }
-            60% { transform: translateY(-15px); }
-        }
-
-        .footer-text {
-            margin-top: 30px;
-            font-size: clamp(0.9em, 1.5vw, 1.1em);
-            color: rgba(255, 255, 255, 0.8);
-            animation: slideInUp 1.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ------------------------------------
-           6. Formulario de Suscripción 
-           ------------------------------------ */
-        .subscribe-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .subscribe-form input[type="email"] {
-            padding: 15px 20px;
-            border: 2px solid var(--accent-color);
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--text-color);
-            font-size: 1.1em;
-            width: 100%;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        .subscribe-form input[type="email"]:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 15px var(--secondary-color);
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .subscribe-form button {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.6);
-        }
-
-        .subscribe-form button:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            transform: translateY(-5px) scale(1.05); /* Efecto burbuja */
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.8);
-        }
-        
-        .confirmation-message {
-            margin-top: 10px;
-            font-weight: bold;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        /* ------------------------------------
-           7. Efecto de Partículas (Mantener)
-           ------------------------------------ */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0; /* Encima de todo el fondo, debajo del contenido */
-        }
-
-        .particle {
-            position: absolute;
-            background-color: var(--secondary-color);
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleAnimation 10s infinite;
-            box-shadow: 0 0 5px var(--secondary-color);
-        }
-
-        @keyframes particleAnimation {
-            0% {
-                transform: translate(var(--x), var(--y)) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-                transform: translate(var(--x), var(--y)) scale(1);
-            }
-            90% {
-                opacity: 0;
-            }
-            100% {
-                transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(0.1);
-                opacity: 0;
-            }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body>
-    <!-- El elemento VIDEO ahora usa la URL proporcionada -->
-    <video autoplay loop muted playsinline class="video-bg">
-        <source src="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_24fps.mp4" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-    </video>
+<body class="bg-brand-black text-white font-sans overflow-x-hidden selection:bg-brand-red selection:text-white">
 
-    <div class="emoji-airplane-bg"></div>
-    <div class="particles"></div>
-
-    <div class="container">
-        <h1>PREPÁRATE PARA...</h1>
-        <div class="rotating-text-wrapper">
-            <div class="rotating-text">
-                <span>Flow Party</span>
-                <span>La Experiencia</span>
-                <span>Inolvidable</span>
-                <span>Tu Mejor Viaje</span>
-            </div>
-        </div>
-        
-        <p class="cta-text">¡Únete a la lista y asegura tu plaza en el viaje sorpresa!</p>
-        <p>Trabajando para daros lo mejor en la Flow Party y en el viaje.</p>
-
-        <!-- CONFIGURACIÓN DE FORMSPREE: URL REEMPLAZADA -->
-        <form class="subscribe-form" id="subscribeForm" method="POST" action="https://formspree.io/f/xrbrzwkq">
-            <!-- Usamos name="_replyto" para que Formspree use este campo como el email de respuesta -->
-            <input type="email" name="_replyto" placeholder="Introduce tu correo electrónico" required> 
-            <button type="submit">Suscribirme Ahora</button>
-            <p class="confirmation-message" id="confirmationMessage"></p>
-        </form>
-
-        <p class="footer-text">¡No te quedes fuera de esta aventura única!</p>
+    <!-- DYNAMIC BACKGROUND BLOBS -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[10%] left-[-10%] w-[350px] md:w-[600px] h-[350px] md:h-[600px] bg-brand-red opacity-[0.04] rounded-full filter blur-[80px] md:blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute bottom-[10%] right-[-10%] w-[400px] md:w-[700px] h-[400px] md:h-[700px] bg-brand-red opacity-[0.03] rounded-full filter blur-[100px] md:blur-[150px] animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[40%] right-[20%] w-[250px] h-[250px] bg-white opacity-[0.01] rounded-full filter blur-[60px] animate-float-slow"></div>
     </div>
 
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-brand-black/40 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Scalable Vector Brand Logo (Exact replica of original styling) -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <div class="flex items-center -space-x-1">
+                    <!-- Left Crown -->
+                    <svg class="h-7 w-7 text-brand-red transform group-hover:scale-110 group-hover:rotate-[-5deg] transition-all duration-300" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5.5">
+                        <path d="M15,65 L28,42 L46,55 L52,32 L58,55 L76,42 L89,65 Z" stroke-linecap="round" stroke-linejoin="round" />
+                        <circle cx="28" cy="35" r="4" fill="currentColor"/>
+                        <circle cx="52" cy="25" r="4" fill="currentColor"/>
+                        <circle cx="76" cy="35" r="4" fill="currentColor"/>
+                    </svg>
+                    <!-- Logo Text -->
+                    <span class="font-hand text-3xl font-bold tracking-tight text-white select-none pl-1 pb-1 transform group-hover:text-brand-lightRed transition-colors duration-300">my flow</span>
+                    <!-- Right Hand-drawn Markings (xx & Penguin) -->
+                    <div class="flex items-center -space-x-1.5 relative translate-y-[-2px]">
+                        <span class="font-hand text-brand-red text-xl font-bold select-none -translate-y-2 translate-x-1 rotate-[8deg]">xx</span>
+                        <svg class="h-9 w-9 text-brand-red transform group-hover:scale-115 transition-all duration-300" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4.5">
+                            <path d="M40,22 C42,17 50,17 55,22 C57,24 56,27 54,30 C59,30 65,32 68,37 C73,45 71,57 69,67 C68,73 70,77 72,80 C70,82 65,82 60,80 C58,75 57,65 56,60 C53,70 47,80 44,81 C42,81 40,79 40,76 C41,72 43,62 44,54 C45,47 42,40 41,34 C41,32 39,30 35,28 C38,27 39,25 40,22 Z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Menu -->
+            <nav class="hidden md:flex items-center space-x-10">
+                <a href="#que-hacemos" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200">¿Qué hacemos?</a>
+                <a href="#proximo-evento" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 flex items-center space-x-1.5">
+                    <span>Evento Secreto</span>
+                    <span class="h-2 w-2 rounded-full bg-brand-red animate-ping"></span>
+                </a>
+                <a href="#unete" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200">Formar parte</a>
+            </nav>
+
+            <!-- Instagram CTA Direct Button -->
+            <div class="hidden md:block">
+                <a href="https://instagram.com/myflowxx" target="_blank" rel="noopener noreferrer" class="relative group overflow-hidden px-6 py-2.5 rounded-full bg-white text-black font-semibold text-sm transition-all duration-300 hover:bg-brand-red hover:text-white border border-transparent hover:border-brand-red flex items-center space-x-2">
+                    <i class="fab fa-instagram text-lg"></i>
+                    <span>@myflowxx</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white hover:text-brand-red focus:outline-none transition-colors" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-black/95 backdrop-blur-lg z-40 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-center px-10 space-y-8">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-white hover:text-brand-red text-2xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#que-hacemos" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors" onclick="toggleMobileMenu()">¿Qué hacemos?</a>
+        <a href="#proximo-evento" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors flex items-center" onclick="toggleMobileMenu()">
+            <span>Evento Secreto</span>
+            <span class="ml-2 h-2.5 w-2.5 rounded-full bg-brand-red animate-pulse"></span>
+        </a>
+        <a href="#unete" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors" onclick="toggleMobileMenu()">Formar parte</a>
+        <div class="pt-6 border-t border-white/10 flex flex-col space-y-4">
+            <a href="https://instagram.com/myflowxx" target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-xl bg-brand-red text-white text-center font-bold flex items-center justify-center space-x-2">
+                <i class="fab fa-instagram text-xl"></i>
+                <span>Mándanos un DM en @myflowxx</span>
+            </a>
+            <a href="mailto:myflowxx@gmail.com" class="w-full py-4 rounded-xl border border-white/20 text-white text-center font-bold flex items-center justify-center space-x-2">
+                <i class="fa-regular fa-envelope text-xl"></i>
+                <span>Escríbenos por Email</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 px-6 overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10 flex flex-col items-center">
+            
+            <!-- Mini Tag Line -->
+            <div class="inline-flex items-center space-x-2 bg-brand-red/10 border border-brand-red/20 px-4 py-2 rounded-full mb-8 animate-float-slow">
+                <span class="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
+                <span class="text-xs uppercase tracking-widest font-bold text-brand-lightRed">Comunidad Exclusiva España</span>
+            </div>
+
+            <!-- Big Slogan / Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight leading-none mb-8">
+                El club de los que <br>
+                <span class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-brand-red">
+                    tienen el flow
+                    <!-- Decorative stroke under highlighted text -->
+                    <span class="absolute bottom-[-10px] left-0 w-full h-[6px] bg-brand-red rounded-full opacity-60"></span>
+                </span>
+            </h1>
+
+            <!-- Paragraph -->
+            <p class="max-w-2xl text-base sm:text-lg md:text-xl text-gray-400 font-light mb-12 px-2">
+                Unimos a jóvenes inconformistas de entre <strong class="text-white">16 y 28 años</strong> (con o sin proyectos activos) para crear sinergias salvajes, hacer networking honesto y disfrutar en eventos clandestinos en Madrid.
+            </p>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#proximo-evento" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-bold transition-all duration-300 shadow-lg shadow-brand-red/20 flex items-center justify-center space-x-2 group">
+                    <span>Descubrir Próximo Evento</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#que-hacemos" class="w-full sm:w-auto px-8 py-4 rounded-full border border-white/10 hover:border-brand-red hover:bg-brand-red/5 text-white font-semibold transition-all duration-300">
+                    ¿Qué hacemos?
+                </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-40 animate-bounce">
+                <span class="text-[10px] uppercase tracking-widest font-bold mb-2">Scroll</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- "¿QUÉ HACEMOS?" SECTION -->
+    <section id="que-hacemos" class="py-32 px-6 relative z-10 border-t border-white/5 bg-brand-dark/50">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Friendly Text & Mission -->
+                <div class="lg:col-span-5 space-y-6 reveal">
+                    <span class="text-brand-red font-hand text-3xl font-bold tracking-wider">¿Qué hacemos?</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Un espacio para <br>conectar, compartir <br>y crecer juntos.
+                    </h2>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        En <strong class="text-white">myflowxx</strong> creemos que el verdadero valor de emprender no está en las cifras, sino en las personas que conoces por el camino. Por eso, creamos un punto de encuentro real, cómodo y sin presiones para jóvenes de <strong class="text-white">16 a 28 años</strong> en España.
+                    </p>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        No nos importa en qué punto de tu camino te encuentres. Nos da exactamente igual si ya tienes un proyecto facturando, si estás dando tus primeros pasos o si simplemente tienes curiosidad y quieres rodearte de personas con iniciativa. Aquí lo que sumamos es la <strong class="text-white">mentalidad, la buena energía y las ganas de apoyarnos</strong> mutuamente.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#unete" class="inline-flex items-center space-x-2 text-brand-red font-bold hover:text-brand-lightRed transition-colors">
+                            <span>Quiero conocer la comunidad</span>
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Values Grid Cards (Friendly and inclusive tone) -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="p-8 rounded-2xl bg-brand-darkGray/60 border border-white/5 hover:border-brand-red/30 transition-all duration-300 glow-border reveal" style="transition-delay: 100ms;">
+                        <div class="h-12 w-12 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-6 text-xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Conexiones Reales</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Charla cara a cara con gente de tu edad que comparte tus mismas inquietudes, dudas y pasiones en un entorno sano.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-8 rounded-2xl bg-brand-darkGray/60 border border-white/5 hover:border-brand-red/30 transition-all duration-300 glow-border reveal" style="transition-delay: 200ms;">
+                        <div class="h-12 w-12 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-6 text-xl">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Da igual tu nivel</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Valoramos tanto la experiencia de quien ya ha lanzado su empresa como la ilusión y las preguntas de quien acaba de empezar de cero.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-8 rounded-2xl bg-brand-darkGray/60 border border-white/5 hover:border-brand-red/30 transition-all duration-300 glow-border reveal" style="transition-delay: 300ms;">
+                        <div class="h-12 w-12 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-6 text-xl">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Ambiente Cercano</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Olvídate de los eventos corporativos rígidos. Nos reunimos en Madrid para hablar de forma cercana, natural y transparente.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="p-8 rounded-2xl bg-brand-darkGray/60 border border-white/5 hover:border-brand-red/30 transition-all duration-300 glow-border reveal" style="transition-delay: 400ms;">
+                        <div class="h-12 w-12 rounded-xl bg-brand-red/10 flex items-center justify-center text-brand-red mb-6 text-xl">
+                            <i class="fa-solid fa-hands-holding-circle"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Sinergias y Apoyo</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Encuentra posibles socios, amigos de confianza, o simplemente personas dispuestas a darte feedback sincero y constructivo.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECRET EVENT COUNTDOWN SECTION -->
+    <section id="proximo-evento" class="py-32 px-6 relative z-10 border-t border-white/5 bg-gradient-to-b from-brand-black to-brand-dark">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-red font-hand text-3xl font-bold tracking-wider">El Gran Secreto</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mt-2 mb-4">Primer Evento Presencial Madrid</h2>
+                <p class="max-w-xl mx-auto text-gray-400 text-sm sm:text-base font-light">
+                    Mantenemos el secretismo de las cosas que valen la pena. Revelaremos el lugar secreto e iniciaremos reservas de sitio una vez la cuenta atrás expire.
+                </p>
+            </div>
+
+            <!-- Glowing Countdown Card Container -->
+            <div class="p-8 sm:p-12 rounded-3xl bg-brand-darkGray/50 border border-brand-red/20 glow-border relative overflow-hidden reveal">
+                
+                <!-- Background visual glow -->
+                <div class="absolute -top-24 -right-24 h-48 w-48 bg-brand-red/10 rounded-full filter blur-[50px]"></div>
+
+                <!-- Secret parameters badges -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10 text-center">
+                    <div class="p-4 rounded-xl bg-black/40 border border-white/5">
+                        <span class="text-xs text-gray-500 block uppercase tracking-wider font-bold mb-1">Ubicación</span>
+                        <span class="text-base font-bold text-brand-lightRed tracking-wide"><i class="fa-solid fa-lock mr-2 text-xs"></i> Madrid Secreto</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-black/40 border border-white/5">
+                        <span class="text-xs text-gray-500 block uppercase tracking-wider font-bold mb-1">Aforo Máximo</span>
+                        <span class="text-base font-bold text-brand-lightRed tracking-wide"><i class="fa-solid fa-lock mr-2 text-xs"></i> ??? Plazas</span>
+                    </div>
+                    <div class="p-4 rounded-xl bg-black/40 border border-white/5 col-span-2 md:col-span-1">
+                        <span class="text-xs text-gray-500 block uppercase tracking-wider font-bold mb-1">Fecha Revelación</span>
+                        <span class="text-base font-bold text-white tracking-wide">01 de Septiembre, 2026</span>
+                    </div>
+                </div>
+
+                <!-- Real Countdown Numbers Grid -->
+                <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-6 max-w-3xl mx-auto text-center mb-10">
+                    <div class="bg-black/60 p-4 sm:p-6 rounded-2xl border border-white/10">
+                        <span id="days" class="text-3xl sm:text-5xl font-black text-white text-glow">00</span>
+                        <span class="text-[9px] sm:text-xs text-gray-500 block uppercase font-bold tracking-widest mt-1">Días</span>
+                    </div>
+                    <div class="bg-black/60 p-4 sm:p-6 rounded-2xl border border-white/10">
+                        <span id="hours" class="text-3xl sm:text-5xl font-black text-white text-glow">00</span>
+                        <span class="text-[9px] sm:text-xs text-gray-500 block uppercase font-bold tracking-widest mt-1">Horas</span>
+                    </div>
+                    <div class="bg-black/60 p-4 sm:p-6 rounded-2xl border border-white/10">
+                        <span id="minutes" class="text-3xl sm:text-5xl font-black text-white text-glow">00</span>
+                        <span class="text-[9px] sm:text-xs text-gray-500 block uppercase font-bold tracking-widest mt-1">Minutos</span>
+                    </div>
+                    <div class="bg-black/60 p-4 sm:p-6 rounded-2xl border border-white/10">
+                        <span id="seconds" class="text-3xl sm:text-5xl font-black text-white text-glow">00</span>
+                        <span class="text-[9px] sm:text-xs text-gray-500 block uppercase font-bold tracking-widest mt-1">Segundos</span>
+                    </div>
+                </div>
+
+                <!-- Custom Interactive Locked Button -->
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <button id="reserve-btn" onclick="openSecretModal()" class="group relative px-10 py-5 rounded-full bg-brand-red/10 text-brand-lightRed font-bold text-base border border-brand-red/30 transition-all duration-300 hover:bg-brand-red hover:text-white hover:shadow-lg hover:shadow-brand-red/30 flex items-center space-x-3 cursor-pointer">
+                        <span id="btn-lock-icon"><i class="fa-solid fa-lock text-sm"></i></span>
+                        <span id="btn-text">Reservar sitio por DM (Bloqueado)</span>
+                    </button>
+                    <p class="text-xs text-gray-500 max-w-sm text-center">
+                        Para reservar tu plaza en el momento exacto de la apertura, deberás enviarnos un DM a Instagram con la palabra clave <span class="text-brand-lightRed font-semibold">"RESERVA"</span>.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- JOIN US / CONTACT FORM SECTION -->
+    <section id="unete" class="py-32 px-6 relative z-10 border-t border-white/5 bg-brand-black">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                
+                <!-- Left: Info & Engagement -->
+                <div class="lg:col-span-5 flex flex-col justify-between reveal">
+                    <div class="space-y-6">
+                        <span class="text-brand-red font-hand text-3xl font-bold tracking-wider">Aplica a la comunidad</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">¿Tienes el Flow? Únete a nosotros</h2>
+                        <p class="text-gray-400 font-light leading-relaxed">
+                            Buscamos perfiles activos y con iniciativa. Rellena este formulario rápido para contarnos qué haces o qué te mueve y estarás dentro del radar preferente para todas nuestras convocatorias oficiales.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 space-y-6 pt-6 border-t border-white/5">
+                        <div class="flex items-center space-x-4">
+                            <div class="h-10 w-10 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 block font-bold uppercase tracking-wider">Email de Contacto Directo</span>
+                                <a href="mailto:myflowxx@gmail.com" class="text-sm font-semibold text-white hover:text-brand-red transition-colors">myflowxx@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="h-10 w-10 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500 block font-bold uppercase tracking-wider">Instagram Oficial</span>
+                                <a href="https://instagram.com/myflowxx" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-brand-red transition-colors">@myflowxx</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form Box -->
+                <div class="lg:col-span-7 bg-brand-dark border border-white/5 p-8 sm:p-10 rounded-3xl relative reveal">
+                    
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tu Nombre *</label>
+                                <input type="text" id="name" required class="w-full bg-brand-black/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="Ej. Carlos Alcaraz">
+                            </div>
+                            <div>
+                                <label for="instagram" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tu Instagram *</label>
+                                <div class="relative">
+                                    <span class="absolute left-4 top-3.5 text-gray-500">@</span>
+                                    <input type="text" id="instagram" required class="w-full bg-brand-black/80 border border-white/10 rounded-xl pl-8 pr-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="miusuario">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="email" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Email de Contacto *</label>
+                                <input type="email" id="email" required class="w-full bg-brand-black/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="carlos@gmail.com">
+                            </div>
+                            <div>
+                                <label for="age" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Tu Edad *</label>
+                                <input type="number" id="age" min="16" max="28" required class="w-full bg-brand-black/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="16 - 28 años">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="project" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">¿Tienes algún proyecto o idea? (Opcional)</label>
+                            <input type="text" id="project" class="w-full bg-brand-black/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors" placeholder="Ej: Ecommerce de ropa, Agencia SaaS, Solo tengo ganas de aprender...">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Cuéntanos un poco sobre ti *</label>
+                            <textarea id="message" rows="4" required class="w-full bg-brand-black/80 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-brand-red transition-colors resize-none" placeholder="¿Qué te apasiona? ¿Por qué quieres ser parte de myflowxx?"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-white text-black font-bold text-base hover:bg-brand-red hover:text-white transition-all duration-300 shadow-md flex items-center justify-center space-x-2 cursor-pointer">
+                            <span>Enviar Inscripción</span>
+                            <i class="fa-solid fa-paper-plane text-sm"></i>
+                        </button>
+                    </form>
+
+                    <!-- Form Success State Box (Hidden by default) -->
+                    <div id="form-success" class="hidden absolute inset-0 bg-brand-dark rounded-3xl flex flex-col items-center justify-center text-center p-8 z-10">
+                        <div class="h-20 w-20 rounded-full bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-4xl mb-6 animate-bounce">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">¡Inscripción Enviada con Éxito!</h3>
+                        <p class="text-gray-400 text-sm max-w-md leading-relaxed mb-8">
+                            Hemos guardado tus datos. Pronto revisaremos tu perfil de Instagram para enviarte la confirmación del alta. ¡Estate atento a los DMs de <strong class="text-brand-lightRed">@myflowxx</strong>!
+                        </p>
+                        <button onclick="resetContactForm()" class="px-6 py-2.5 rounded-full border border-white/10 hover:border-brand-red text-xs font-semibold text-gray-300 hover:text-white transition-all">
+                            Enviar otra respuesta
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-brand-black py-16 px-6 relative z-10 text-center">
+        <div class="max-w-6xl mx-auto flex flex-col items-center space-y-8">
+            
+            <!-- Scalable SVG Logo Footer -->
+            <div class="flex items-center -space-x-1 select-none">
+                <!-- Left Crown -->
+                <svg class="h-8 w-8 text-brand-red" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5.5">
+                    <path d="M15,65 L28,42 L46,55 L52,32 L58,55 L76,42 L89,65 Z" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="28" cy="35" r="4" fill="currentColor"/>
+                    <circle cx="52" cy="25" r="4" fill="currentColor"/>
+                    <circle cx="76" cy="35" r="4" fill="currentColor"/>
+                </svg>
+                <!-- Logo Text -->
+                <span class="font-hand text-4xl font-bold pl-1 pb-1">my flow</span>
+                <!-- Right Hand-drawn Markings (xx & Penguin) -->
+                <div class="flex items-center -space-x-1.5 relative translate-y-[-2px]">
+                    <span class="font-hand text-brand-red text-2xl font-bold select-none -translate-y-2 translate-x-1 rotate-[8deg]">xx</span>
+                    <svg class="h-10 w-10 text-brand-red" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4.5">
+                        <path d="M40,22 C42,17 50,17 55,22 C57,24 56,27 54,30 C59,30 65,32 68,37 C73,45 71,57 69,67 C68,73 70,77 72,80 C70,82 65,82 60,80 C58,75 57,65 56,60 C53,70 47,80 44,81 C42,81 40,79 40,76 C41,72 43,62 44,54 C45,47 42,40 41,34 C41,32 39,30 35,28 C38,27 39,25 40,22 Z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Social Links & Contact -->
+            <div class="flex items-center justify-center space-x-6">
+                <a href="https://instagram.com/myflowxx" target="_blank" rel="noopener noreferrer" class="h-12 w-12 rounded-full border border-white/5 hover:border-brand-red hover:text-brand-red bg-brand-dark flex items-center justify-center transition-all duration-300 text-lg" aria-label="Síguenos en Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="mailto:myflowxx@gmail.com" class="h-12 w-12 rounded-full border border-white/5 hover:border-brand-red hover:text-brand-red bg-brand-dark flex items-center justify-center transition-all duration-300 text-lg" aria-label="Escríbenos por correo">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+
+            <!-- Legals or Info -->
+            <p class="text-xs text-gray-600 max-w-md leading-relaxed">
+                Diseñado exclusivamente para la próxima generación de emprendedores en Madrid. <br>
+                © 2026 myflowxx. Todos los derechos reservados.
+            </p>
+            
+        </div>
+    </footer>
+
+    <!-- CUSTOM EXCLUSIVITY LOCK MODAL (Ensures no standard browser alerts) -->
+    <div id="secret-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-brand-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="relative w-full max-w-md p-8 sm:p-10 rounded-3xl bg-brand-dark border border-brand-red/30 shadow-2xl shadow-brand-red/10 text-center transform scale-95 transition-transform duration-300" id="modal-container">
+            
+            <!-- Close icon button -->
+            <button onclick="closeSecretModal()" class="absolute top-4 right-4 text-gray-500 hover:text-brand-red transition-colors focus:outline-none" aria-label="Cerrar modal">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Decorative Lock -->
+            <div class="h-16 w-16 rounded-full bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red text-3xl mx-auto mb-6">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-2xl font-black mb-4 tracking-tight">Acceso Bloqueado</h3>
+            
+            <!-- Instructions and Description -->
+            <div class="space-y-4 text-sm text-gray-400 leading-relaxed mb-8">
+                <p>
+                    La ubicación exacta de la primera quedada de networking exclusivo en Madrid es un secreto absoluto para proteger el aforo.
+                </p>
+                <div class="p-4 rounded-xl bg-black/50 border border-white/5 text-left space-y-2">
+                    <span class="text-xs uppercase tracking-wider font-bold text-white block">Instrucciones de Reserva:</span>
+                    <p class="text-xs text-gray-400">
+                        1. Espera a que la cuenta atrás del marcador llegue a <span class="text-white">0</span>.
+                        <br>
+                        2. Cuando se desbloquee el botón, clícalo para ir directos a nuestro Instagram <strong class="text-white">@myflowxx</strong>.
+                        <br>
+                        3. Mándanos un mensaje por DM escribiendo exactamente la palabra <strong class="text-brand-lightRed">"RESERVA"</strong> junto con tu nombre.
+                    </p>
+                </div>
+                <p class="text-xs">
+                    *El evento tiene plazas muy limitadas y se asignarán en orden estricto de llegada por Instagram.
+                </p>
+            </div>
+
+            <!-- Close Action Button -->
+            <button onclick="closeSecretModal()" class="w-full py-3.5 rounded-xl bg-brand-red text-white font-bold hover:bg-brand-lightRed transition-all">
+                Entendido, estaré atento
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT LOGIC -->
     <script>
-        // --- 1. Script para generar emojis de avión dinámicos ---
-        const emojiAirplaneBg = document.querySelector('.emoji-airplane-bg');
-        const numberOfEmojiAirplanes = 10; 
-
-        for (let i = 0; i < numberOfEmojiAirplanes; i++) {
-            const airplane = document.createElement('span');
-            airplane.classList.add('emoji-airplane');
-            airplane.textContent = '✈️'; 
-            
-            const startY = Math.random() * 100 + 'vh';
-            const endY = Math.random() * 100 + 'vh';
-            airplane.style.setProperty('--startY', startY);
-            airplane.style.setProperty('--endY', endY);
-            
-            airplane.style.animationDelay = Math.random() * 15 + 's';
-            airplane.style.animationDuration = Math.random() * 20 + 10 + 's'; 
-            
-            emojiAirplaneBg.appendChild(airplane);
-        }
-
-        // --- 2. Script para generar partículas dinámicas ---
-        const particlesContainer = document.querySelector('.particles');
-        const numberOfParticles = 50;
-
-        for (let i = 0; i < numberOfParticles; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            const size = Math.random() * 5 + 2 + 'px'; 
-            particle.style.width = size;
-            particle.style.height = size;
-            particle.style.setProperty('--x', Math.random() * 100 + 'vw');
-            particle.style.setProperty('--y', Math.random() * 100 + 'vh');
-            particle.style.setProperty('--dx', (Math.random() - 0.5) * 500 + 'px'); 
-            particle.style.setProperty('--dy', (Math.random() - 0.5) * 500 + 'px'); 
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = Math.random() * 10 + 5 + 's'; 
-            particlesContainer.appendChild(particle);
-        }
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.querySelector('header');
+        const secretModal = document.getElementById('secret-modal');
+        const modalContainer = document.getElementById('modal-container');
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
         
-        // --- 3. Manejo del Formulario (Formspree Asíncrono) ---
-        const form = document.getElementById('subscribeForm');
-        const confirmationMessage = document.getElementById('confirmationMessage');
+        // Countdown Elements
+        const daysSpan = document.getElementById('days');
+        const hoursSpan = document.getElementById('hours');
+        const minutesSpan = document.getElementById('minutes');
+        const secondsSpan = document.getElementById('seconds');
+        const reserveBtn = document.getElementById('reserve-btn');
+        const btnLockIcon = document.getElementById('btn-lock-icon');
+        const btnText = document.getElementById('btn-text');
 
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault(); // Evita el envío tradicional
-            
-            const formData = new FormData(event.target);
-            
-            try {
-                // Desactivamos el botón mientras se envía
-                const submitButton = form.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                confirmationMessage.textContent = 'Enviando...';
-                confirmationMessage.style.color = 'var(--accent-color)';
-                confirmationMessage.style.opacity = '1';
+        // Target Date for Countdown: September 1, 2026
+        const targetDate = new Date("September 1, 2026 00:00:00").getTime();
+        let isCountdownFinished = false;
 
-                const response = await fetch(event.target.action, {
-                    method: event.target.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+        // Mobile Menu Drawer Controllers
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuClose.addEventListener('click', toggleMobileMenu);
 
-                submitButton.disabled = false; // Reactivamos el botón
-
-                if (response.ok) {
-                    // Si Formspree responde OK
-                    confirmationMessage.textContent = '¡Gracias por unirte! Te enviaremos toda la información.';
-                    confirmationMessage.style.color = 'var(--secondary-color)'; 
-                    form.reset(); 
-                } else {
-                    // Si hay un error de Formspree
-                    confirmationMessage.textContent = 'Error: No pudimos registrar tu correo. Inténtalo más tarde.';
-                    confirmationMessage.style.color = 'var(--secondary-color)'; 
-                }
-            } catch (error) {
-                // Si hay un error de red
-                form.querySelector('button[type="submit"]').disabled = false;
-                confirmationMessage.textContent = 'Error de conexión. Revisa tu internet.';
-                confirmationMessage.style.color = 'var(--secondary-color)';
+        function toggleMobileMenu() {
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
             }
+        }
+
+        // Header Background Scroll Change
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-brand-black/90');
+                header.classList.remove('bg-brand-black/40');
+            } else {
+                header.classList.add('bg-brand-black/40');
+                header.classList.remove('bg-brand-black/90');
+            }
+        });
+
+        // Countdown Timer Logic
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display formatting
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                daysSpan.textContent = "00";
+                hoursSpan.textContent = "00";
+                minutesSpan.textContent = "00";
+                secondsSpan.textContent = "00";
+                isCountdownFinished = true;
+                unlockReservationButton();
+            } else {
+                daysSpan.textContent = String(days).padStart(2, '0');
+                hoursSpan.textContent = String(hours).padStart(2, '0');
+                minutesSpan.textContent = String(minutes).padStart(2, '0');
+                secondsSpan.textContent = String(seconds).padStart(2, '0');
+            }
+        }
+
+        // Initialize and trigger countdown interval
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Run once instantly
+
+        // Unlock Reservation button once countdown hits zero
+        function unlockReservationButton() {
+            btnLockIcon.innerHTML = '<i class="fab fa-instagram text-lg"></i>';
+            btnText.textContent = "Reservar sitio por DM (¡Abierto!)";
+            reserveBtn.classList.remove('bg-brand-red/10', 'text-brand-lightRed', 'border-brand-red/30');
+            reserveBtn.classList.add('bg-brand-red', 'text-white', 'border-transparent', 'shadow-lg', 'shadow-brand-red/30');
+        }
+
+        // Modals Operations (Secret Lock and General Modal Interactivity)
+        function openSecretModal() {
+            if (isCountdownFinished) {
+                // If countdown has finished, act as direct link to Instagram
+                window.open('https://instagram.com/myflowxx', '_blank');
+            } else {
+                // Show stylish custom alert lock information
+                secretModal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            }
+        }
+
+        function closeSecretModal() {
+            secretModal.classList.add('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
+        }
+
+        // Close modal clicking outside
+        secretModal.addEventListener('click', (e) => {
+            if (e.target === secretModal) closeSecretModal();
+        });
+
+        // Contact Form Processing (Simulated beautiful success feedback state)
+        function handleFormSubmit(event) {
+            event.preventDefault();
             
-            // Ocultar mensaje después de 4 segundos
-            setTimeout(() => {
-                confirmationMessage.style.opacity = '0';
-                confirmationMessage.textContent = '';
-            }, 4000);
+            // Collect Form Values (In real setup, send to backend email or webhook)
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const instagram = document.getElementById('instagram').value;
+            const age = document.getElementById('age').value;
+            const project = document.getElementById('project').value;
+            const message = document.getElementById('message').value;
+
+            // Trigger visual success layout inside form container
+            formSuccess.classList.remove('hidden');
+            formSuccess.classList.add('flex', 'animate-fade-in');
+        }
+
+        function resetContactForm() {
+            contactForm.reset();
+            formSuccess.classList.add('hidden');
+            formSuccess.classList.remove('flex');
+        }
+
+        // Intersection Observer for Scroll Fade-in effects
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Trigger only once
+                }
+            });
+        }, {
+            threshold: 0.1, // Element is 10% visible
+            rootMargin: '0px 0px -50px 0px' // Offset to trigger slightly before coming fully into view
+        });
+
+        reveals.forEach(reveal => {
+            revealOnScroll.observe(reveal);
         });
     </script>
 </body>
