@@ -129,12 +129,13 @@
             </a>
 
             <!-- Desktop Navigation Menu -->
-            <nav class="hidden md:flex items-center space-x-10">
+            <nav class="hidden md:flex items-center space-x-8">
                 <a href="#que-hacemos" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200">¿Qué hacemos?</a>
                 <a href="#proximo-evento" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 flex items-center space-x-1.5">
                     <span>Evento Secreto</span>
                     <span class="h-2 w-2 rounded-full bg-brand-red animate-ping"></span>
                 </a>
+                <a href="#preguntas-frecuentes" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200">Preguntas Frecuentes</a>
                 <a href="#unete" class="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200">Formar parte</a>
             </nav>
 
@@ -163,6 +164,7 @@
             <span>Evento Secreto</span>
             <span class="ml-2 h-2.5 w-2.5 rounded-full bg-brand-red animate-pulse"></span>
         </a>
+        <a href="#preguntas-frecuentes" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors" onclick="toggleMobileMenu()">Preguntas Frecuentes</a>
         <a href="#unete" class="text-2xl font-bold text-gray-300 hover:text-white transition-colors" onclick="toggleMobileMenu()">Formar parte</a>
         <div class="pt-6 border-t border-white/10 flex flex-col space-y-4">
             <a href="https://instagram.com/myflowxx" target="_blank" rel="noopener noreferrer" class="w-full py-4 rounded-xl bg-brand-red text-white text-center font-bold flex items-center justify-center space-x-2">
@@ -196,7 +198,7 @@
                 </span>
             </h1>
 
-            <!-- Paragraph (Sustituido por el texto solicitado y estilizado para resaltar de forma profesional) -->
+            <!-- Paragraph -->
             <div class="max-w-3xl mb-12 px-4 text-center">
                 <p class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight leading-snug uppercase">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-lightRed via-white to-brand-lightRed text-glow">
@@ -230,7 +232,7 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left: Friendly Text & Mission (Updated for exclusivity and age limitation) -->
+                <!-- Left: Friendly Text & Mission -->
                 <div class="lg:col-span-5 space-y-6 reveal">
                     <span class="text-brand-red font-hand text-3xl font-bold tracking-wider">¿Qué hacemos?</span>
                     <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
@@ -260,7 +262,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Values Grid Cards (Friendly and inclusive tone) -->
+                <!-- Right: Values Grid Cards -->
                 <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     
                     <!-- Card 1 -->
@@ -371,6 +373,90 @@
                     </p>
                 </div>
 
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ (PREGUNTAS FRECUENTES) SECTION -->
+    <section id="preguntas-frecuentes" class="py-32 px-6 relative z-10 border-t border-white/5 bg-brand-dark/50">
+        <div class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-16 reveal">
+                <span class="text-brand-red font-hand text-3xl font-bold tracking-wider">Tus Dudas</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mt-2 mb-4">Preguntas Frecuentes</h2>
+                <p class="max-w-xl mx-auto text-gray-400 text-sm sm:text-base font-light">
+                    Todo lo que necesitas saber sobre myflowxx para empezar con paso firme y sin rodeos.
+                </p>
+            </div>
+
+            <!-- Accordion FAQ Container -->
+            <div class="space-y-4 max-w-3xl mx-auto mb-16 reveal">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-white/5 rounded-2xl bg-brand-darkGray/40 overflow-hidden transition-all duration-300 hover:border-brand-red/30">
+                    <button class="w-full text-left p-6 sm:p-8 flex items-center justify-between focus:outline-none group" onclick="toggleFaq(1)">
+                        <span class="text-base sm:text-lg font-bold text-white group-hover:text-brand-lightRed transition-colors duration-200 pr-4">
+                            ¿En qué nos basamos para seleccionaros?
+                        </span>
+                        <span id="faq-icon-1" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </button>
+                    <div id="faq-content-1" class="max-h-0 opacity-0 transition-all duration-300 ease-in-out overflow-hidden px-6 sm:px-8">
+                        <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-light pb-6">
+                            Nos basamos en lo que nos mandáis en el formulario y analizando detalladamente vuestro perfil de Instagram. Si nos surge alguna duda, os escribiremos directamente para pediros un vídeo corto de presentación o agendar una breve llamada. Todo esto se hace con el único fin de ver si esta comunidad exclusiva es ideal para vosotros, si realmente os puede aportar valor real y si vosotros podéis aportar valor al resto del grupo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-white/5 rounded-2xl bg-brand-darkGray/40 overflow-hidden transition-all duration-300 hover:border-brand-red/30">
+                    <button class="w-full text-left p-6 sm:p-8 flex items-center justify-between focus:outline-none group" onclick="toggleFaq(2)">
+                        <span class="text-base sm:text-lg font-bold text-white group-hover:text-brand-lightRed transition-colors duration-200 pr-4">
+                            ¿Es totalmente gratis?
+                        </span>
+                        <span id="faq-icon-2" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </button>
+                    <div id="faq-content-2" class="max-h-0 opacity-0 transition-all duration-300 ease-in-out overflow-hidden px-6 sm:px-8">
+                        <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-light pb-6">
+                            Sí, pertenecer a la comunidad y acceder al grupo oficial de WhatsApp es totalmente gratuito. Para futuros eventos presenciales o experiencias exclusivas, y dependiendo del tipo de evento, habrá que pagar un ticket puntual para poder cubrir y acceder a dichos servicios. No obstante, la asistencia a los eventos es completamente optativa, nunca obligatoria.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-white/5 rounded-2xl bg-brand-darkGray/40 overflow-hidden transition-all duration-300 hover:border-brand-red/30">
+                    <button class="w-full text-left p-6 sm:p-8 flex items-center justify-between focus:outline-none group" onclick="toggleFaq(3)">
+                        <span class="text-base sm:text-lg font-bold text-white group-hover:text-brand-lightRed transition-colors duration-200 pr-4">
+                            ¿Cuáles son los canales de comunicación?
+                        </span>
+                        <span id="faq-icon-3" class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 transition-transform duration-300">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </button>
+                    <div id="faq-content-3" class="max-h-0 opacity-0 transition-all duration-300 ease-in-out overflow-hidden px-6 sm:px-8">
+                        <p class="text-sm sm:text-base text-gray-400 leading-relaxed font-light pb-6">
+                            Crearemos un grupo de WhatsApp donde estaréis todos los miembros activos. A través de este canal iremos pasando información sumamente relevante, compartiremos los éxitos y logros de los miembros de la comunidad, plantearemos preguntas para ayudarnos mutuamente, enseñaremos ideas de negocio y buscaremos sinergias para captar clientes si es viable. Pero nuestra idea principal es siempre priorizar el trato humano y que no se quede solo en un chat; por ello organizaremos eventos presenciales únicos en España para que el contacto sea real, sincero y aporte el mayor valor de networking posible.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Question Direct CTA -->
+            <div class="p-8 rounded-3xl bg-brand-dark border border-brand-red/20 max-w-2xl mx-auto text-center reveal glow-border">
+                <h4 class="text-xl font-bold mb-3">¿Tienes alguna otra duda o pregunta?</h4>
+                <p class="text-sm text-gray-400 font-light leading-relaxed mb-6">
+                    No te quedes con la incógnita. Si necesitas saber algo más, ponte en contacto con nosotros directamente por correo y te contestaremos encantados.
+                </p>
+                <a href="mailto:myflowxx@gmail.com?subject=Pregunta%20sobre%20myflowxx" class="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-brand-red hover:bg-brand-lightRed text-white text-sm font-bold transition-all duration-300 shadow-md shadow-brand-red/10 group">
+                    <i class="fa-solid fa-envelope-open-text text-base"></i>
+                    <span>Preguntar por Email</span>
+                    <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
 
         </div>
@@ -684,6 +770,25 @@
         secretModal.addEventListener('click', (e) => {
             if (e.target === secretModal) closeSecretModal();
         });
+
+        // Interactive Accordion FAQ Logic
+        function toggleFaq(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            // Check if it's currently open
+            if (content.classList.contains('max-h-0')) {
+                // Open and fade in
+                content.classList.remove('max-h-0', 'opacity-0');
+                content.classList.add('max-h-[500px]', 'opacity-100');
+                icon.classList.add('rotate-180', 'text-brand-red');
+            } else {
+                // Close and fade out
+                content.classList.add('max-h-0', 'opacity-0');
+                content.classList.remove('max-h-[500px]', 'opacity-100');
+                icon.classList.remove('rotate-180', 'text-brand-red');
+            }
+        }
 
         // Contact Form Processing with Real Formspree AJAX integration
         async function handleFormSubmit(event) {
