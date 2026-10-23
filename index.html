@@ -87,7 +87,7 @@
             border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
         }
 
-        /* 3D Flip Card Styles for Event Reveal */
+        /* 3D Flip Card Styles */
         .perspective-1000 {
             perspective: 1000px;
         }
@@ -146,7 +146,7 @@
 </head>
 <body class="bg-brand-black text-white font-sans overflow-x-hidden selection:bg-brand-red selection:text-white notebook-grid">
 
-    <!-- Notebook Left Spiral Rings (Authentic visual sketchbook vibe) -->
+    <!-- Notebook Left Spiral Rings -->
     <div class="fixed left-0 top-0 bottom-0 w-8 md:w-12 z-40 pointer-events-none flex flex-col justify-around py-4 border-r border-white/5 bg-gradient-to-r from-black/80 to-transparent">
         <template id="spiral-template">
             <div class="flex items-center space-x-1 pl-1 md:pl-2">
@@ -154,9 +154,7 @@
                 <div class="w-2 h-2 rounded-full bg-black/90 shadow-inner"></div>
             </div>
         </template>
-        <div id="spiral-container" class="h-full flex flex-col justify-between py-2">
-            <!-- Dynamically populated via JS for perfect spiral density -->
-        </div>
+        <div id="spiral-container" class="h-full flex flex-col justify-between py-2"></div>
     </div>
 
     <!-- Soft red atmospheric background glow -->
@@ -169,7 +167,7 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-brand-black/85 backdrop-blur-md border-b border-white/5 transition-all">
         <div class="max-w-6xl mx-auto px-6 h-18 py-3 flex items-center justify-between pl-12 md:pl-16">
             
-            <!-- Logo Hand-drawn Recreation matching reference exactly -->
+            <!-- Logo Hand-drawn Recreation -->
             <a href="#" class="flex items-center group py-1" aria-label="myflowxx inicio">
                 <div class="h-10 sm:h-12 w-auto flex items-center">
                     <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto select-none group-hover:scale-105 transition-transform duration-300">
@@ -185,7 +183,7 @@
                             <path d="M 72 82 L 164 82" />
                         </g>
 
-                        <!-- "my flow" Handwritten Cursive Typography (White) -->
+                        <!-- "my flow" Handwritten Cursive Typography -->
                         <g fill="none" stroke="#ffffff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M 62 120 C 62 108 72 101 81 101 C 89 101 93 108 94 118 C 96 108 103 101 112 101 C 122 101 127 109 127 122 L 126 126" />
                             <path d="M 130 112 C 132 118 135 125 142 125 C 148 125 152 118 153 108 L 153 125 C 153 148 147 175 130 196 C 123 205 116 208 112 201 C 109 194 116 179 135 160 C 150 145 164 128 178 114" />
@@ -205,7 +203,7 @@
                             <path d="M 364 104 Q 380 110 398 104" fill="none" />
                         </g>
 
-                        <!-- Red Line-Art Penguin (Facing Left towards flow) -->
+                        <!-- Red Line-Art Penguin -->
                         <g stroke="#ff1111" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
                             <path d="M 423 72 L 401 75 L 420 83" />
                             <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
@@ -225,10 +223,14 @@
                 </a>
                 <a href="#paso-2" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-1.5">
                     <span class="font-hand text-brand-red text-base font-bold">②</span>
-                    <span>Evento Presencial</span>
+                    <span>Evento #001</span>
                 </a>
                 <a href="#paso-3" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-1.5">
                     <span class="font-hand text-brand-red text-base font-bold">③</span>
+                    <span>Evento #002</span>
+                </a>
+                <a href="#paso-4" class="text-gray-400 hover:text-white transition-colors flex items-center space-x-1.5">
+                    <span class="font-hand text-brand-red text-base font-bold">④</span>
                     <span>Preguntas</span>
                 </a>
             </nav>
@@ -253,13 +255,12 @@
         <!-- SKETCH TITLE & LOGO HERO -->
         <section class="text-center mb-16 relative">
             <div class="inline-block relative max-w-xl mx-auto">
-                <!-- Handwritten Sparkles + Exact Brand Logo Centerpiece ✨ -->
                 <div class="flex items-center justify-center space-x-2 sm:space-x-4 my-2">
                     <svg class="w-5 h-5 sm:w-7 sm:h-7 text-brand-red animate-pulse shrink-0" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
                     </svg>
 
-                    <!-- Exact High-Fidelity Vector Logo Recreation -->
+                    <!-- Vector Logo Recreation -->
                     <div class="w-72 sm:w-96 md:w-[460px] mx-auto filter drop-shadow-[0_0_20px_rgba(255,17,17,0.18)]">
                         <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto select-none">
                             <g stroke="#ff1111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
@@ -306,7 +307,7 @@
                     </svg>
                 </div>
 
-                <!-- Hand-drawn wavy line separator SVG -->
+                <!-- Hand-drawn wavy line separator -->
                 <div class="w-56 sm:w-72 mx-auto mt-2 text-brand-red opacity-85">
                     <svg viewBox="0 0 260 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
                         <path d="M2 10C20 2 35 18 55 10C75 2 90 18 110 10C130 2 145 18 165 10C185 2 200 18 220 10C235 2 248 18 258 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -316,7 +317,7 @@
         </section>
 
         <!-- ==========================================
-             PASO 1: COMUNIDAD CREADORES 16-28 AÑOS
+             PASO 1: COMUNIDAD CREADORES 16-28 AÑOS (VÍDEO ORIGINAL)
              ========================================== -->
         <section id="paso-1" class="mb-24 relative">
             
@@ -359,7 +360,7 @@
                             </div>
                             <div class="flex items-center space-x-1.5">
                                 <span class="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
-                                <span class="font-hand text-xs text-gray-300 font-bold">manifiesto_myflow.mp4</span>
+                                <span class="font-hand text-xs text-gray-300 font-bold">Comunidad myflowxx</span>
                             </div>
                         </div>
 
@@ -371,16 +372,16 @@
                                    playsinline 
                                    preload="metadata"
                                    class="w-full h-full object-cover cursor-pointer"
-                                   onclick="toggleVideoPlay()">
+                                   onclick="toggleVideoPlay(1)">
                                 Tu navegador no soporta la reproducción de este vídeo.
                             </video>
 
                             <!-- Central Play Overlay Button -->
-                            <div id="video-play-overlay" 
-                                 onclick="toggleVideoPlay()" 
+                            <div id="video-play-overlay-1" 
+                                 onclick="toggleVideoPlay(1)" 
                                  class="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center cursor-pointer transition-opacity duration-300 z-10">
                                 <div class="h-20 w-20 rounded-full bg-brand-red/90 border-2 border-white flex items-center justify-center text-white shadow-2xl shadow-brand-red/50 transform group-hover/player:scale-110 transition-transform duration-300">
-                                    <i id="play-icon" class="fa-solid fa-play text-2xl ml-1 text-white"></i>
+                                    <i id="play-icon-1" class="fa-solid fa-play text-2xl ml-1 text-white"></i>
                                 </div>
                                 <p class="font-hand text-xl text-white font-bold mt-4 drop-shadow-md tracking-wide">
                                     Dale al play (1 min) ▶
@@ -389,29 +390,29 @@
 
                             <!-- Floating Bottom Controls Bar -->
                             <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20 flex items-center justify-between opacity-90 hover:opacity-100 transition-opacity">
-                                <button type="button" onclick="toggleVideoPlay()" class="text-white hover:text-brand-lightRed p-1 text-sm focus:outline-none" aria-label="Play/Pausa">
-                                    <i id="control-play-icon" class="fa-solid fa-play"></i>
+                                <button type="button" onclick="toggleVideoPlay(1)" class="text-white hover:text-brand-lightRed p-1 text-sm focus:outline-none" aria-label="Play/Pausa">
+                                    <i id="control-play-icon-1" class="fa-solid fa-play"></i>
                                 </button>
                                 
-                                <div class="flex-1 mx-3 h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer" onclick="seekVideo(event)">
-                                    <div id="video-progress" class="h-full bg-brand-red w-0 transition-all duration-150"></div>
+                                <div class="flex-1 mx-3 h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer" onclick="seekVideo(event, 1)">
+                                    <div id="video-progress-1" class="h-full bg-brand-red w-0 transition-all duration-150"></div>
                                 </div>
 
                                 <div class="flex items-center space-x-2 text-xs">
-                                    <button type="button" onclick="toggleMute()" class="text-white hover:text-brand-lightRed p-1 focus:outline-none" aria-label="Silenciar">
-                                        <i id="volume-icon" class="fa-solid fa-volume-high"></i>
+                                    <button type="button" onclick="toggleMute(1)" class="text-white hover:text-brand-lightRed p-1 focus:outline-none" aria-label="Silenciar">
+                                        <i id="volume-icon-1" class="fa-solid fa-volume-high"></i>
                                     </button>
-                                    <button type="button" onclick="toggleFullscreen()" class="text-white hover:text-brand-lightRed p-1 focus:outline-none" aria-label="Pantalla completa">
+                                    <button type="button" onclick="toggleFullscreen(1)" class="text-white hover:text-brand-lightRed p-1 focus:outline-none" aria-label="Pantalla completa">
                                         <i class="fa-solid fa-expand"></i>
                                     </button>
                                 </div>
                             </div>
 
-                            <div id="video-local-hint" class="hidden absolute top-3 left-3 right-3 p-2 rounded-xl bg-black/85 border border-brand-red/40 text-[11px] text-gray-300 z-30 text-center">
-                                <span>Pon el archivo como <strong class="text-white">video.mp4</strong> en la misma carpeta o </span>
+                            <div id="video-local-hint-1" class="hidden absolute top-3 left-3 right-3 p-2 rounded-xl bg-black/85 border border-brand-red/40 text-[11px] text-gray-300 z-30 text-center">
+                                <span>No se pudo cargar el vídeo. </span>
                                 <label class="text-brand-lightRed underline cursor-pointer font-bold">
-                                    selecciónalo aquí
-                                    <input type="file" accept="video/*" onchange="loadLocalVideo(event)" class="hidden">
+                                    Seleccionar archivo de vídeo
+                                    <input type="file" accept="video/*" onchange="loadLocalVideo(event, 1)" class="hidden">
                                 </label>
                             </div>
 
@@ -454,195 +455,119 @@
         </section>
 
         <!-- ==========================================
-             PASO 2: EVENTO PRESENCIAL COMUNIDAD
+             PASO 2: NUEVA SECCIÓN EVENTO #001
              ========================================== -->
         <section id="paso-2" class="mb-24 relative pt-6 border-t border-white/5">
             
             <!-- Step Header Box (Numbered circle 2 + Box title) -->
-            <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-6">
+            <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-8">
                 <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
                     2
                 </div>
                 <div class="flex-1 p-5 sm:p-6 bg-brand-dark/90 sketch-box border-brand-red/40 text-center">
-                    <h2 class="text-lg sm:text-2xl font-extrabold tracking-tight text-white uppercase">
-                        Evento Presencial Comunidad
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 mb-2 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-lightRed font-mono text-xs font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                        <span>Evento Realizado</span>
+                    </div>
+                    <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight text-white uppercase">
+                        Evento #001
                     </h2>
-                    <p class="font-hand text-lg sm:text-xl text-gray-400 font-medium">
-                        (Pasa el ratón o pulsa sobre cada tarjeta para revelar los secretos)
+                    <p class="font-hand text-xl sm:text-2xl text-brand-lightRed font-bold mt-1">
+                        Así se vivió el primer encuentro de la comunidad
                     </p>
                 </div>
             </div>
 
-            <!-- Mini helper tip -->
-            <div class="text-center mb-8">
-                <span class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/25 text-brand-lightRed text-xs font-hand text-base">
-                    <i class="fa-solid fa-hand-pointer text-xs animate-bounce"></i>
-                    <span>Toca o pasa el cursor para revelar la info</span>
-                </span>
+            <!-- Hand-drawn arrow pointing down towards the video player -->
+            <div class="flex justify-center -my-3">
+                <svg class="w-10 h-16 text-brand-red animate-bounce" viewBox="0 0 50 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M25 5 Q22 40 25 70" />
+                    <path d="M15 58 L25 72 L35 58" />
+                </svg>
             </div>
 
-            <!-- THE 7 EVENT REVEAL CARDS -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 max-w-6xl mx-auto">
+            <!-- Horizontal (16:9) Video Player & Text Block -->
+            <div class="max-w-4xl mx-auto pt-6 space-y-8">
                 
-                <!-- CARD 1: DÓNDE? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">¿Dónde?</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver ubicación</span>
+                <!-- Horizontal 16:9 Video Player Frame -->
+                <div class="w-full rounded-3xl bg-brand-dark border-2 border-white/20 hover:border-brand-red p-3 sm:p-4 shadow-2xl shadow-brand-red/10 transition-all duration-300 group">
+                    
+                    <!-- Reel Frame Top Bar -->
+                    <div class="flex items-center justify-between pb-2.5 px-2 border-b border-white/10">
+                        <div class="flex space-x-1.5 items-center">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-red/80"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
                         </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Ubicación</span>
-                            <div>
-                                <p class="text-sm font-extrabold text-white">Madrid</p>
-                                <p class="font-hand text-base sm:text-lg text-brand-lightRed font-bold mt-1">Ubicación precisa se dirá por WhatsApp 📍</p>
-                            </div>
-                            <span class="text-[9px] text-gray-400">Acceso exclusivo</span>
+                        <div class="flex items-center space-x-2">
+                            <span class="h-2 w-2 rounded-full bg-brand-red animate-pulse"></span>
+                            <span class="font-mono text-xs text-brand-lightRed font-bold uppercase tracking-wider">Evento #001</span>
                         </div>
+                    </div>
+
+                    <!-- 16:9 Aspect Ratio Horizontal Video Container -->
+                    <div class="relative mt-3 aspect-video w-full rounded-2xl bg-black overflow-hidden border border-white/10 flex items-center justify-center shadow-inner group/player">
+                        
+                        <video id="evento-001-video" 
+                               src="evento-001-1_vxouVfor.mp4" 
+                               playsinline 
+                               preload="metadata"
+                               class="w-full h-full object-cover cursor-pointer"
+                               onclick="toggleVideoPlay(2)">
+                            Tu navegador no soporta la reproducción de este vídeo.
+                        </video>
+
+                        <!-- Central Play Overlay Button -->
+                        <div id="video-play-overlay-2" 
+                             onclick="toggleVideoPlay(2)" 
+                             class="absolute inset-0 bg-black/45 backdrop-blur-[2px] flex flex-col items-center justify-center cursor-pointer transition-opacity duration-300 z-10">
+                            <div class="h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-brand-red/90 border-2 border-white flex items-center justify-center text-white shadow-2xl shadow-brand-red/50 transform group-hover/player:scale-110 transition-transform duration-300">
+                                <i id="play-icon-2" class="fa-solid fa-play text-xl sm:text-2xl ml-1 text-white"></i>
+                            </div>
+                            <p class="font-hand text-lg sm:text-2xl text-white font-bold mt-4 drop-shadow-md tracking-wide">
+                                Ver Evento #001 ▶
+                            </p>
+                        </div>
+
+                        <!-- Floating Bottom Controls Bar -->
+                        <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20 flex items-center justify-between opacity-90 hover:opacity-100 transition-opacity">
+                            <button type="button" onclick="toggleVideoPlay(2)" class="text-white hover:text-brand-lightRed p-1 text-sm focus:outline-none" aria-label="Play/Pausa">
+                                <i id="control-play-icon-2" class="fa-solid fa-play"></i>
+                            </button>
+                            
+                            <div class="flex-1 mx-3 sm:mx-4 h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer" onclick="seekVideo(event, 2)">
+                                <div id="video-progress-2" class="h-full bg-brand-red w-0 transition-all duration-150"></div>
+                            </div>
+
+                            <div class="flex items-center space-x-2 text-xs">
+                                <button type="button" onclick="toggleMute(2)" class="text-white hover:text-brand-lightRed p-1 focus:outline-none" aria-label="Silenciar">
+                                    <i id="volume-icon-2" class="fa-solid fa-volume-high"></i>
+                                </button>
+                                <button type="button" onclick="toggleFullscreen(2)" class="text-white hover:text-brand-lightRed p-1 focus:outline-none" aria-label="Pantalla completa">
+                                    <i class="fa-solid fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="video-local-hint-2" class="hidden absolute top-3 left-3 right-3 p-2 rounded-xl bg-black/85 border border-brand-red/40 text-[11px] text-gray-300 z-30 text-center">
+                            <span>No se pudo cargar el vídeo. </span>
+                            <label class="text-brand-lightRed underline cursor-pointer font-bold">
+                                Seleccionar archivo de vídeo
+                                <input type="file" accept="video/*" onchange="loadLocalVideo(event, 2)" class="hidden">
+                            </label>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- CARD 2: CUÁNDO? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">¿Cuándo?</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-regular fa-calendar-days"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver fecha</span>
-                        </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Fecha Oficial</span>
-                            <div>
-                                <p class="text-2xl font-black text-white">17</p>
-                                <p class="font-hand text-2xl text-brand-lightRed font-bold">Octubre</p>
-                            </div>
-                            <span class="text-[9px] text-gray-400">Puntualidad</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 3: ACTIVIDAD? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">¿Actividad?</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-solid fa-person-running"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver plan</span>
-                        </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Desafío</span>
-                            <div>
-                                <p class="text-sm font-black text-white">Correr 4 km</p>
-                                <p class="font-hand text-lg text-brand-lightRed font-bold mt-1">Ritmo suave & charla</p>
-                            </div>
-                            <span class="text-[9px] text-gray-400">Para todos los niveles</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 4: Nº PERS? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">Nº pers</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-solid fa-users"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver aforo</span>
-                        </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Aforo Máx</span>
-                            <div>
-                                <p class="text-3xl font-black text-white">12</p>
-                                <p class="font-hand text-xl text-brand-lightRed font-bold">Personas</p>
-                            </div>
-                            <span class="text-[9px] text-gray-400">Networking real</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 5: PRECIO? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">¿Precio?</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-solid fa-tag"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver ticket</span>
-                        </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Coste</span>
-                            <div>
-                                <p class="text-3xl font-black text-white">9€</p>
-                                <p class="font-hand text-lg text-brand-lightRed font-bold mt-0.5">¡Lo incluye todo!</p>
-                            </div>
-                            <span class="text-[9px] text-gray-300">Comida, bebida y acceso</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 6: COMIDA? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">¿Comida?</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-solid fa-utensils"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver menú</span>
-                        </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Menú</span>
-                            <div>
-                                <p class="text-xs sm:text-sm font-extrabold text-white">Bebida + comida</p>
-                                <p class="font-hand text-lg sm:text-xl text-brand-lightRed font-bold mt-0.5">incluida</p>
-                            </div>
-                            <span class="text-[9px] text-gray-400">Todo incluido</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 7: REGALO? -->
-                <div class="flip-card h-44 sm:h-52 perspective-1000 cursor-pointer col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-1" onclick="toggleCard(this)">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front p-3 bg-brand-dark border-2 border-white/10 hover:border-brand-red flex flex-col justify-between items-center text-center shadow-md transition-colors">
-                            <div class="w-full py-1.5 px-2 rounded-lg bg-white/5 border border-white/5">
-                                <span class="font-hand text-lg sm:text-xl font-bold text-white">¿Regalo?</span>
-                            </div>
-                            <div class="h-12 w-12 rounded-full bg-brand-red/10 flex items-center justify-center text-brand-red text-2xl">
-                                <i class="fa-solid fa-gift"></i>
-                            </div>
-                            <span class="text-[10px] text-gray-500 uppercase font-mono">Ver detalle</span>
-                        </div>
-                        <div class="flip-card-back p-3 bg-brand-darkGray border-2 border-brand-red flex flex-col justify-between items-center text-center shadow-lg shadow-brand-red/20">
-                            <span class="text-[11px] font-bold uppercase text-brand-lightRed tracking-wider">Exclusivo</span>
-                            <div>
-                                <p class="text-sm font-extrabold text-white">¡Sorpresa!</p>
-                                <p class="font-hand text-2xl text-brand-lightRed font-bold mt-1">🎁 Top Secret</p>
-                            </div>
-                            <span class="text-[9px] text-gray-400">Para los 12 elegidos</span>
-                        </div>
-                    </div>
+                <!-- Text Block Requested: Exact Copy -->
+                <div class="p-6 sm:p-8 rounded-3xl bg-brand-dark/95 border-2 border-white/10 hover:border-brand-red/60 notebook-card transition-all text-center space-y-3">
+                    <p class="font-extrabold text-xl sm:text-2xl text-white tracking-wide leading-snug">
+                        Personas brutales con un valor real.
+                    </p>
+                    <p class="font-hand text-2xl sm:text-3xl text-brand-lightRed font-bold leading-relaxed">
+                        Por donde entraron salieron con la motivación al cien y con nuevos contactos que determinarán su patrimonio
+                    </p>
                 </div>
 
             </div>
@@ -650,14 +575,73 @@
         </section>
 
         <!-- ==========================================
-             PASO 3: PREGUNTAS FRECUENTES
+             PASO 3: EVENTO #002 MUY PRONTO...
              ========================================== -->
-        <section id="paso-3" class="mb-20 relative pt-6 border-t border-white/5">
+        <section id="paso-3" class="mb-24 relative pt-6 border-t border-white/5">
             
-            <!-- Step Header Box (Numbered circle 3 + Box title) -->
+            <!-- Step Header Box (Numbered circle 3 + Evento #002 Muy pronto...) -->
             <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-10">
                 <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
                     3
+                </div>
+                <div class="flex-1 p-5 sm:p-6 bg-brand-dark/90 sketch-box border-brand-red/40 text-center">
+                    <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight text-white uppercase">
+                        Evento #002
+                    </h2>
+                    <p class="font-hand text-2xl sm:text-3xl text-brand-lightRed font-bold mt-1 tracking-wide">
+                        Muy pronto...
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mystery Teaser Block (Cards removed completely) -->
+            <div class="max-w-2xl mx-auto text-center space-y-6">
+                
+                <div class="p-8 sm:p-12 rounded-3xl bg-brand-dark/90 border-2 border-dashed border-brand-red/50 relative shadow-2xl shadow-brand-red/10 notebook-card space-y-6">
+                    
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-lightRed font-mono text-xs font-bold uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                        <span>Próximamente</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase">
+                            Evento #002
+                        </h3>
+                        <p class="font-hand text-3xl sm:text-4xl text-brand-lightRed font-bold">
+                            Muy pronto...
+                        </p>
+                    </div>
+
+                    <div class="w-24 h-0.5 bg-brand-red/40 mx-auto rounded-full"></div>
+
+                    <p class="text-sm sm:text-base text-gray-300 max-w-md mx-auto leading-relaxed">
+                        No decimos nada más por ahora. Todos los detalles se revelarán exclusivamente dentro de la comunidad de WhatsApp.
+                    </p>
+
+                    <div class="pt-2">
+                        <button onclick="goToWhatsAppGroup()" class="px-8 sm:px-10 py-4 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-base shadow-xl shadow-brand-red/30 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 cursor-pointer group">
+                            <i class="fab fa-whatsapp text-2xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                            <span>Enterarte el primero en WhatsApp</span>
+                            <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+             PASO 4: PREGUNTAS FRECUENTES (AL FINAL)
+             ========================================== -->
+        <section id="paso-4" class="mb-20 relative pt-6 border-t border-white/5">
+            
+            <!-- Step Header Box (Numbered circle 4 + Box title) -->
+            <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-10">
+                <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
+                    4
                 </div>
                 <div class="flex-1 p-5 sm:p-6 bg-brand-dark/90 sketch-box border-brand-red/40 text-center">
                     <h2 class="text-lg sm:text-2xl font-extrabold tracking-tight text-white uppercase">
@@ -770,56 +754,6 @@
 
             </div>
 
-        </section>
-
-        <!-- =========================================================================
-             FINAL SECTION: SOLICITAR PLAZA PARA EL EVENTO DE EL PARDO (ÚLTIMO BLOQUE)
-             ========================================================================= -->
-        <section class="relative pt-6 border-t border-white/5">
-            <div class="max-w-2xl mx-auto text-center space-y-6">
-                
-                <!-- Hand-drawn arrow pointing to final CTA -->
-                <div class="flex justify-center -mb-2">
-                    <svg class="w-8 h-12 text-brand-red animate-bounce" viewBox="0 0 40 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 5 Q18 30 20 50" />
-                        <path d="M10 40 L20 52 L30 40" />
-                    </svg>
-                </div>
-
-                <!-- Main Event Button: Links directly to WhatsApp questionnaire -->
-                <div>
-                    <button onclick="goToWhatsAppGroup()" class="px-8 sm:px-12 py-5 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-base sm:text-lg shadow-2xl shadow-brand-red/30 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 cursor-pointer group">
-                        <i class="fab fa-whatsapp text-2xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                        <span>Solicitar plaza para el evento de El Pardo</span>
-                        <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </div>
-
-                <!-- Clean, highlighted event ticket notice -->
-                <div class="p-6 sm:p-8 rounded-3xl bg-brand-dark/90 border-2 border-dashed border-brand-red/40 relative shadow-xl notebook-card text-left sm:text-center space-y-3">
-                    
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/20 text-brand-lightRed text-xs font-bold uppercase tracking-wider mb-1">
-                        <i class="fa-solid fa-circle-exclamation text-xs"></i>
-                        <span>Aviso Importante</span>
-                    </div>
-
-                    <p class="text-base sm:text-lg font-bold text-white leading-snug">
-                        Enlace de compra únicamente por WhatsApp <br class="hidden sm:inline">
-                        <span class="text-brand-lightRed font-normal">(solo para miembros de la comunidad)</span>
-                    </p>
-
-                    <div class="py-2">
-                        <div class="inline-block px-5 py-2.5 rounded-xl bg-black/60 border border-white/10 text-white font-mono text-sm sm:text-base font-bold shadow-inner">
-                            📅 Fecha de lanzamiento compra: <span class="text-brand-lightRed font-black">1 de octubre</span>
-                        </div>
-                    </div>
-
-                    <p class="font-hand text-xl sm:text-2xl text-gray-300 pt-1 leading-relaxed">
-                        Mientras tanto puedes ir uniéndote e ir conociendo a estas personas, con cositas interesantes :)
-                    </p>
-                </div>
-
-            </div>
         </section>
 
     </main>
@@ -1008,42 +942,39 @@
                     <!-- Botón de Envío Directo por WhatsApp -->
                     <button type="submit" id="quiz-submit-btn" class="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-base shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center space-x-2 cursor-pointer">
                         <i class="fab fa-whatsapp text-xl"></i>
-                        <span>Enviar Respuestas por WhatsApp y Acceder</span>
+                        <span>Enviar Respuestas por WhatsApp</span>
                     </button>
                 </form>
 
-                <!-- Estado de Éxito / Redirección al Grupo Oficial de WhatsApp -->
-                <div id="quiz-success" class="hidden py-4 flex flex-col items-center justify-center text-center space-y-4">
-                    <div class="h-16 w-16 rounded-full bg-emerald-500/20 border-2 border-emerald-500 text-emerald-400 text-3xl flex items-center justify-center animate-bounce">
-                        <i class="fa-solid fa-paper-plane"></i>
+                <!-- Estado de Espera / Confirmación -->
+                <div id="quiz-success" class="hidden py-6 flex flex-col items-center justify-center text-center space-y-5">
+                    <div class="h-16 w-16 rounded-full bg-brand-red/15 border-2 border-brand-red text-brand-lightRed text-3xl flex items-center justify-center animate-wiggle">
+                        <i class="fa-solid fa-hourglass-half"></i>
                     </div>
 
-                    <div class="space-y-1">
-                        <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                    <div class="space-y-2">
+                        <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-lightRed text-xs font-bold uppercase tracking-wider">
                             <i class="fa-solid fa-check"></i>
-                            <span>Mensaje generado</span>
+                            <span>Respuestas enviadas</span>
                         </span>
-                        <h4 class="text-2xl font-black text-white pt-2">¡Paso 1 completado!</h4>
-                        <p class="text-sm text-gray-300 max-w-md leading-relaxed">
-                            Se ha abierto WhatsApp con tus respuestas redactadas para el número <strong class="text-white">+34 623 179 849</strong>. Solo dale a "Enviar" en el chat.
+                        <h4 class="text-2xl sm:text-3xl font-black text-white pt-1">¡Candidatura recibida!</h4>
+                    </div>
+
+                    <!-- Mensaje de espera con flow -->
+                    <div class="w-full p-6 sm:p-7 rounded-2xl bg-black/60 border-2 border-dashed border-brand-red/40 text-center space-y-3">
+                        <p class="font-hand text-2xl sm:text-3xl text-brand-lightRed font-bold leading-snug">
+                            Espera a ser atendido con flow para poder entrar a la comunidad
+                        </p>
+                        <p class="text-xs sm:text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
+                            Revisamos cada mensaje uno a uno para mantener el nivel y la vibra del grupo. Te responderemos personalmente por WhatsApp con tu acceso si eres seleccionado.
                         </p>
                     </div>
 
-                    <!-- Paso 2: Botón directo para unirse al grupo oficial de la comunidad -->
-                    <div class="w-full p-6 rounded-2xl bg-black/60 border-2 border-dashed border-emerald-500/40 text-center space-y-3">
-                        <p class="font-hand text-xl sm:text-2xl text-white font-bold leading-tight">
-                            Ahora solo te queda entrar al grupo oficial de la comunidad:
-                        </p>
-                        <a id="direct-wa-link" href="https://chat.whatsapp.com/EF7Mj65aFBQDp5NC7jluvk" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-base transition-transform hover:scale-105 inline-flex items-center justify-center space-x-3 shadow-xl shadow-emerald-500/25">
-                            <i class="fab fa-whatsapp text-2xl"></i>
-                            <span>Entrar al grupo oficial de WhatsApp</span>
-                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                    <div class="pt-2">
+                        <a href="#" id="retry-send-link" target="_blank" class="text-xs text-gray-400 hover:text-brand-lightRed transition-colors underline font-medium">
+                            ¿No se te abrió WhatsApp automáticamente? Pulsa aquí para reenviar el mensaje
                         </a>
                     </div>
-
-                    <p class="text-xs text-gray-500 pt-1">
-                        ¿No se te abrió el chat para enviar tus respuestas? <a href="#" id="retry-send-link" target="_blank" class="text-brand-lightRed underline font-bold">Pulsa aquí para abrirlo manualmente</a>.
-                    </p>
                 </div>
 
             </div>
@@ -1052,83 +983,117 @@
     </div>
 
     <script>
-        // Enlace del grupo de WhatsApp oficial y teléfono del organizador
-        const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/EF7Mj65aFBQDp5NC7jluvk";
+        // Enlace y teléfono del organizador
         const ADMIN_PHONE = "34623179849";
 
-        // Video Player Controls Logic
-        const videoEl = document.getElementById('main-reel-video');
-        const playOverlay = document.getElementById('video-play-overlay');
-        const playIcon = document.getElementById('play-icon');
-        const controlPlayIcon = document.getElementById('control-play-icon');
-        const videoProgress = document.getElementById('video-progress');
-        const volumeIcon = document.getElementById('volume-icon');
-        const videoHint = document.getElementById('video-local-hint');
+        // Multi-Video Controllers Logic
+        const videos = {
+            1: {
+                el: document.getElementById('main-reel-video'),
+                overlay: document.getElementById('video-play-overlay-1'),
+                playIcon: document.getElementById('play-icon-1'),
+                controlPlayIcon: document.getElementById('control-play-icon-1'),
+                progress: document.getElementById('video-progress-1'),
+                volumeIcon: document.getElementById('volume-icon-1'),
+                hint: document.getElementById('video-local-hint-1')
+            },
+            2: {
+                el: document.getElementById('evento-001-video'),
+                overlay: document.getElementById('video-play-overlay-2'),
+                playIcon: document.getElementById('play-icon-2'),
+                controlPlayIcon: document.getElementById('control-play-icon-2'),
+                progress: document.getElementById('video-progress-2'),
+                volumeIcon: document.getElementById('volume-icon-2'),
+                hint: document.getElementById('video-local-hint-2')
+            }
+        };
 
-        if (videoEl) {
-            videoEl.addEventListener('error', () => {
-                if (videoHint) videoHint.classList.remove('hidden');
+        // Attach listeners to both players
+        [1, 2].forEach(id => {
+            const v = videos[id];
+            if (!v.el) return;
+
+            v.el.addEventListener('error', () => {
+                if (v.hint) v.hint.classList.remove('hidden');
             });
 
-            videoEl.addEventListener('timeupdate', () => {
-                if (videoEl.duration) {
-                    const percent = (videoEl.currentTime / videoEl.duration) * 100;
-                    videoProgress.style.width = percent + '%';
+            v.el.addEventListener('timeupdate', () => {
+                if (v.el.duration) {
+                    const percent = (v.el.currentTime / v.el.duration) * 100;
+                    if (v.progress) v.progress.style.width = percent + '%';
                 }
             });
 
-            videoEl.addEventListener('ended', () => {
-                playOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                playIcon.className = "fa-solid fa-rotate-right text-2xl ml-0 text-white";
-                controlPlayIcon.className = "fa-solid fa-rotate-right";
+            v.el.addEventListener('ended', () => {
+                if (v.overlay) v.overlay.classList.remove('opacity-0', 'pointer-events-none');
+                if (v.playIcon) v.playIcon.className = "fa-solid fa-rotate-right text-2xl ml-0 text-white";
+                if (v.controlPlayIcon) v.controlPlayIcon.className = "fa-solid fa-rotate-right";
             });
-        }
+        });
 
-        function toggleVideoPlay() {
-            if (!videoEl) return;
-            if (videoEl.paused) {
-                videoEl.play().then(() => {
-                    playOverlay.classList.add('opacity-0', 'pointer-events-none');
-                    controlPlayIcon.className = "fa-solid fa-pause";
+        function toggleVideoPlay(id = 1) {
+            const v = videos[id];
+            if (!v || !v.el) return;
+
+            // Pause the other video if playing
+            const otherId = id === 1 ? 2 : 1;
+            const otherV = videos[otherId];
+            if (otherV && otherV.el && !otherV.el.paused) {
+                otherV.el.pause();
+                if (otherV.overlay) otherV.overlay.classList.remove('opacity-0', 'pointer-events-none');
+                if (otherV.playIcon) otherV.playIcon.className = "fa-solid fa-play text-2xl ml-1 text-white";
+                if (otherV.controlPlayIcon) otherV.controlPlayIcon.className = "fa-solid fa-play";
+            }
+
+            if (v.el.paused) {
+                v.el.play().then(() => {
+                    if (v.overlay) v.overlay.classList.add('opacity-0', 'pointer-events-none');
+                    if (v.controlPlayIcon) v.controlPlayIcon.className = "fa-solid fa-pause";
                 }).catch(() => {});
             } else {
-                videoEl.pause();
-                playOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                playIcon.className = "fa-solid fa-play text-2xl ml-1 text-white";
-                controlPlayIcon.className = "fa-solid fa-play";
+                v.el.pause();
+                if (v.overlay) v.overlay.classList.remove('opacity-0', 'pointer-events-none');
+                if (v.playIcon) v.playIcon.className = "fa-solid fa-play text-2xl ml-1 text-white";
+                if (v.controlPlayIcon) v.controlPlayIcon.className = "fa-solid fa-play";
             }
         }
 
-        function toggleMute() {
-            if (!videoEl) return;
-            videoEl.muted = !videoEl.muted;
-            volumeIcon.className = videoEl.muted ? "fa-solid fa-volume-xmark text-brand-red" : "fa-solid fa-volume-high";
-        }
-
-        function toggleFullscreen() {
-            if (!videoEl) return;
-            if (videoEl.requestFullscreen) {
-                videoEl.requestFullscreen();
-            } else if (videoEl.webkitRequestFullscreen) {
-                videoEl.webkitRequestFullscreen();
+        function toggleMute(id = 1) {
+            const v = videos[id];
+            if (!v || !v.el) return;
+            v.el.muted = !v.el.muted;
+            if (v.volumeIcon) {
+                v.volumeIcon.className = v.el.muted ? "fa-solid fa-volume-xmark text-brand-red" : "fa-solid fa-volume-high";
             }
         }
 
-        function seekVideo(e) {
-            if (!videoEl || !videoEl.duration) return;
+        function toggleFullscreen(id = 1) {
+            const v = videos[id];
+            if (!v || !v.el) return;
+            if (v.el.requestFullscreen) {
+                v.el.requestFullscreen();
+            } else if (v.el.webkitRequestFullscreen) {
+                v.el.webkitRequestFullscreen();
+            }
+        }
+
+        function seekVideo(e, id = 1) {
+            const v = videos[id];
+            if (!v || !v.el || !v.el.duration) return;
             const rect = e.currentTarget.getBoundingClientRect();
             const pos = (e.clientX - rect.left) / rect.width;
-            videoEl.currentTime = pos * videoEl.duration;
+            v.el.currentTime = pos * v.el.duration;
         }
 
-        function loadLocalVideo(e) {
+        function loadLocalVideo(e, id = 1) {
             const file = e.target.files[0];
-            if (file && videoEl) {
-                videoEl.src = URL.createObjectURL(file);
-                if (videoHint) videoHint.classList.add('hidden');
-                videoEl.play().then(() => {
-                    playOverlay.classList.add('opacity-0', 'pointer-events-none');
-                    controlPlayIcon.className = "fa-solid fa-pause";
+            const v = videos[id];
+            if (file && v && v.el) {
+                v.el.src = URL.createObjectURL(file);
+                if (v.hint) v.hint.classList.add('hidden');
+                v.el.play().then(() => {
+                    if (v.overlay) v.overlay.classList.add('opacity-0', 'pointer-events-none');
+                    if (v.controlPlayIcon) v.controlPlayIcon.className = "fa-solid fa-pause";
                 });
             }
         }
@@ -1143,10 +1108,8 @@
         const registrationModalBox = document.getElementById('registration-modal-box');
         const quizForm = document.getElementById('whatsapp-quiz-form');
         const quizSuccess = document.getElementById('quiz-success');
-        const directWaLink = document.getElementById('direct-wa-link');
 
         function openRegistrationModal() {
-            if (directWaLink) directWaLink.href = WHATSAPP_GROUP_URL;
             registrationModal.classList.remove('opacity-0', 'pointer-events-none');
             registrationModalBox.classList.remove('scale-95');
             registrationModalBox.classList.add('scale-100');
@@ -1171,7 +1134,7 @@
             badge.textContent = `${val} / 10 ${emoji}`;
         }
 
-        // Enviar respuestas por WhatsApp al 623179849 y preparar el enlace al grupo oficial
+        // Enviar respuestas por WhatsApp al número de recepción y mostrar estado de espera
         function handleRegistrationSubmit(event) {
             event.preventDefault();
             const form = event.target;
@@ -1185,7 +1148,6 @@
             const mindset = formData.get('surrounded_by_mindset') || '';
             const motivation = formData.get('motivation') || '';
 
-            // Construir el mensaje formateado con emojis para WhatsApp al número del organizador
             const message = `👋 *¡Hola! Quiero entrar en myflowxx*\n\n` +
                 `👤 *Nombre y Apellidos:* ${fullname}\n` +
                 `📧 *Email:* ${email}\n` +
@@ -1197,22 +1159,14 @@
 
             const waDirectUrl = `https://api.whatsapp.com/send?phone=${ADMIN_PHONE}&text=${encodeURIComponent(message)}`;
 
-            // Configurar enlace de reintento manual si hiciera falta
             const retryLink = document.getElementById('retry-send-link');
             if (retryLink) {
                 retryLink.href = waDirectUrl;
             }
 
-            // Asegurar que el botón de paso final lleve al grupo oficial
-            if (directWaLink) {
-                directWaLink.href = WHATSAPP_GROUP_URL;
-            }
-
-            // Ocultar formulario y mostrar la pantalla de paso final
             form.classList.add('hidden');
             quizSuccess.classList.remove('hidden');
 
-            // Abrir WhatsApp en pestaña nueva con el mensaje listo para enviar al 623179849
             window.open(waDirectUrl, '_blank');
         }
 
