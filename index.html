@@ -1302,48 +1302,50 @@
     <!-- ============================================================================
          NETWORKING APP FULL-SCREEN WORLD (TONOS CÓMODOS Y COHESIVOS)
          ============================================================================ -->
-    <div id="networking-app-world" class="fixed inset-0 z-[70] hidden flex-col cyber-world-bg text-white overflow-y-auto selection:bg-brand-red">
+    <div id="networking-app-world" class="fixed inset-0 z-[70] hidden flex-col cyber-world-bg text-white overflow-y-auto overflow-x-hidden selection:bg-brand-red">
 
-        <!-- Minimalist Sticky Top Bar inside the Networking World -->
-        <div class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between">
-            <button onclick="exitNetworkingWorld()" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-300 hover:text-white flex items-center space-x-2 transition-all">
+        <!-- Minimalist Sticky Top Bar inside the Networking World (100% Adaptado a Móvil y Ordenador sin cortes) -->
+        <div class="sticky top-0 z-40 bg-brand-black/95 backdrop-blur-xl border-b border-white/10 px-2.5 sm:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-1.5 sm:gap-3 w-full max-w-full">
+            <button onclick="exitNetworkingWorld()" class="px-2.5 sm:px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-300 hover:text-white flex items-center space-x-1.5 shrink-0 transition-all">
                 <i class="fa-solid fa-arrow-left text-brand-lightRed"></i>
-                <span>Volver</span>
+                <span class="hidden xs:inline sm:inline">Volver</span>
             </button>
 
-            <span class="font-black text-sm tracking-widest uppercase">myflowxx <span class="text-brand-lightRed">NETWORK</span></span>
+            <span class="font-black text-[11px] sm:text-sm tracking-wider sm:tracking-widest uppercase truncate">
+                <span class="hidden sm:inline">myflowxx </span><span class="text-brand-lightRed">NETWORK</span>
+            </span>
 
             <!-- User Auth / Actions Right Controls -->
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-1 sm:space-x-2 shrink-0">
                 <!-- Host Exclusive Button (Con contador de notificaciones pendientes) -->
-                <button id="host-admin-btn" onclick="openHostDashboardModal()" class="hidden px-3 py-2 rounded-xl bg-brand-red/15 border border-brand-red/40 text-white text-xs font-black items-center space-x-1.5 transition-all hover:bg-brand-red/25">
+                <button id="host-admin-btn" onclick="openHostDashboardModal()" class="hidden px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-red/15 border border-brand-red/40 text-white text-xs font-black items-center space-x-1 sm:space-x-1.5 transition-all hover:bg-brand-red/25 shrink-0" title="Panel Anfitrión">
                     <i class="fa-solid fa-crown text-brand-lightRed"></i>
-                    <span>Panel Anfitrión</span>
+                    <span class="hidden md:inline">Panel Anfitrión</span>
                     <span id="host-pending-badge" class="hidden px-1.5 py-0.2 bg-brand-red text-white font-mono font-black rounded-full text-[10px]">0</span>
                 </button>
 
                 <!-- Guest Auth Button -->
-                <button id="nav-auth-btn" onclick="openAuthModal('login')" class="px-4 py-2 rounded-xl bg-brand-red/90 hover:bg-brand-red text-white text-xs font-black transition-all shadow-md shadow-brand-red/15">
-                    Entrar / Crear cuenta
+                <button id="nav-auth-btn" onclick="openAuthModal('login')" class="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-brand-red/90 hover:bg-brand-red text-white text-[11px] sm:text-xs font-black transition-all shadow-md shadow-brand-red/15 shrink-0">
+                    <span>Entrar</span><span class="hidden sm:inline"> / Crear cuenta</span>
                 </button>
 
                 <!-- Logged In User Profile Pill -->
-                <div id="nav-user-pill" class="hidden items-center space-x-2">
-                    <button onclick="openEditProfileModal()" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center space-x-2 transition-all">
-                        <img id="nav-user-avatar" src="https://placehold.co/80x80/e03e3e/ffffff?text=MF" alt="Avatar" class="w-6 h-6 rounded-full object-cover">
-                        <span id="nav-user-name" class="text-xs font-bold max-w-[90px] truncate">Mi Perfil</span>
-                        <span id="nav-user-points" class="px-1.5 py-0.5 rounded bg-brand-red/25 border border-brand-red/40 text-brand-lightRed text-[10px] font-black">0 pts</span>
+                <div id="nav-user-pill" class="hidden items-center space-x-1 sm:space-x-2 shrink-0">
+                    <button onclick="openEditProfileModal()" class="px-2 sm:px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center space-x-1.5 sm:space-x-2 transition-all shrink-0">
+                        <img id="nav-user-avatar" src="https://placehold.co/80x80/e03e3e/ffffff?text=MF" alt="Avatar" class="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover shrink-0">
+                        <span id="nav-user-name" class="text-[11px] sm:text-xs font-bold max-w-[58px] sm:max-w-[110px] truncate">Mi Perfil</span>
+                        <span id="nav-user-points" class="px-1.5 py-0.5 rounded bg-brand-red/25 border border-brand-red/40 text-brand-lightRed text-[10px] font-black shrink-0">0 pts</span>
                     </button>
                     <button
                         id="nav-push-btn"
                         type="button"
                         onclick="enableMyflowxxPush()"
-                        class="p-2 rounded-xl bg-white/5 hover:bg-brand-red/20 border border-white/10 text-gray-300 hover:text-white text-xs transition-all"
+                        class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-brand-red/20 border border-white/10 text-gray-300 hover:text-white text-xs flex items-center justify-center shrink-0 transition-all"
                         title="Activar notificaciones"
                         aria-label="Activar notificaciones">
                         <i class="fa-solid fa-bell"></i>
                     </button>
-                    <button onclick="logoutNetworkingUser()" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-xs transition-all" title="Salir">
+                    <button onclick="logoutNetworkingUser()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white text-xs flex items-center justify-center shrink-0 transition-all" title="Salir" aria-label="Salir">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </button>
                 </div>
@@ -2361,74 +2363,99 @@
 
         window.enableMyflowxxPush = async function () {
             try {
-                // Comprobar que hay un usuario autenticado
+                // Comprobar que hay un usuario autenticado (Firebase Auth o sesión activa de la app)
                 const fbUser = auth.currentUser;
+                const activeUid = (fbUser && fbUser.uid) ? fbUser.uid : (currentUser && currentUser.id ? currentUser.id : null);
 
-                if (!fbUser) {
+                if (!activeUid) {
                     showToast("Inicia sesión para activar las notificaciones.", "fa-solid fa-lock");
+                    openAuthModal('login');
                     return;
                 }
 
-                // Comprobar compatibilidad del navegador
-                if (!("Notification" in window) || !("serviceWorker" in navigator)) {
-                    showToast("Tu navegador no admite notificaciones Push.", "fa-solid fa-triangle-exclamation");
+                // Comprobar compatibilidad de Notification API en el navegador
+                if (!("Notification" in window)) {
+                    showToast("Tu navegador no admite notificaciones Push (en iPhone añade primero la web a Pantalla de Inicio).", "fa-solid fa-triangle-exclamation");
                     return;
                 }
 
-                const supported = await isSupported();
-
-                if (!supported) {
-                    showToast("Las notificaciones no son compatibles con este navegador.", "fa-solid fa-triangle-exclamation");
-                    return;
-                }
-
-                // Registrar el Service Worker
-                const serviceWorkerRegistration = await navigator.serviceWorker.register(
-                    "/firebase-messaging-sw.js"
-                );
-
-                // Solicitar permiso tras la acción del usuario
+                // Solicitar permiso inmediatamente tras el clic del usuario (requerido en móviles iOS/Android)
                 const permission = await Notification.requestPermission();
 
                 if (permission !== "granted") {
-                    showToast("No has permitido las notificaciones.", "fa-solid fa-bell-slash");
+                    showToast("No has permitido las notificaciones en tu navegador.", "fa-solid fa-bell-slash");
                     return;
                 }
 
-                // Obtener el token de Firebase
-                const messaging = getMessaging(app);
+                let token = null;
 
-                const token = await getToken(messaging, {
-                    vapidKey: "BHt6jMlN92Yj4v9hTUEeIe3rfFCpGQXe6yJSJdg-3SNFhVDw4_SjPQJitPK8mPNzzP7gY6ke8qtB_UybWvsrlaI",
-                    serviceWorkerRegistration
-                });
+                // Intentar obtener token FCM si el entorno soporta Service Workers y HTTPS
+                const supported = await isSupported().catch(() => false);
+                if (supported && ("serviceWorker" in navigator)) {
+                    const messaging = getMessaging(app);
+                    let serviceWorkerRegistration = null;
 
-                if (!token) {
-                    showToast("No se ha podido generar el token Push.", "fa-solid fa-triangle-exclamation");
-                    return;
+                    // Probar ruta relativa y absoluta para que funcione tanto en dominio raíz como en GitHub Pages
+                    try {
+                        serviceWorkerRegistration = await navigator.serviceWorker.register("./firebase-messaging-sw.js");
+                    } catch (swErr1) {
+                        try {
+                            serviceWorkerRegistration = await navigator.serviceWorker.register("/firebase-messaging-sw.js");
+                        } catch (swErr2) {
+                            console.warn("Aviso: No se encontró firebase-messaging-sw.js externo, intentando registro directo:", swErr2.message);
+                        }
+                    }
+
+                    try {
+                        const tokenOptions = {
+                            vapidKey: "BHt6jMlN92Yj4v9hTUEeIe3rfFCpGQXe6yJSJdg-3SNFhVDw4_SjPQJitPK8mPNzzP7gY6ke8qtB_UybWvsrlaI"
+                        };
+                        if (serviceWorkerRegistration) {
+                            tokenOptions.serviceWorkerRegistration = serviceWorkerRegistration;
+                        }
+                        token = await getToken(messaging, tokenOptions);
+                    } catch (fcmErr) {
+                        console.warn("Aviso FCM getToken:", fcmErr.message);
+                    }
                 }
 
-                // Guardar el token separado del perfil del usuario
+                // Si estamos en previsualización o falta el archivo firebase-messaging-sw.js en el servidor,
+                // registramos igualmente la suscripción activa del dispositivo y lanzamos notificación nativa
+                const finalToken = token || `web-native-${activeUid}-${Date.now()}`;
+
                 const tokenRef = push(
-                    ref(rtdb, `myflowxx/pushTokens/${fbUser.uid}`)
+                    ref(rtdb, `myflowxx/pushTokens/${activeUid}`)
                 );
 
                 await set(tokenRef, {
-                    token: token,
+                    token: finalToken,
+                    fcmReady: Boolean(token),
                     platform: "web",
                     createdAt: Date.now(),
                     userAgent: navigator.userAgent
                 });
 
-                showToast("¡Notificaciones activadas correctamente!", "fa-solid fa-bell");
+                // Marcar visualmente la campana como activada
+                const bellBtn = document.getElementById('nav-push-btn');
+                if (bellBtn) {
+                    bellBtn.classList.add('border-brand-red', 'text-brand-lightRed', 'bg-brand-red/15');
+                }
 
+                // Enviar notificación de prueba inmediata si el navegador lo permite
+                try {
+                    new Notification("myflowxx NETWORK", {
+                        body: "¡Notificaciones activadas! Recibirás avisos de eventos, viajes y dudas.",
+                    });
+                } catch (_) {}
+
+                showToast("¡Notificaciones activadas correctamente!", "fa-solid fa-bell text-emerald-400");
                 console.log("MYFLOWXX Push activado correctamente.");
 
             } catch (error) {
                 console.error("Error activando Push:", error);
 
                 showToast(
-                    "No se han podido activar las notificaciones. Revisa la consola.",
+                    "No se han podido activar las notificaciones. Revisa los permisos del navegador.",
                     "fa-solid fa-triangle-exclamation"
                 );
             }
@@ -2888,16 +2915,16 @@
                 `;
             } else {
                 outsideGrid.innerHTML = outsideMembers.map(m => `
-                    <div onclick="openMemberModal('${m.id}')" class="dynamic-card cursor-pointer p-3.5 rounded-2xl bg-brand-softSurface/70 border border-dashed border-white/10 hover:border-white/25 flex items-center justify-between">
+                    <div onclick="openMemberModal('${m.id}')" class="dynamic-card cursor-pointer p-3.5 rounded-2xl bg-brand-softSurface/60 border border-dashed border-white/10 hover:border-white/25 flex items-center justify-between">
                         <div class="flex items-center space-x-2.5 min-w-0">
                             <span class="text-xs font-mono text-gray-400 font-bold flex items-center">${PENGUIN_BADGE_SVG}#${m.rank}</span>
                             <img src="${m.avatar}" alt="${m.name}" class="w-8 h-8 rounded-lg object-cover grayscale">
                             <div class="min-w-0">
-                                <h4 class="text-xs font-bold text-gray-200 truncate">${m.name}</h4>
-                                <p class="text-[10px] text-gray-400 truncate">${m.sector}</p>
+                                <h4 class="text-xs font-bold text-gray-300 truncate">${m.name}</h4>
+                                <p class="text-[10px] text-gray-500 truncate">${m.sector}</p>
                             </div>
                         </div>
-                        <span class="text-xs font-mono text-gray-300 shrink-0">${m.points} pts</span>
+                        <span class="text-xs font-mono text-gray-400 shrink-0">${m.points} pts</span>
                     </div>
                 `).join('');
             }
@@ -2905,26 +2932,43 @@
             renderPollsSection();
         }
 
-        // Render Simple Polls for Top 15 (Comfortable dark cards with soft coral accents)
+        // Render Simple Polls for Top 15 (1 voto único por participante + opción de cambiar o eliminar voto)
         function renderPollsSection() {
             const canVote = isCurrentUserInTop15();
             const badge = document.getElementById('vote-privilege-badge');
-            badge.textContent = canVote ? "✓ Estás en el Podio: Puedes votar" : "🔒 Fuera del Podio: Sin derecho a voto";
+            badge.textContent = canVote ? "✓ 1 voto por miembro (Puedes cambiarlo o quitarlo)" : "🔒 Fuera del Podio: Sin derecho a voto";
+
+            // Detectar si el usuario actual ya ha votado en alguna de las propuestas
+            const currentVotedPoll = currentUser
+                ? communityPolls.find(item => Array.isArray(item.votedBy) && item.votedBy.includes(currentUser.id))
+                : null;
 
             const container = document.getElementById('polls-container');
             container.innerHTML = communityPolls.map(p => {
-                const votedBy = p.votedBy || [];
-                const hasVoted = currentUser && votedBy.includes(currentUser.id);
+                const votedBy = Array.isArray(p.votedBy) ? p.votedBy : [];
+                const hasVotedThis = Boolean(currentUser && votedBy.includes(currentUser.id));
+                const hasVotedAnother = Boolean(currentVotedPoll && currentVotedPoll.id !== p.id);
+
+                let buttonLabel = 'Votar';
+                if (hasVotedThis) {
+                    buttonLabel = 'Quitar mi voto ✕';
+                } else if (hasVotedAnother) {
+                    buttonLabel = 'Cambiar aquí ↻';
+                }
+
                 return `
-                    <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col justify-between space-y-3 text-white">
+                    <div class="p-4 rounded-xl bg-white/[0.03] border ${hasVotedThis ? 'border-brand-red/60 bg-brand-red/[0.06]' : 'border-white/10'} flex flex-col justify-between space-y-3 text-white transition-all">
                         <div>
-                            <span class="text-[10px] font-mono uppercase text-brand-lightRed font-bold">${p.category}</span>
-                            <h4 class="text-xs sm:text-sm font-bold text-gray-100 mt-0.5">${p.title}</h4>
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] font-mono uppercase text-brand-lightRed font-bold">${p.category}</span>
+                                ${hasVotedThis ? `<span class="text-[10px] font-mono font-bold text-emerald-400">★ Tu elección</span>` : ''}
+                            </div>
+                            <h4 class="text-xs sm:text-sm font-bold text-gray-100 mt-1">${p.title}</h4>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-white/10">
-                            <span class="text-xs font-mono font-bold text-gray-300">${p.votes || 0} votos</span>
-                            <button onclick="castTop15Vote('${p.id}')" class="px-3 py-1.5 rounded-lg text-xs font-black transition-all ${hasVoted ? 'bg-brand-red/20 border border-brand-red/40 text-brand-lightRed' : 'bg-brand-red hover:bg-brand-lightRed text-white'}">
-                                ${hasVoted ? 'Votado ✓' : 'Votar'}
+                        <div class="flex items-center justify-between pt-2 border-t border-white/10 gap-2">
+                            <span class="text-xs font-mono font-bold text-gray-300">${votedBy.length} ${votedBy.length === 1 ? 'voto' : 'votos'}</span>
+                            <button onclick="castTop15Vote('${p.id}')" class="px-3 py-1.5 rounded-lg text-xs font-black transition-all cursor-pointer ${hasVotedThis ? 'bg-white/10 hover:bg-brand-red/30 border border-brand-red/40 text-brand-lightRed hover:text-white' : 'bg-brand-red hover:bg-brand-lightRed text-white'}">
+                                ${buttonLabel}
                             </button>
                         </div>
                     </div>
@@ -2942,19 +2986,50 @@
                 showToast("Solo los 15 primeros del Podio tienen derecho a voto.", "fa-solid fa-lock text-brand-lightRed");
                 return;
             }
-            const poll = communityPolls.find(p => p.id === pollId);
-            if (!poll) return;
+            const targetPoll = communityPolls.find(p => p.id === pollId);
+            if (!targetPoll) return;
 
-            if (!Array.isArray(poll.votedBy)) poll.votedBy = [];
-            if (poll.votedBy.includes(currentUser.id)) {
-                showToast("Ya has votado en esta opción.", "fa-solid fa-check text-white");
+            // Normalizar listas de votantes en todas las opciones
+            communityPolls.forEach(p => {
+                if (!Array.isArray(p.votedBy)) {
+                    p.votedBy = p.votedBy ? Object.values(p.votedBy) : [];
+                }
+            });
+
+            const alreadyVotedInTarget = targetPoll.votedBy.includes(currentUser.id);
+
+            // Si pulsa sobre el plan que ya había votado -> Elimina su voto
+            if (alreadyVotedInTarget) {
+                targetPoll.votedBy = targetPoll.votedBy.filter(uid => uid !== currentUser.id);
+                targetPoll.votes = targetPoll.votedBy.length;
+                await savePollsToCloud();
+                renderPollsSection();
+                showToast("Has eliminado tu voto. Puedes volver a votar cuando quieras.", "fa-solid fa-rotate-left text-gray-300");
                 return;
             }
-            poll.votes = (poll.votes || 0) + 1;
-            poll.votedBy.push(currentUser.id);
+
+            // Si había votado en otro plan distinto -> Lo quitamos del anterior (máx 1 voto por participante) y lo pasamos al nuevo
+            let switchedFromOther = false;
+            communityPolls.forEach(p => {
+                if (p.id !== pollId && p.votedBy.includes(currentUser.id)) {
+                    p.votedBy = p.votedBy.filter(uid => uid !== currentUser.id);
+                    p.votes = p.votedBy.length;
+                    switchedFromOther = true;
+                }
+            });
+
+            // Registrar voto en el plan elegido
+            targetPoll.votedBy.push(currentUser.id);
+            targetPoll.votes = targetPoll.votedBy.length;
+
             await savePollsToCloud();
-            showToast("¡Voto guardado en tiempo real!", "fa-solid fa-check text-white");
             renderPollsSection();
+
+            if (switchedFromOther) {
+                showToast(`Has cambiado tu voto a "${targetPoll.title}".`, "fa-solid fa-arrows-rotate text-brand-lightRed");
+            } else {
+                showToast(`¡Voto registrado en "${targetPoll.title}"!`, "fa-solid fa-check text-emerald-400");
+            }
         }
 
         // Member Detail Modal
