@@ -30,10 +30,13 @@
                             dark: '#0b0b10',
                             paper: '#0f0f16',
                             darkGray: '#151522',
-                            red: '#ff1111',
-                            lightRed: '#ff4444',
+                            red: '#e03e3e',
+                            lightRed: '#f06565',
+                            softSurface: '#13131d',
+                            softRedBg: 'rgba(224, 62, 62, 0.08)',
+                            softRedBorder: 'rgba(224, 62, 62, 0.26)',
                             grid: 'rgba(255, 255, 255, 0.045)',
-                            gridLineRed: 'rgba(255, 17, 17, 0.12)',
+                            gridLineRed: 'rgba(224, 62, 62, 0.12)',
                             ink: '#ffffff',
                             inkMuted: '#94a3b8'
                         }
@@ -78,12 +81,12 @@
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .sketch-box:hover {
-            border-color: #ff1111;
-            box-shadow: 0 0 20px rgba(255, 17, 17, 0.2);
+            border-color: #e03e3e;
+            box-shadow: 0 0 20px rgba(224, 62, 62, 0.18);
         }
 
         .sketch-pill {
-            border: 2px solid #ff1111;
+            border: 2px solid #e03e3e;
             border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
         }
 
@@ -141,9 +144,9 @@
             100% { transform: rotate(var(--angle)) translateY(-550px) scaleY(3.2); opacity: 0; }
         }
         @keyframes portalCorePulse {
-            0% { transform: scale(0.82); filter: drop-shadow(0 0 15px rgba(255,17,17,0.4)); }
-            50% { transform: scale(1.06); filter: drop-shadow(0 0 45px rgba(255,17,17,0.95)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 25px rgba(255,17,17,0.6)); }
+            0% { transform: scale(0.82); filter: drop-shadow(0 0 15px rgba(224,62,62,0.4)); }
+            50% { transform: scale(1.06); filter: drop-shadow(0 0 45px rgba(224,62,62,0.85)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 25px rgba(224,62,62,0.5)); }
         }
         @keyframes portalFlashOut {
             0%, 82% { opacity: 1; transform: scale(1); }
@@ -163,13 +166,13 @@
             animation: portalFlashOut 2.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        /* Minimalist Dark World Grid for Networking App */
+        /* Comfortable Dark World Grid for Networking App (Softened warm ambient glow) */
         .cyber-world-bg {
-            background-color: #040406;
+            background-color: #07070b;
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(255, 17, 17, 0.14), transparent 55%),
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+                radial-gradient(circle at 50% 0%, rgba(224, 62, 62, 0.08), transparent 60%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
             background-size: 100% 100%, 40px 40px, 40px 40px;
         }
 
@@ -184,7 +187,7 @@
         }
         .dynamic-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px -8px rgba(255, 17, 17, 0.22);
+            box-shadow: 0 12px 28px -8px rgba(224, 62, 62, 0.16);
         }
 
         /* Custom Scrollbar styled for notepad */
@@ -199,7 +202,7 @@
             border-radius: 6px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #ff1111;
+            background: #e03e3e;
         }
     </style>
 </head>
@@ -231,10 +234,10 @@
                 <div class="h-9 sm:h-12 w-auto flex items-center">
                     <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto select-none group-hover:scale-105 transition-transform duration-300">
                         <!-- Red Geometric Crown with 3 Hovering Dots -->
-                        <g stroke="#ff1111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="56" cy="33" r="3.2" fill="#ff1111" stroke="none" />
-                            <circle cx="118" cy="18" r="3.6" fill="#ff1111" stroke="none" />
-                            <circle cx="180" cy="33" r="3.2" fill="#ff1111" stroke="none" />
+                        <g stroke="#e03e3e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="56" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
+                            <circle cx="118" cy="18" r="3.6" fill="#e03e3e" stroke="none" />
+                            <circle cx="180" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
                             <path d="M 72 82 L 56 46 L 110 82" />
                             <path d="M 126 82 L 180 46 L 164 82" />
                             <path d="M 56 46 L 118 84 L 180 46" />
@@ -254,7 +257,7 @@
                         </g>
 
                         <!-- Red 'xx' with curved smile arc right above 'w' -->
-                        <g stroke="#ff1111" stroke-width="3.2" stroke-linecap="round">
+                        <g stroke="#e03e3e" stroke-width="3.2" stroke-linecap="round">
                             <line x1="363" y1="87" x2="376" y2="100" />
                             <line x1="376" y1="87" x2="363" y2="100" />
                             <line x1="384" y1="87" x2="397" y2="100" />
@@ -263,7 +266,7 @@
                         </g>
 
                         <!-- Red Line-Art Penguin -->
-                        <g stroke="#ff1111" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                        <g stroke="#e03e3e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
                             <path d="M 423 72 L 401 75 L 420 83" />
                             <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
                             <path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189" />
@@ -300,7 +303,7 @@
 
             <!-- Action Buttons (Added NETWORKING APP Portal Button) -->
             <div class="flex items-center space-x-2 sm:space-x-2.5">
-                <button onclick="requestEnterNetworkingWorld()" class="px-3.5 py-2 rounded-full bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black shadow-lg shadow-brand-red/30 transition-all duration-300 flex items-center space-x-1.5 hover:scale-105 border border-white/10">
+                <button onclick="requestEnterNetworkingWorld()" class="px-3.5 py-2 rounded-full bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black shadow-lg shadow-brand-red/25 transition-all duration-300 flex items-center space-x-1.5 hover:scale-105 border border-white/10">
                     <i class="fa-solid fa-lock text-[10px]"></i>
                     <span>NETWORKING APP</span>
                 </button>
@@ -328,12 +331,12 @@
                     </svg>
 
                     <!-- Vector Logo Recreation -->
-                    <div class="w-72 sm:w-96 md:w-[460px] mx-auto filter drop-shadow-[0_0_20px_rgba(255,17,17,0.18)]">
+                    <div class="w-72 sm:w-96 md:w-[460px] mx-auto filter drop-shadow-[0_0_20px_rgba(224,62,62,0.18)]">
                         <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto select-none">
-                            <g stroke="#ff1111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="56" cy="33" r="3.4" fill="#ff1111" stroke="none" />
-                                <circle cx="118" cy="18" r="3.8" fill="#ff1111" stroke="none" />
-                                <circle cx="180" cy="33" r="3.4" fill="#ff1111" stroke="none" />
+                            <g stroke="#e03e3e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="56" cy="33" r="3.4" fill="#e03e3e" stroke="none" />
+                                <circle cx="118" cy="18" r="3.8" fill="#e03e3e" stroke="none" />
+                                <circle cx="180" cy="33" r="3.4" fill="#e03e3e" stroke="none" />
                                 <path d="M 72 82 L 56 46 L 110 82" />
                                 <path d="M 126 82 L 180 46 L 164 82" />
                                 <path d="M 56 46 L 118 84 L 180 46" />
@@ -351,7 +354,7 @@
                                 <path d="M 346 119 C 347 127 350 135 357 135 C 363 135 367 127 369 119 C 371 127 375 135 382 135 C 390 135 397 124 402 113 C 405 106 409 104 414 107" />
                             </g>
 
-                            <g stroke="#ff1111" stroke-width="3.2" stroke-linecap="round">
+                            <g stroke="#e03e3e" stroke-width="3.2" stroke-linecap="round">
                                 <line x1="363" y1="87" x2="376" y2="100" />
                                 <line x1="376" y1="87" x2="363" y2="100" />
                                 <line x1="384" y1="87" x2="397" y2="100" />
@@ -359,7 +362,7 @@
                                 <path d="M 364 104 Q 380 110 398 104" fill="none" />
                             </g>
 
-                            <g stroke="#ff1111" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                            <g stroke="#e03e3e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
                                 <path d="M 423 72 L 401 75 L 420 83" />
                                 <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
                                 <path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189" />
@@ -686,7 +689,7 @@
                     </p>
 
                     <div class="pt-2">
-                        <button onclick="showEvento002PinBox()" class="px-8 sm:px-10 py-4 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-base shadow-xl shadow-brand-red/30 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 cursor-pointer group">
+                        <button onclick="showEvento002PinBox()" class="px-8 sm:px-10 py-4 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-base shadow-xl shadow-brand-red/25 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 cursor-pointer group">
                             <i class="fa-solid fa-ticket text-xl group-hover:rotate-12 transition-transform"></i>
                             <span>Comprar Entrada</span>
                         </button>
@@ -707,7 +710,7 @@
 
                     <form onsubmit="verifyEvento002Pin(event)" class="max-w-xs mx-auto space-y-3">
                         <input type="password" id="evento-002-pin-input" required placeholder="INTRODUCE EL CÓDIGO" autocomplete="off" class="w-full bg-black/70 border-2 border-white/20 focus:border-brand-red rounded-2xl px-4 py-3.5 text-center font-mono text-xl font-black tracking-widest text-white uppercase focus:outline-none">
-                        <button type="submit" class="w-full py-3.5 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-brand-red/30 transition-all cursor-pointer">
+                        <button type="submit" class="w-full py-3.5 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm uppercase tracking-wider shadow-lg shadow-brand-red/25 transition-all cursor-pointer">
                             Desbloquear Evento #002
                         </button>
                     </form>
@@ -821,19 +824,19 @@
                             </div>
 
                             <!-- Instrucciones claras de Bizum al 623179849 -->
-                            <div class="p-4 rounded-2xl bg-brand-red text-black space-y-2">
+                            <div class="p-4 rounded-2xl bg-brand-softSurface border border-brand-softRedBorder text-gray-200 space-y-2">
                                 <div class="flex items-center justify-between">
-                                    <span class="text-xs font-mono uppercase font-black">Pago directo por Bizum</span>
-                                    <button type="button" onclick="copyBizumPhone()" class="px-2.5 py-1 rounded-lg bg-black text-white text-xs font-mono font-bold hover:bg-black/80">
+                                    <span class="text-xs font-mono uppercase font-black text-brand-lightRed">Pago directo por Bizum</span>
+                                    <button type="button" onclick="copyBizumPhone()" class="px-2.5 py-1 rounded-lg bg-brand-red/20 border border-brand-red/40 text-white text-xs font-mono font-bold hover:bg-brand-red/30">
                                         Copiar 623179849
                                     </button>
                                 </div>
-                                <p class="text-xs sm:text-sm font-bold leading-snug">
-                                    Al pulsar abajo se copiará el número <strong class="underline">623179849</strong> para tu Bizum y se enviará directamente tu entrada por WhatsApp para dejarte registrado en la lista.
+                                <p class="text-xs sm:text-sm font-medium leading-snug">
+                                    Al pulsar abajo se copiará el número <strong class="underline text-white">623179849</strong> para tu Bizum y se enviará directamente tu entrada por WhatsApp para dejarte registrado en la lista.
                                 </p>
                             </div>
 
-                            <button type="submit" class="w-full py-4 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-base uppercase tracking-wide shadow-xl shadow-brand-red/30 transition-all cursor-pointer flex items-center justify-center space-x-2">
+                            <button type="submit" class="w-full py-4 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-base uppercase tracking-wide shadow-xl shadow-brand-red/25 transition-all cursor-pointer flex items-center justify-center space-x-2">
                                 <i class="fa-solid fa-bolt"></i>
                                 <span>Comprar Entrada con Bizum (623 179 849)</span>
                             </button>
@@ -841,10 +844,10 @@
                     </div>
 
                     <!-- CARTEL DE SOLD OUT CUANDO LLEGA A 14 ENTRADAS -->
-                    <div id="evento-002-soldout-box" class="hidden p-8 rounded-2xl bg-brand-red text-black text-center space-y-2 border-2 border-white">
-                        <span class="px-3 py-1 rounded-full bg-black text-white font-mono text-xs font-black uppercase">Aforo Completo</span>
+                    <div id="evento-002-soldout-box" class="hidden p-8 rounded-2xl bg-brand-softSurface text-white text-center space-y-2 border-2 border-brand-red/50">
+                        <span class="px-3 py-1 rounded-full bg-brand-red/20 text-brand-lightRed font-mono text-xs font-black uppercase">Aforo Completo</span>
                         <h4 class="text-3xl sm:text-4xl font-black uppercase tracking-tight">SOLD OUT</h4>
-                        <p class="font-hand text-2xl sm:text-3xl font-bold">
+                        <p class="font-hand text-2xl sm:text-3xl text-brand-lightRed font-bold">
                             nos vemos en el #003 collab
                         </p>
                     </div>
@@ -860,7 +863,7 @@
              ========================================== -->
         <section id="networking-section" class="mb-24 relative pt-6 border-t border-white/5">
             <div class="max-w-2xl mx-auto">
-                <div class="p-8 sm:p-10 rounded-3xl bg-brand-dark border-2 border-brand-red/50 shadow-2xl shadow-brand-red/10 text-center space-y-5 notebook-card">
+                <div class="p-8 sm:p-10 rounded-3xl bg-brand-dark border-2 border-brand-red/40 shadow-2xl shadow-brand-red/10 text-center space-y-5 notebook-card">
                     <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-lightRed font-mono text-xs font-bold uppercase">
                         <i class="fa-solid fa-lock"></i>
                         <span>Disponible 27 de septiembre</span>
@@ -876,7 +879,7 @@
                     </p>
 
                     <div class="pt-1">
-                        <button onclick="requestEnterNetworkingWorld()" class="px-8 py-4 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm sm:text-base shadow-xl shadow-brand-red/30 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2">
+                        <button onclick="requestEnterNetworkingWorld()" class="px-8 py-4 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm sm:text-base shadow-xl shadow-brand-red/25 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-2">
                             <i class="fa-solid fa-lock text-xs"></i>
                             <span>Entrar a la Networking App</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -1018,10 +1021,10 @@
             <!-- Scalable Exact Logo Footer -->
             <div class="w-48 sm:w-56">
                 <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto select-none opacity-90 hover:opacity-100 transition-opacity">
-                    <g stroke="#ff1111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="56" cy="33" r="3.2" fill="#ff1111" stroke="none" />
-                        <circle cx="118" cy="18" r="3.6" fill="#ff1111" stroke="none" />
-                        <circle cx="180" cy="33" r="3.2" fill="#ff1111" stroke="none" />
+                    <g stroke="#e03e3e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="56" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
+                        <circle cx="118" cy="18" r="3.6" fill="#e03e3e" stroke="none" />
+                        <circle cx="180" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
                         <path d="M 72 82 L 56 46 L 110 82" />
                         <path d="M 126 82 L 180 46 L 164 82" />
                         <path d="M 56 46 L 118 84 L 180 46" />
@@ -1039,7 +1042,7 @@
                         <path d="M 346 119 C 347 127 350 135 357 135 C 363 135 367 127 369 119 C 371 127 375 135 382 135 C 390 135 397 124 402 113 C 405 106 409 104 414 107" />
                     </g>
 
-                    <g stroke="#ff1111" stroke-width="3.2" stroke-linecap="round">
+                    <g stroke="#e03e3e" stroke-width="3.2" stroke-linecap="round">
                         <line x1="363" y1="87" x2="376" y2="100" />
                         <line x1="376" y1="87" x2="363" y2="100" />
                         <line x1="384" y1="87" x2="397" y2="100" />
@@ -1047,7 +1050,7 @@
                         <path d="M 364 104 Q 380 110 398 104" fill="none" />
                     </g>
 
-                    <g stroke="#ff1111" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <g stroke="#e03e3e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
                         <path d="M 423 72 L 401 75 L 420 83" />
                         <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
                         <path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189" />
@@ -1240,7 +1243,7 @@
          ============================================================================ -->
     <div id="portal-warp-overlay" class="fixed inset-0 z-[80] hidden items-center justify-center bg-black overflow-hidden pointer-events-none">
         <!-- Radial Red Vortex Glow -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,17,17,0.28)_0%,rgba(5,5,7,0.96)_60%,#000000_100%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(224,62,62,0.22)_0%,rgba(5,5,7,0.96)_60%,#000000_100%)]"></div>
 
         <!-- Dynamic Concentric 3D Tunnel Rings -->
         <div class="relative flex items-center justify-center w-full h-full">
@@ -1266,10 +1269,10 @@
             <div class="text-center z-20 px-6 max-w-md w-full space-y-4 portal-core-anim">
                 <div class="w-20 h-14 mx-auto flex items-center justify-center">
                     <svg viewBox="0 0 150 85" class="w-full h-full" fill="none">
-                        <g stroke="#ff1111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="16" cy="23" r="5" fill="#ff1111" stroke="none" />
-                            <circle cx="75" cy="10" r="5.5" fill="#ff1111" stroke="none" />
-                            <circle cx="134" cy="23" r="5" fill="#ff1111" stroke="none" />
+                        <g stroke="#e03e3e" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="16" cy="23" r="5" fill="#e03e3e" stroke="none" />
+                            <circle cx="75" cy="10" r="5.5" fill="#e03e3e" stroke="none" />
+                            <circle cx="134" cy="23" r="5" fill="#e03e3e" stroke="none" />
                             <path d="M 30 72 L 16 36 L 67 72" />
                             <path d="M 83 72 L 134 36 L 120 72" />
                             <path d="M 16 36 L 75 74 L 134 36" />
@@ -1283,53 +1286,62 @@
                     <p id="portal-status-step" class="font-mono text-xs uppercase tracking-[0.35em] text-brand-lightRed font-bold">
                         Abriendo portal myflowxx...
                     </p>
-                    <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase drop-shadow-[0_0_25px_rgba(255,17,17,0.8)]">
+                    <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase drop-shadow-[0_0_25px_rgba(224,62,62,0.65)]">
                         NETWORKING APP
                     </h3>
                 </div>
 
                 <!-- Dynamic Progress Bar -->
                 <div class="w-56 sm:w-64 h-1.5 bg-white/15 rounded-full overflow-hidden mx-auto border border-white/10">
-                    <div id="portal-progress-bar" class="h-full bg-brand-red w-0 transition-all duration-300 ease-out shadow-[0_0_12px_#ff1111]"></div>
+                    <div id="portal-progress-bar" class="h-full bg-brand-red w-0 transition-all duration-300 ease-out shadow-[0_0_12px_#e03e3e]"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ============================================================================
-         NETWORKING APP FULL-SCREEN WORLD
+         NETWORKING APP FULL-SCREEN WORLD (TONOS CÓMODOS Y COHESIVOS)
          ============================================================================ -->
     <div id="networking-app-world" class="fixed inset-0 z-[70] hidden flex-col cyber-world-bg text-white overflow-y-auto selection:bg-brand-red">
 
         <!-- Minimalist Sticky Top Bar inside the Networking World -->
         <div class="sticky top-0 z-40 bg-brand-black/90 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between">
             <button onclick="exitNetworkingWorld()" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-300 hover:text-white flex items-center space-x-2 transition-all">
-                <i class="fa-solid fa-arrow-left text-brand-red"></i>
+                <i class="fa-solid fa-arrow-left text-brand-lightRed"></i>
                 <span>Volver</span>
             </button>
 
-            <span class="font-black text-sm tracking-widest uppercase">myflowxx <span class="text-brand-red">NETWORK</span></span>
+            <span class="font-black text-sm tracking-widest uppercase">myflowxx <span class="text-brand-lightRed">NETWORK</span></span>
 
             <!-- User Auth / Actions Right Controls -->
             <div class="flex items-center space-x-2">
                 <!-- Host Exclusive Button (Con contador de notificaciones pendientes) -->
-                <button id="host-admin-btn" onclick="openHostDashboardModal()" class="hidden px-3 py-2 rounded-xl bg-brand-red/20 border border-brand-red text-white text-xs font-black items-center space-x-1.5 transition-all hover:bg-brand-red/30">
-                    <i class="fa-solid fa-crown text-brand-red"></i>
+                <button id="host-admin-btn" onclick="openHostDashboardModal()" class="hidden px-3 py-2 rounded-xl bg-brand-red/15 border border-brand-red/40 text-white text-xs font-black items-center space-x-1.5 transition-all hover:bg-brand-red/25">
+                    <i class="fa-solid fa-crown text-brand-lightRed"></i>
                     <span>Panel Anfitrión</span>
-                    <span id="host-pending-badge" class="hidden px-1.5 py-0.2 bg-brand-red text-black font-mono font-black rounded-full text-[10px]">0</span>
+                    <span id="host-pending-badge" class="hidden px-1.5 py-0.2 bg-brand-red text-white font-mono font-black rounded-full text-[10px]">0</span>
                 </button>
 
                 <!-- Guest Auth Button -->
-                <button id="nav-auth-btn" onclick="openAuthModal('login')" class="px-4 py-2 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black transition-all">
+                <button id="nav-auth-btn" onclick="openAuthModal('login')" class="px-4 py-2 rounded-xl bg-brand-red/90 hover:bg-brand-red text-white text-xs font-black transition-all shadow-md shadow-brand-red/15">
                     Entrar / Crear cuenta
                 </button>
 
                 <!-- Logged In User Profile Pill -->
                 <div id="nav-user-pill" class="hidden items-center space-x-2">
                     <button onclick="openEditProfileModal()" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center space-x-2 transition-all">
-                        <img id="nav-user-avatar" src="https://placehold.co/80x80/ff1111/ffffff?text=MF" alt="Avatar" class="w-6 h-6 rounded-full object-cover">
+                        <img id="nav-user-avatar" src="https://placehold.co/80x80/e03e3e/ffffff?text=MF" alt="Avatar" class="w-6 h-6 rounded-full object-cover">
                         <span id="nav-user-name" class="text-xs font-bold max-w-[90px] truncate">Mi Perfil</span>
-                        <span id="nav-user-points" class="px-1.5 py-0.5 rounded bg-brand-red text-[10px] font-black">0 pts</span>
+                        <span id="nav-user-points" class="px-1.5 py-0.5 rounded bg-brand-red/25 border border-brand-red/40 text-brand-lightRed text-[10px] font-black">0 pts</span>
+                    </button>
+                    <button
+                        id="nav-push-btn"
+                        type="button"
+                        onclick="enableMyflowxxPush()"
+                        class="p-2 rounded-xl bg-white/5 hover:bg-brand-red/20 border border-white/10 text-gray-300 hover:text-white text-xs transition-all"
+                        title="Activar notificaciones"
+                        aria-label="Activar notificaciones">
+                        <i class="fa-solid fa-bell"></i>
                     </button>
                     <button onclick="logoutNetworkingUser()" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-xs transition-all" title="Salir">
                         <i class="fa-solid fa-right-from-bracket"></i>
@@ -1343,14 +1355,14 @@
 
             <!-- HEADER & HIGHLIGHTED SUBTITLE -->
             <div class="text-center space-y-4 max-w-3xl mx-auto">
-                <div class="inline-block px-6 py-2 rounded-2xl bg-brand-red/10 border border-brand-red/30 shadow-lg shadow-brand-red/10">
-                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white uppercase drop-shadow-[0_0_20px_rgba(255,17,17,0.35)]">
+                <div class="inline-block px-6 py-2 rounded-2xl bg-white/[0.03] border border-brand-softRedBorder shadow-lg">
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white uppercase">
                         NETWORKING
                     </h1>
                 </div>
 
-                <div class="p-4 sm:p-5 rounded-2xl bg-brand-dark/90 border-2 border-brand-red/50 shadow-xl shadow-brand-red/10">
-                    <p class="text-base sm:text-xl text-white font-extrabold leading-snug">
+                <div class="p-4 sm:p-5 rounded-2xl bg-brand-softSurface border border-white/10 shadow-xl">
+                    <p class="text-base sm:text-xl text-gray-100 font-bold leading-snug">
                         Consigue los puntos asistiendo a eventos y ayudando a problemas de tus compañeros para tener ventajas y premios
                     </p>
                 </div>
@@ -1360,37 +1372,46 @@
                 </p>
             </div>
 
-            <!-- MINIMALIST 2-COLUMN RULES: POINTS & PODIUM vs FLOWREROS (RED BG + BLACK TEXT) -->
+            <!-- MINIMALIST 2-COLUMN RULES: POINTS & PODIUM vs FLOWREROS (COMFORTABLE DARK SURFACE + SOFT CORAL ACCENTS) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Box 1: Points -->
-                <div class="p-5 rounded-2xl bg-brand-red text-black border-2 border-black/20 space-y-2.5 dynamic-card shadow-xl shadow-brand-red/20">
-                    <p class="text-xs font-mono uppercase tracking-wider text-black font-black">Cómo sumar puntos</p>
-                    <div class="flex items-center justify-between text-xs sm:text-sm py-1.5 border-b border-black/15 font-bold">
-                        <span class="text-black">Asistir a 1 evento myflow</span>
-                        <span class="font-mono font-black text-black bg-black/10 px-2 py-0.5 rounded">+5 pts</span>
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-softSurface text-gray-100 border border-brand-softRedBorder space-y-3 dynamic-card shadow-lg">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-brand-lightRed"></span>
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-lightRed font-black">Cómo sumar puntos</p>
                     </div>
-                    <div class="flex items-center justify-between text-xs sm:text-sm py-1.5 border-b border-black/15 font-bold">
-                        <span class="text-black">Ayudar al problema actual de un compañero</span>
-                        <span class="font-mono font-black text-black bg-black/10 px-2 py-0.5 rounded">+0,5 pts</span>
+                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-white/10 font-medium">
+                        <span class="text-gray-200">Asistir a 1 evento myflow</span>
+                        <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+5 pts</span>
                     </div>
-                    <div class="flex items-center justify-between text-xs sm:text-sm py-1.5 font-bold">
-                        <span class="text-black">Venir al viaje</span>
-                        <span class="font-mono font-black text-black bg-black/10 px-2 py-0.5 rounded">+10 pts</span>
+                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-white/10 font-medium">
+                        <span class="text-gray-200">Ayudar al problema actual de un compañero</span>
+                        <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+0,5 pts</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 font-medium">
+                        <span class="text-gray-200">Venir al viaje</span>
+                        <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+10 pts</span>
                     </div>
                 </div>
 
                 <!-- Box 2: Simple Podium vs Flowreros Rules -->
-                <div class="p-5 rounded-2xl bg-brand-red text-black border-2 border-black/20 flex flex-col justify-between space-y-3 dynamic-card shadow-xl shadow-brand-red/20">
-                    <p class="text-xs font-mono uppercase tracking-wider text-black font-black">Reglas del Ranking (Automático por puntos y orden)</p>
-                    <div class="p-3.5 rounded-xl bg-black/10 border border-black/20 text-xs space-y-1.5 font-bold text-black">
-                        <p class="font-black text-black uppercase tracking-wide">Podio (Top 1 al 15)</p>
-                        <p class="text-black">• Conectar de forma privada a través del contacto del usuario</p>
-                        <p class="text-black">• Derecho a voto</p>
+                <div class="p-5 sm:p-6 rounded-2xl bg-brand-softSurface text-gray-100 border border-brand-softRedBorder flex flex-col justify-between space-y-3 dynamic-card shadow-lg">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-brand-lightRed"></span>
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-lightRed font-black">Reglas del Ranking (Automático por puntos y orden)</p>
                     </div>
-                    <div class="p-3.5 rounded-xl bg-black/20 border border-black/25 text-xs space-y-1.5 font-bold text-black">
-                        <p class="font-black text-black uppercase tracking-wide">Flowreros (Debajo del podio)</p>
-                        <p class="text-black">• No pueden conectar de forma privada a través del contacto del usuario</p>
-                        <p class="text-black">• No tienen derecho al voto</p>
+                    <div class="p-3.5 rounded-xl bg-white/[0.03] border border-brand-softRedBorder text-xs space-y-1.5 font-medium text-gray-200">
+                        <p class="font-black text-white uppercase tracking-wide flex items-center gap-1.5">
+                            <span class="text-brand-lightRed">★</span>
+                            <span>Podio (Top 1 al 15)</span>
+                        </p>
+                        <p class="text-gray-300">• Conectar de forma privada a través del contacto del usuario</p>
+                        <p class="text-gray-300">• Derecho a voto</p>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-black/40 border border-white/10 text-xs space-y-1.5 font-medium text-gray-400">
+                        <p class="font-bold text-gray-300 uppercase tracking-wide">Flowreros (Debajo del podio)</p>
+                        <p>• No pueden conectar de forma privada a través del contacto del usuario</p>
+                        <p>• No tienen derecho al voto</p>
                     </div>
                 </div>
             </div>
@@ -1399,12 +1420,12 @@
                  TOP 3 PODIO (CON LA CORONA DEL LOGO)
                  ========================================== -->
             <div class="space-y-4">
-                <div class="flex items-center justify-center space-x-3 py-2 px-5 rounded-2xl bg-brand-dark border border-brand-red/40 w-fit mx-auto shadow-lg shadow-brand-red/10">
+                <div class="flex items-center justify-center space-x-3 py-2 px-5 rounded-2xl bg-brand-softSurface border border-brand-softRedBorder w-fit mx-auto shadow-md">
                     <svg viewBox="0 0 150 85" class="w-8 h-6 shrink-0" fill="none">
-                        <g stroke="#ff1111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="16" cy="23" r="4.5" fill="#ff1111" stroke="none" />
-                            <circle cx="75" cy="10" r="5" fill="#ff1111" stroke="none" />
-                            <circle cx="134" cy="23" r="4.5" fill="#ff1111" stroke="none" />
+                        <g stroke="#e03e3e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="16" cy="23" r="4.5" fill="#e03e3e" stroke="none" />
+                            <circle cx="75" cy="10" r="5" fill="#e03e3e" stroke="none" />
+                            <circle cx="134" cy="23" r="4.5" fill="#e03e3e" stroke="none" />
                             <path d="M 30 72 L 16 36 L 67 72" />
                             <path d="M 83 72 L 134 36 L 120 72" />
                             <path d="M 16 36 L 75 74 L 134 36" />
@@ -1423,12 +1444,12 @@
                  TOP 15 PODIO (CON LA CORONA DEL LOGO)
                  ========================================== -->
             <div class="space-y-4">
-                <div class="flex items-center justify-center space-x-3 py-2 px-5 rounded-2xl bg-brand-dark border border-brand-red/30 w-fit mx-auto">
+                <div class="flex items-center justify-center space-x-3 py-2 px-5 rounded-2xl bg-brand-softSurface border border-white/10 w-fit mx-auto">
                     <svg viewBox="0 0 150 85" class="w-7 h-5 shrink-0" fill="none">
-                        <g stroke="#ff1111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="16" cy="23" r="4.5" fill="#ff1111" stroke="none" />
-                            <circle cx="75" cy="10" r="5" fill="#ff1111" stroke="none" />
-                            <circle cx="134" cy="23" r="4.5" fill="#ff1111" stroke="none" />
+                        <g stroke="#e03e3e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="16" cy="23" r="4.5" fill="#e03e3e" stroke="none" />
+                            <circle cx="75" cy="10" r="5" fill="#e03e3e" stroke="none" />
+                            <circle cx="134" cy="23" r="4.5" fill="#e03e3e" stroke="none" />
                             <path d="M 30 72 L 16 36 L 67 72" />
                             <path d="M 83 72 L 134 36 L 120 72" />
                             <path d="M 16 36 L 75 74 L 134 36" />
@@ -1447,9 +1468,9 @@
                  FLOWREROS (DEBAJO DEL PODIO - CON EL PINGÜINO DEL LOGO)
                  ========================================== -->
             <div class="space-y-4 pt-6 border-t border-dashed border-white/15">
-                <div class="flex items-center justify-center space-x-3 py-2 px-5 rounded-2xl bg-black/60 border border-white/15 w-fit mx-auto">
+                <div class="flex items-center justify-center space-x-3 py-2 px-5 rounded-2xl bg-brand-softSurface border border-white/10 w-fit mx-auto">
                     <svg viewBox="395 60 100 138" class="w-6 h-7 shrink-0" fill="none">
-                        <g stroke="#ff1111" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                        <g stroke="#e03e3e" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
                             <path d="M 423 72 L 401 75 L 420 83" />
                             <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
                             <path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189" />
@@ -1461,16 +1482,19 @@
                         Flowreros
                     </h2>
                 </div>
-                <div id="outside-podium-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 opacity-80"></div>
+                <div id="outside-podium-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 opacity-85"></div>
             </div>
 
             <!-- ==========================================
-                 VOTACIÓN SIMPLE (SOLO TOP 15 - FONDO ROJO Y LETRAS EN NEGRO)
+                 VOTACIÓN SIMPLE (SOLO TOP 15 - DISEÑO CÓMODO Y ELEGANTE)
                  ========================================== -->
-            <div class="p-6 rounded-2xl bg-brand-red text-black border-2 border-black/20 space-y-4 shadow-xl shadow-brand-red/20">
+            <div class="p-6 rounded-2xl bg-brand-softSurface text-white border border-brand-softRedBorder space-y-4 shadow-lg">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <h3 class="text-base font-black text-black uppercase">Votación de Viajes y Eventos</h3>
-                    <span id="vote-privilege-badge" class="text-xs text-black font-mono font-black bg-black/10 px-2.5 py-1 rounded-lg">Solo Top 15</span>
+                    <h3 class="text-base font-black text-white uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-check-to-slot text-brand-lightRed"></i>
+                        <span>Votación de Viajes y Eventos</span>
+                    </h3>
+                    <span id="vote-privilege-badge" class="text-xs text-brand-lightRed font-mono font-bold bg-brand-red/15 border border-brand-red/30 px-3 py-1 rounded-lg">Solo Top 15</span>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="polls-container"></div>
             </div>
@@ -1482,7 +1506,7 @@
          MODAL: LOGIN / REGISTRO / RECUPERAR CONTRASEÑA
          ============================================================================ -->
     <div id="net-auth-modal" class="fixed inset-0 z-[90] hidden items-center justify-center px-4 py-6 bg-black/90 backdrop-blur-md">
-        <div class="relative w-full max-w-md rounded-3xl bg-brand-dark border-2 border-brand-red/50 p-6 sm:p-7 shadow-2xl space-y-5">
+        <div class="relative w-full max-w-md rounded-3xl bg-brand-dark border border-brand-softRedBorder p-6 sm:p-7 shadow-2xl space-y-5">
             <div class="flex items-center justify-between border-b border-white/10 pb-3">
                 <h3 id="auth-modal-title" class="text-xl font-black text-white uppercase">Acceso Emprendedores</h3>
                 <button onclick="closeAuthModal()" class="text-gray-400 hover:text-white p-1.5 rounded-lg bg-white/5">
@@ -1519,7 +1543,7 @@
                         ¿Olvidaste tu contraseña?
                     </button>
                 </div>
-                <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm shadow-lg shadow-brand-red/30 transition-all">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm shadow-lg shadow-brand-red/20 transition-all">
                     Entrar a mi cuenta
                 </button>
             </form>
@@ -1542,7 +1566,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Crea una contraseña *</label>
-                    <input type="password" id="reg-password" required minlength="4" class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red" placeholder="Mínimo 4 caracteres">
+                    <input type="password" id="reg-password" required minlength="6" class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red" placeholder="Mínimo 6 caracteres">
                 </div>
 
                 <label class="flex items-center space-x-2 text-xs text-gray-300 cursor-pointer">
@@ -1550,7 +1574,7 @@
                     <span>Guardar mi contraseña en este dispositivo</span>
                 </label>
 
-                <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm shadow-lg shadow-brand-red/30 transition-all">
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm shadow-lg shadow-brand-red/20 transition-all">
                     Crear cuenta y recibir confirmación
                 </button>
             </form>
@@ -1594,16 +1618,20 @@
     <div id="net-onboarding-modal" class="fixed inset-0 z-[95] hidden items-center justify-center px-3 sm:px-4 py-6 bg-black/95 backdrop-blur-md">
         <div class="relative w-full max-w-xl max-h-[92vh] flex flex-col rounded-3xl bg-brand-dark border border-white/15 shadow-2xl overflow-hidden">
             <div class="p-5 border-b border-white/10 flex items-center justify-between">
-                <h3 class="text-lg font-black text-white uppercase">Tu Perfil de Emprendedor</h3>
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-lightRed"></i>
+                    <h3 class="text-lg font-black text-white uppercase">Tu Perfil de Emprendedor (Síntesis IA)</h3>
+                </div>
                 <button onclick="closeEditProfileModal()" class="text-gray-400 hover:text-white p-2 rounded-lg bg-white/5">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <form id="net-profile-form" onsubmit="handleSaveProfileWithAI(event)" class="p-5 overflow-y-auto space-y-4 text-left">
-                <p class="text-xs text-gray-400">
-                    Escribe sin preocuparte por resumirlo: nuestra IA lo sintetizará automáticamente para tu tarjeta pública.
-                </p>
+                <div class="p-3 rounded-xl bg-brand-red/10 border border-brand-softRedBorder text-xs text-gray-200 flex items-start space-x-2.5">
+                    <i class="fa-solid fa-robot text-brand-lightRed mt-0.5"></i>
+                    <span>Escribe con tus propias palabras o suelta un texto largo: <strong>la IA analizará lo que escribas, eliminará el relleno y redactará un resumen ejecutivo en 3ª persona</strong> tanto de tu perfil como de lo que aportas y necesitas.</span>
+                </div>
 
                 <!-- Avatar + Nombre + Edad + Sector -->
                 <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
@@ -1633,14 +1661,14 @@
 
                 <!-- Qué aportas -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué aportas a este mundo? *</label>
-                    <textarea id="prof-value" rows="2" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Qué haces, alianzas B2B o consultoría que ofreces..."></textarea>
+                    <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué aportas a este mundo? (La IA lo resumirá automáticamente) *</label>
+                    <textarea id="prof-value" rows="3" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Cuéntanos libremente qué haces, en qué eres fuerte, qué proyectos llevas o cómo puedes ayudar a otros..."></textarea>
                 </div>
 
                 <!-- Qué necesitas actualmente -->
                 <div>
                     <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué necesitas actualmente? (Público para que te ayuden por +0,5 pts) *</label>
-                    <textarea id="prof-need" rows="2" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Duda o contacto que necesitas resolver ahora mismo..."></textarea>
+                    <textarea id="prof-need" rows="2" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Explica tu problema actual, qué perfil buscas o qué bloqueo tienes ahora mismo..."></textarea>
                 </div>
 
                 <!-- Canales de Contacto B2B -->
@@ -1654,8 +1682,9 @@
                     </div>
                 </div>
 
-                <button type="submit" id="save-profile-ai-btn" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm transition-all">
-                    Guardar Perfil con IA
+                <button type="submit" id="save-profile-ai-btn" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Resumir con IA y Guardar Perfil</span>
                 </button>
             </form>
         </div>
@@ -1672,7 +1701,7 @@
                     <img id="modal-member-avatar" src="" alt="Avatar" class="w-14 h-14 rounded-2xl object-cover border border-white/20">
                     <div>
                         <div class="flex items-center gap-2">
-                            <span id="modal-member-rank" class="px-2 py-0.5 rounded bg-brand-red text-white font-mono text-xs font-black">#1</span>
+                            <span id="modal-member-rank" class="px-2 py-0.5 rounded bg-brand-red/25 border border-brand-red/40 text-brand-lightRed font-mono text-xs font-black">#1</span>
                             <h3 id="modal-member-name" class="text-lg sm:text-xl font-black text-white"></h3>
                             <span id="modal-member-age" class="text-xs text-gray-400"></span>
                         </div>
@@ -1688,43 +1717,53 @@
 
             <!-- Body -->
             <div class="p-5 overflow-y-auto space-y-5 text-left">
-                <p id="modal-member-ai-bio" class="text-xs sm:text-sm text-gray-300 italic border-l-2 border-brand-red pl-3"></p>
+                <!-- Resumen Ejecutivo IA Destacado -->
+                <div class="p-3.5 rounded-2xl bg-brand-red/10 border border-brand-softRedBorder space-y-1">
+                    <div class="flex items-center space-x-1.5 text-[10px] font-mono uppercase tracking-wider text-brand-lightRed font-bold">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Síntesis Ejecutiva IA</span>
+                    </div>
+                    <p id="modal-member-ai-bio" class="text-xs sm:text-sm text-gray-100 leading-relaxed font-medium"></p>
+                </div>
 
                 <!-- EXCLUSIVO ANFITRIÓN: CONTROL MANUAL DE PUNTOS DESDE CADA PERFIL -->
-                <div id="modal-host-points-control" class="hidden p-4 rounded-2xl bg-brand-red text-black border-2 border-white/30 space-y-3 shadow-xl">
+                <div id="modal-host-points-control" class="hidden p-4 rounded-2xl bg-brand-softSurface text-white border border-brand-softRedBorder space-y-3 shadow-xl">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono uppercase font-black flex items-center space-x-1.5">
+                        <span class="text-xs font-mono uppercase font-black text-brand-lightRed flex items-center space-x-1.5">
                             <i class="fa-solid fa-crown"></i>
                             <span>Control Manual de Puntos (Solo Anfitrión)</span>
                         </span>
-                        <span id="modal-host-current-pts" class="px-2 py-0.5 rounded bg-black text-white font-mono text-xs font-black">0 pts</span>
+                        <span id="modal-host-current-pts" class="px-2 py-0.5 rounded bg-brand-red/20 border border-brand-red/40 text-brand-lightRed font-mono text-xs font-black">0 pts</span>
                     </div>
 
                     <!-- Botones rápidos para sumar o restar puntos -->
                     <div class="flex flex-wrap gap-1.5">
-                        <button type="button" onclick="hostModifyMemberPoints(0.5)" class="px-2.5 py-1.5 rounded-lg bg-black text-white hover:bg-black/80 font-mono text-xs font-black">+0.5 pts (Ayuda)</button>
-                        <button type="button" onclick="hostModifyMemberPoints(5)" class="px-2.5 py-1.5 rounded-lg bg-black text-white hover:bg-black/80 font-mono text-xs font-black">+5 pts (Evento)</button>
-                        <button type="button" onclick="hostModifyMemberPoints(10)" class="px-2.5 py-1.5 rounded-lg bg-black text-white hover:bg-black/80 font-mono text-xs font-black">+10 pts (Viaje)</button>
-                        <button type="button" onclick="hostModifyMemberPoints(-0.5)" class="px-2.5 py-1.5 rounded-lg bg-black/20 hover:bg-black/30 text-black font-mono text-xs font-black">-0.5 pts</button>
-                        <button type="button" onclick="hostModifyMemberPoints(-5)" class="px-2.5 py-1.5 rounded-lg bg-black/20 hover:bg-black/30 text-black font-mono text-xs font-black">-5 pts</button>
+                        <button type="button" onclick="hostModifyMemberPoints(0.5)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+0.5 pts (Ayuda)</button>
+                        <button type="button" onclick="hostModifyMemberPoints(5)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+5 pts (Evento)</button>
+                        <button type="button" onclick="hostModifyMemberPoints(10)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+10 pts (Viaje)</button>
+                        <button type="button" onclick="hostModifyMemberPoints(-0.5)" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 font-mono text-xs font-bold transition-colors">-0.5 pts</button>
+                        <button type="button" onclick="hostModifyMemberPoints(-5)" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 font-mono text-xs font-bold transition-colors">-5 pts</button>
                     </div>
 
                     <!-- Campo libre para fijar o sumar/restar cantidad personalizada -->
                     <div class="flex items-center gap-2 pt-1">
-                        <input type="number" step="0.5" id="host-custom-points-input" placeholder="Ej: 15 o -2" class="w-full bg-black/85 text-white rounded-xl px-3 py-2 text-xs font-mono focus:outline-none">
-                        <button type="button" onclick="hostAddCustomPoints()" class="px-3 py-2 rounded-xl bg-black text-white font-black text-xs whitespace-nowrap hover:bg-black/80">
+                        <input type="number" step="0.5" id="host-custom-points-input" placeholder="Ej: 15 o -2" class="w-full bg-black/85 border border-white/15 text-white rounded-xl px-3 py-2 text-xs font-mono focus:outline-none">
+                        <button type="button" onclick="hostAddCustomPoints()" class="px-3 py-2 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-xs whitespace-nowrap">
                             Sumar/Restar
                         </button>
-                        <button type="button" onclick="hostSetExactPoints()" class="px-3 py-2 rounded-xl bg-white text-black font-black text-xs whitespace-nowrap hover:bg-gray-200">
+                        <button type="button" onclick="hostSetExactPoints()" class="px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white font-black text-xs whitespace-nowrap">
                             Fijar Total
                         </button>
                     </div>
                 </div>
 
-                <!-- Qué aporta -->
+                <!-- Qué aporta (Resumido con IA) -->
                 <div class="space-y-1">
-                    <span class="text-[11px] font-mono uppercase text-gray-400 font-bold">Qué aporta</span>
-                    <p id="modal-member-value" class="text-sm text-white leading-relaxed"></p>
+                    <span class="text-[11px] font-mono uppercase text-gray-400 font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-bolt text-brand-lightRed text-[10px]"></i>
+                        <span>Qué aporta (Resumido por IA)</span>
+                    </span>
+                    <p id="modal-member-value" class="text-sm text-gray-100 leading-relaxed bg-white/[0.03] border border-white/10 p-3 rounded-xl"></p>
                 </div>
 
                 <!-- Contacto Directo (Gated to Top 15) -->
@@ -1739,11 +1778,14 @@
                 <!-- Qué necesita actualmente + Respuestas (+0.5 puntos) -->
                 <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-3.5">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold uppercase text-brand-lightRed">Qué necesita actualmente</span>
+                        <span class="text-xs font-bold uppercase text-brand-lightRed flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye text-xs"></i>
+                            <span>Objetivo / Necesidad Actual (IA)</span>
+                        </span>
                         <span id="modal-need-timer-badge" class="text-[11px] font-mono text-gray-400">+0,5 pts a la mejor ayuda</span>
                     </div>
 
-                    <p id="modal-member-need" class="text-sm font-bold text-white bg-white/5 p-3 rounded-xl"></p>
+                    <p id="modal-member-need" class="text-sm font-bold text-white bg-white/5 p-3 rounded-xl border border-white/5"></p>
 
                     <div id="modal-help-replies-list" class="space-y-2 max-h-48 overflow-y-auto"></div>
 
@@ -1762,10 +1804,10 @@
          MODAL: BLOQUEO DE ACCESO ANTICIPADO NETWORKING APP ("Disponible 27 de septiembre")
          ============================================================================ -->
     <div id="networking-gate-modal" class="fixed inset-0 z-[95] hidden items-center justify-center px-4 py-6 bg-black/95 backdrop-blur-md">
-        <div class="relative w-full max-w-md rounded-3xl bg-brand-dark border-2 border-brand-red/60 p-6 sm:p-8 text-center space-y-5 shadow-2xl notebook-card">
+        <div class="relative w-full max-w-md rounded-3xl bg-brand-dark border-2 border-brand-softRedBorder p-6 sm:p-8 text-center space-y-5 shadow-2xl notebook-card">
             <div class="flex items-center justify-between border-b border-white/10 pb-3">
                 <div class="flex items-center space-x-2">
-                    <i class="fa-solid fa-lock text-brand-red"></i>
+                    <i class="fa-solid fa-lock text-brand-lightRed"></i>
                     <h3 class="text-base sm:text-lg font-black text-white uppercase">Networking App</h3>
                 </div>
                 <button onclick="closeNetworkingGateModal()" class="text-gray-400 hover:text-white p-1.5 rounded-lg bg-white/5">
@@ -1788,7 +1830,7 @@
 
             <form onsubmit="handleUnlockNetworkingGate(event)" class="space-y-3">
                 <input type="password" id="networking-gate-code-input" required autocomplete="off" class="w-full bg-black/70 border-2 border-white/15 focus:border-brand-red rounded-2xl px-4 py-3.5 text-center font-mono text-lg font-black tracking-widest text-white uppercase" placeholder="INTRODUCE EL CÓDIGO">
-                <button type="submit" class="w-full py-3.5 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm uppercase tracking-wider shadow-xl shadow-brand-red/30 transition-all cursor-pointer">
+                <button type="submit" class="w-full py-3.5 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm uppercase tracking-wider shadow-xl shadow-brand-red/25 transition-all cursor-pointer">
                     Desbloquear Networking App
                 </button>
             </form>
@@ -1799,7 +1841,7 @@
          MODAL EXCLUSIVO DEL ANFITRIÓN (myflowxx@gmail.com)
          ============================================================================ -->
     <div id="host-dashboard-modal" class="fixed inset-0 z-[95] hidden items-center justify-center px-3 sm:px-4 py-6 bg-black/95 backdrop-blur-md">
-        <div class="relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-3xl bg-brand-dark border border-brand-red shadow-2xl overflow-hidden">
+        <div class="relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-3xl bg-brand-dark border border-brand-softRedBorder shadow-2xl overflow-hidden">
             <div class="p-5 border-b border-white/10 flex items-center justify-between">
                 <div>
                     <h3 class="text-base sm:text-lg font-black text-white uppercase">Panel del Anfitrión</h3>
@@ -1812,12 +1854,12 @@
 
             <div class="p-5 overflow-y-auto space-y-6 text-left">
                 <!-- Quick tip for manual points -->
-                <div class="p-4 rounded-2xl bg-brand-red text-black font-bold text-xs sm:text-sm flex items-center justify-between gap-3">
+                <div class="p-4 rounded-2xl bg-brand-softSurface border border-brand-softRedBorder text-gray-100 font-bold text-xs sm:text-sm flex items-center justify-between gap-3">
                     <div>
-                        <p class="font-black uppercase">Gestión manual de puntos activa</p>
-                        <p class="text-xs font-medium mt-0.5">Haz clic sobre cualquier usuario del ranking para sumarle o quitarle puntos (+5 evento, +10 viaje, +0,5 ayuda o cantidad libre).</p>
+                        <p class="font-black uppercase text-brand-lightRed">Gestión manual de puntos activa</p>
+                        <p class="text-xs font-medium text-gray-300 mt-0.5">Haz clic sobre cualquier usuario del ranking para sumarle o quitarle puntos (+5 evento, +10 viaje, +0,5 ayuda o cantidad libre).</p>
                     </div>
-                    <i class="fa-solid fa-sliders text-2xl shrink-0"></i>
+                    <i class="fa-solid fa-sliders text-2xl text-brand-lightRed shrink-0"></i>
                 </div>
 
                 <!-- 3-Day Arbitration & Email Notification Dispatch -->
@@ -1826,7 +1868,7 @@
                         <h4 class="text-xs font-mono uppercase text-gray-300 font-bold">
                             Notificaciones de Dudas (+0,5 pts) • Aviso a los 3 días sin elegir ganador
                         </h4>
-                        <button type="button" onclick="sendOverdueEmailReportToHost()" class="px-3 py-1.5 rounded-xl bg-brand-red/20 hover:bg-brand-red text-brand-lightRed hover:text-black border border-brand-red/40 font-mono text-[11px] font-black transition-all flex items-center space-x-1.5 w-fit">
+                        <button type="button" onclick="sendOverdueEmailReportToHost()" class="px-3 py-1.5 rounded-xl bg-brand-red/20 hover:bg-brand-red text-brand-lightRed hover:text-white border border-brand-red/40 font-mono text-[11px] font-black transition-all flex items-center space-x-1.5 w-fit">
                             <i class="fa-regular fa-envelope"></i>
                             <span>Enviar resumen a myflowxx@gmail.com</span>
                         </button>
@@ -1841,12 +1883,12 @@
                             <h4 class="text-xs font-mono uppercase text-white font-bold">Control Global Entradas Evento #002</h4>
                             <p class="text-[11px] text-gray-400">Al llegar a 14 se activa SOLD OUT en todos los móviles</p>
                         </div>
-                        <span id="host-tickets-counter" class="px-3 py-1 rounded-lg bg-brand-red text-black font-mono font-black text-xs">0 / 14</span>
+                        <span id="host-tickets-counter" class="px-3 py-1 rounded-lg bg-brand-red/25 border border-brand-red/40 text-brand-lightRed font-mono font-black text-xs">0 / 14</span>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         <button type="button" onclick="hostAdjustTickets(-1)" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold">-1 Entrada</button>
                         <button type="button" onclick="hostAdjustTickets(1)" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-bold">+1 Entrada</button>
-                        <button type="button" onclick="hostForceSoldOut()" class="px-3 py-1.5 rounded-lg bg-brand-red text-black text-xs font-black">Forzar SOLD OUT (14)</button>
+                        <button type="button" onclick="hostForceSoldOut()" class="px-3 py-1.5 rounded-lg bg-brand-red text-white text-xs font-black">Forzar SOLD OUT (14)</button>
                         <button type="button" onclick="hostResetTickets()" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-400 hover:text-white text-xs">Reiniciar a 0</button>
                     </div>
                 </div>
@@ -1857,7 +1899,7 @@
     <!-- ============================================================================
          TOAST NOTIFICATION BOX (NO BROWSER ALERTS)
          ============================================================================ -->
-    <div id="app-toast" class="fixed bottom-5 right-5 z-[100] hidden max-w-sm p-4 rounded-2xl bg-brand-dark border-2 border-brand-red text-white shadow-2xl items-center space-x-3 transition-all">
+    <div id="app-toast" class="fixed bottom-5 right-5 z-[100] hidden max-w-sm p-4 rounded-2xl bg-brand-dark border border-brand-softRedBorder text-white shadow-2xl items-center space-x-3 transition-all">
         <i id="app-toast-icon" class="fa-solid fa-bolt text-brand-lightRed text-lg"></i>
         <p id="app-toast-text" class="text-xs sm:text-sm font-bold leading-snug"></p>
     </div>
@@ -2102,8 +2144,6 @@
         // ==========================================
         // VERIFICACIÓN CRIPTOGRÁFICA OCULTA (SIN CÓDIGOS EN TEXTO PLANO EN GITHUB)
         // ==========================================
-        // Ningún código aparece escrito en el código fuente.
-        // 1. Verifica el PIN numérico del Anfitrión mediante ecuaciones ASCII exactas:
         function isHostPinMatch(rawInput) {
             const s = (rawInput || '').trim();
             if (s.length !== 4) return false;
@@ -2114,7 +2154,6 @@
                    (c2 - c0 === 1);
         }
 
-        // 2. Verifica el código de letras de la comunidad para el Evento #002 sin escribirlo en el código:
         function isCommunityEventCodeMatch(rawInput) {
             const s = (rawInput || '').trim().toUpperCase();
             if (s.length !== 3) return false;
@@ -2136,7 +2175,7 @@
         // ==========================================
         // LÓGICA EVENTO #002 (BLOQUEADO "DISPONIBLE 20 DE SEPTIEMBRE" + PREVIEW ANFITRIÓN)
         // ==========================================
-        const EVENTO_002_MAX_TICKETS = 14; // 14 entradas a la venta (+ 1 anfitrión = 15 máx aforo)
+        const EVENTO_002_MAX_TICKETS = 14;
         const BIZUM_NUMBER = "623179849";
         window.globalEvento002Sold = 0;
 
@@ -2251,10 +2290,8 @@
             const newTicketNumber = currentSold + 1;
             setEvento002TicketsSold(newTicketNumber);
 
-            // Copiar automáticamente el número 623179849 para facilitar el Bizum inmediato
             copyBizumPhone();
 
-            // Enviar los detalles de la entrada comprada directamente a tu WhatsApp (623179849) sin mostrar número de entrada
             const ticketMsg = `🎟️ *NUEVA ENTRADA EVENTO #002*\n\n` +
                 `👤 *Asistente:* ${buyerName}\n` +
                 `📱 *Móvil Bizum:* ${buyerPhone}\n` +
@@ -2292,11 +2329,16 @@
             set,
             get,
             update,
-            onValue
+            onValue,
+            push
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+        import {
+            getMessaging,
+            getToken,
+            isSupported
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-messaging.js";
 
         // Configuración oficial de tu proyecto Firebase myflowxx-app
-        // (La clave pública de cliente se ensambla en ejecución para evitar falsos positivos del escáner de GitHub)
         const _kParts = ["AIza", "SyCv87Ta8Vx", "DtaWSmoI8dCoO", "VeL9PwkLyvk"];
         const firebaseConfig = {
             apiKey: _kParts.join(""),
@@ -2312,6 +2354,85 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const rtdb = getDatabase(app);
+
+        // ==========================================
+        // MYFLOWXX PUSH NOTIFICATIONS
+        // ==========================================
+
+        window.enableMyflowxxPush = async function () {
+            try {
+                // Comprobar que hay un usuario autenticado
+                const fbUser = auth.currentUser;
+
+                if (!fbUser) {
+                    showToast("Inicia sesión para activar las notificaciones.", "fa-solid fa-lock");
+                    return;
+                }
+
+                // Comprobar compatibilidad del navegador
+                if (!("Notification" in window) || !("serviceWorker" in navigator)) {
+                    showToast("Tu navegador no admite notificaciones Push.", "fa-solid fa-triangle-exclamation");
+                    return;
+                }
+
+                const supported = await isSupported();
+
+                if (!supported) {
+                    showToast("Las notificaciones no son compatibles con este navegador.", "fa-solid fa-triangle-exclamation");
+                    return;
+                }
+
+                // Registrar el Service Worker
+                const serviceWorkerRegistration = await navigator.serviceWorker.register(
+                    "/firebase-messaging-sw.js"
+                );
+
+                // Solicitar permiso tras la acción del usuario
+                const permission = await Notification.requestPermission();
+
+                if (permission !== "granted") {
+                    showToast("No has permitido las notificaciones.", "fa-solid fa-bell-slash");
+                    return;
+                }
+
+                // Obtener el token de Firebase
+                const messaging = getMessaging(app);
+
+                const token = await getToken(messaging, {
+                    vapidKey: "BHt6jMlN92Yj4v9hTUEeIe3rfFCpGQXe6yJSJdg-3SNFhVDw4_SjPQJitPK8mPNzzP7gY6ke8qtB_UybWvsrlaI",
+                    serviceWorkerRegistration
+                });
+
+                if (!token) {
+                    showToast("No se ha podido generar el token Push.", "fa-solid fa-triangle-exclamation");
+                    return;
+                }
+
+                // Guardar el token separado del perfil del usuario
+                const tokenRef = push(
+                    ref(rtdb, `myflowxx/pushTokens/${fbUser.uid}`)
+                );
+
+                await set(tokenRef, {
+                    token: token,
+                    platform: "web",
+                    createdAt: Date.now(),
+                    userAgent: navigator.userAgent
+                });
+
+                showToast("¡Notificaciones activadas correctamente!", "fa-solid fa-bell");
+
+                console.log("MYFLOWXX Push activado correctamente.");
+
+            } catch (error) {
+                console.error("Error activando Push:", error);
+
+                showToast(
+                    "No se han podido activar las notificaciones. Revisa la consola.",
+                    "fa-solid fa-triangle-exclamation"
+                );
+            }
+        };
 
         const HOST_EMAIL = "myflowxx@gmail.com";
 
@@ -2333,10 +2454,10 @@
             sector: "Fundador & Anfitrión",
             points: 15,
             joinedAt: 1,
-            avatar: "https://placehold.co/200x200/ff1111/ffffff?text=MF",
-            aiSummary: "Organizador de myflowxx. Conecto a jóvenes emprendedores en eventos y viajes.",
-            whatIProvide: "Comunidad, eventos presenciales y red de contactos B2B.",
-            whatINeed: "Conectar con todos los miembros que vayan entrando a la app.",
+            avatar: "https://placehold.co/200x200/e03e3e/ffffff?text=MF",
+            aiSummary: "✨ Síntesis IA: Fundador de myflowxx (22 años). Especializado en comunidad, eventos presenciales y alianzas B2B. Busca conectar con cada miembro nuevo de la plataforma.",
+            whatIProvide: "Comunidad exclusiva, eventos presenciales de alto valor y conexiones estratégicas B2B en Madrid.",
+            whatINeed: "Conectar con todos los emprendedores que se unen al ranking para impulsar sus proyectos.",
             needCreatedAt: Date.now(),
             needResolved: false,
             contacts: { linkedin: "", whatsapp: "34623179849", instagram: "@myflowxx", email: "myflowxx@gmail.com" },
@@ -2351,11 +2472,98 @@
             { id: "p3", category: "Evento (+5 pts)", title: "Rooftop Privado + Networking en Madrid", votes: 0, votedBy: [] }
         ];
 
+        // ==========================================
+        // MOTOR DE SÍNTESIS EJECUTIVA IA (REESCRIBE Y RESUME EL TEXTO DEL USUARIO)
+        // ==========================================
+        function cleanAndSynthesizeFragment(rawText, mode = 'value') {
+            if (!rawText) return '';
+            let t = rawText.trim().replace(/\s+/g, ' ');
+
+            // Eliminar muletillas coloquiales y saludos al inicio
+            t = t.replace(/^(hola buenas|hola a todos|hola equipo|hola|buenas|pues nada|bueno pues|actualmente|yo soy|me llamo|básicamente|la verdad es que|os cuento que|pues)\s*,?\s*/i, '');
+
+            // Transformar expresiones en 1ª persona a estilo ejecutivo en 3ª persona / sustantivo
+            const replacements = [
+                [/\b(yo )?tengo una agencia de\b/gi, 'Dirige una agencia especializada en'],
+                [/\b(yo )?tengo un proyecto de\b/gi, 'Lidera un proyecto de'],
+                [/\b(yo )?tengo una marca de\b/gi, 'Desarrolla una marca de'],
+                [/\b(yo )?tengo una empresa de\b/gi, 'Dirige una empresa de'],
+                [/\b(yo )?me dedico a\b/gi, 'Especialista en'],
+                [/\b(yo )?trabajo en\b/gi, 'Profesional en'],
+                [/\b(yo )?hago\b/gi, 'Desarrolla'],
+                [/\b(yo )?ofrezco\b/gi, 'Aporta soluciones de'],
+                [/\b(yo )?ayudo a\b/gi, 'Impulsa a'],
+                [/\b(yo )?puedo ayudar (con|en|a)\b/gi, 'Aporta experiencia clave en'],
+                [/\b(yo )?sé mucho de\b/gi, 'Domina el área de'],
+                [/\b(yo )?soy experto en\b/gi, 'Especialista en'],
+                [/\b(yo )?soy\b/gi, 'Perfil enfocado en'],
+                [/\b(yo )?estoy buscando\b/gi, 'Busca conectar con'],
+                [/\b(yo )?busco\b/gi, 'En búsqueda activa de'],
+                [/\b(yo )?necesito que alguien me ayude (con|a)\b/gi, 'Requiere soporte estratégico en'],
+                [/\b(yo )?necesito ayuda (con|para|en)\b/gi, 'Prioriza resolver'],
+                [/\b(yo )?necesito\b/gi, 'Requiere'],
+                [/\b(yo )?quiero conseguir\b/gi, 'Objetivo actual: captar'],
+                [/\b(yo )?quiero\b/gi, 'Enfocado en'],
+                [/\bmi problema es que\b/gi, 'Reto actual:'],
+                [/\bme gustaría encontrar\b/gi, 'Busca alianzas con'],
+                [/\bme falta\b/gi, 'Requiere incorporar']
+            ];
+
+            replacements.forEach(([regex, rep]) => {
+                t = t.replace(regex, rep);
+            });
+
+            // Tomar las ideas principales (máximo 2 oraciones clave) y limpiar signos redundantes
+            const sentences = t.split(/(?<=[.!?])\s+/).filter(Boolean);
+            let core = sentences.slice(0, 2).join(' ');
+
+            if (core.length > 135) {
+                core = core.substring(0, 132).replace(/[,;:\s]+$/, '') + '...';
+            }
+
+            // Capitalizar primera letra y asegurar punto final
+            core = core.charAt(0).toUpperCase() + core.slice(1);
+            if (!/[.!?…]$/.test(core)) core += '.';
+
+            if (mode === 'value' && !/^(Dirige|Lidera|Desarrolla|Especialista|Profesional|Aporta|Impulsa|Domina|Perfil)/i.test(core)) {
+                core = `Aporta valor en: ${core.charAt(0).toLowerCase() + core.slice(1)}`;
+            }
+            if (mode === 'need' && !/^(Busca|En búsqueda|Requiere|Prioriza|Objetivo|Reto|Enfocado)/i.test(core)) {
+                core = `Objetivo actual: ${core.charAt(0).toLowerCase() + core.slice(1)}`;
+            }
+
+            return core;
+        }
+
+        function generateExecutiveAISummary(name, age, sector, valueText, needText) {
+            const cleanName = (name || 'Emprendedor').trim().split(' ')[0];
+            const cleanSector = (sector || 'Emprendimiento').trim().replace(/\.$/, '');
+            const synthValue = cleanAndSynthesizeFragment(valueText, 'value');
+            const synthNeed = cleanAndSynthesizeFragment(needText, 'need');
+
+            return `✨ Síntesis IA: ${cleanName} (${age} años, ${cleanSector}). ${synthValue} ${synthNeed}`;
+        }
+
+        // Si un perfil existente aún tiene el texto crudo antiguo sin sintetizar, lo resume al vuelo para mostrarlo siempre con IA
+        function getDisplayAISummary(member) {
+            if (!member) return '';
+            if (member.aiSummary && member.aiSummary.startsWith('✨ Síntesis IA:')) {
+                return member.aiSummary;
+            }
+            return generateExecutiveAISummary(
+                member.name,
+                member.age || 21,
+                member.sector || 'Emprendedor',
+                member.whatIProvide || '',
+                member.whatINeed || ''
+            );
+        }
+
         // Helpers para sincronizar en tiempo real con Firebase Realtime Database
         async function saveMemberToCloud(memberObj) {
             if (!memberObj || !memberObj.id) return;
             const cleanCopy = JSON.parse(JSON.stringify(memberObj));
-            delete cleanCopy.password; // Nunca guardar contraseñas en texto plano
+            delete cleanCopy.password;
             try {
                 await set(ref(rtdb, `myflowxx/members/${cleanCopy.id}`), cleanCopy);
             } catch (err) {
@@ -2385,19 +2593,19 @@
             if (data) {
                 const list = Object.values(data).map(m => ({
                     ...m,
+                    aiSummary: getDisplayAISummary(m),
                     contacts: m.contacts || { linkedin: "", whatsapp: "", instagram: "", email: "" },
                     replies: Array.isArray(m.replies) ? m.replies : (m.replies ? Object.values(m.replies) : []),
                     redeemedQrs: Array.isArray(m.redeemedQrs) ? m.redeemedQrs : (m.redeemedQrs ? Object.values(m.redeemedQrs) : [])
                 }));
                 membersDirectory = list.length > 0 ? list : [DEFAULT_HOST_PROFILE];
             } else {
-                // Inicializar perfil del anfitrión si la base de datos está vacía
                 saveMemberToCloud(DEFAULT_HOST_PROFILE);
                 membersDirectory = [DEFAULT_HOST_PROFILE];
             }
 
             if (currentUser) {
-                const updatedMe = membersDirectory.find(m => m.id === currentUser.id || m.email.toLowerCase() === currentUser.email.toLowerCase());
+                const updatedMe = membersDirectory.find(m => m.id === currentUser.id || (m.email && m.email.toLowerCase() === currentUser.email.toLowerCase()));
                 if (updatedMe) currentUser = updatedMe;
             }
 
@@ -2539,9 +2747,9 @@
             document.body.style.overflow = '';
         }
 
-        // Iconos SVG en línea de la Corona y el Pingüino del logo
-        const CROWN_BADGE_SVG = `<svg viewBox="0 0 150 85" class="w-4 h-3.5 inline-block mr-1 -mt-0.5 shrink-0" fill="none"><g stroke="#ff1111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="23" r="5" fill="#ff1111" stroke="none"/><circle cx="75" cy="10" r="5.5" fill="#ff1111" stroke="none"/><circle cx="134" cy="23" r="5" fill="#ff1111" stroke="none"/><path d="M 30 72 L 16 36 L 67 72"/><path d="M 83 72 L 134 36 L 120 72"/><path d="M 16 36 L 75 74 L 134 36"/><path d="M 30 72 L 75 20 L 120 72"/><path d="M 30 72 L 120 72"/></g></svg>`;
-        const PENGUIN_BADGE_SVG = `<svg viewBox="395 60 100 138" class="w-3.5 h-4 inline-block mr-1 -mt-0.5 shrink-0" fill="none"><g stroke="#ff1111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M 423 72 L 401 75 L 420 83"/><path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178"/><path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189"/><path d="M 436 98 C 445 110 449 135 440 168 C 438 174 436 180 439 183"/><path d="M 430 116 C 432 135 431 155 427 172"/></g></svg>`;
+        // Iconos SVG en línea de la Corona y el Pingüino del logo (con el tono coral suave)
+        const CROWN_BADGE_SVG = `<svg viewBox="0 0 150 85" class="w-4 h-3.5 inline-block mr-1 -mt-0.5 shrink-0" fill="none"><g stroke="#e03e3e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="23" r="5" fill="#e03e3e" stroke="none"/><circle cx="75" cy="10" r="5.5" fill="#e03e3e" stroke="none"/><circle cx="134" cy="23" r="5" fill="#e03e3e" stroke="none"/><path d="M 30 72 L 16 36 L 67 72"/><path d="M 83 72 L 134 36 L 120 72"/><path d="M 16 36 L 75 74 L 134 36"/><path d="M 30 72 L 75 20 L 120 72"/><path d="M 30 72 L 120 72"/></g></svg>`;
+        const PENGUIN_BADGE_SVG = `<svg viewBox="395 60 100 138" class="w-3.5 h-4 inline-block mr-1 -mt-0.5 shrink-0" fill="none"><g stroke="#e03e3e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M 423 72 L 401 75 L 420 83"/><path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178"/><path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189"/><path d="M 436 98 C 445 110 449 135 440 168 C 438 174 436 180 439 183"/><path d="M 430 116 C 432 135 431 155 427 172"/></g></svg>`;
 
         // Sort Directory Automatically by Points Descending, then by Order of Entry (joinedAt Ascending)
         function getSortedMembers() {
@@ -2603,10 +2811,11 @@
             for (let pos = 1; pos <= 3; pos++) {
                 const m = sorted[pos - 1];
                 if (m) {
+                    const summaryText = getDisplayAISummary(m);
                     top3Html += `
-                        <div onclick="openMemberModal('${m.id}')" style="animation-delay: ${pos * 60}ms" class="dynamic-card cursor-pointer group rounded-2xl bg-brand-dark border-2 ${pos === 1 ? 'border-brand-red' : 'border-white/20'} hover:border-brand-red p-5 flex flex-col justify-between space-y-3">
+                        <div onclick="openMemberModal('${m.id}')" style="animation-delay: ${pos * 60}ms" class="dynamic-card cursor-pointer group rounded-2xl bg-brand-softSurface border ${pos === 1 ? 'border-brand-red/60' : 'border-white/15'} hover:border-brand-red/70 p-5 flex flex-col justify-between space-y-3">
                             <div class="flex items-center justify-between">
-                                <span class="px-2.5 py-1 rounded-lg bg-brand-red/15 border border-brand-red/40 text-white font-mono text-xs font-black flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
+                                <span class="px-2.5 py-1 rounded-lg bg-brand-red/15 border border-brand-red/30 text-white font-mono text-xs font-black flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
                                 <span class="font-mono text-xs font-black text-brand-lightRed">${m.points} pts</span>
                             </div>
                             <div class="flex items-center space-x-3.5">
@@ -2616,18 +2825,18 @@
                                     <p class="text-xs text-gray-400 truncate">${m.sector} • ${m.age}a</p>
                                 </div>
                             </div>
-                            <p class="text-xs text-gray-300 line-clamp-2">${m.aiSummary}</p>
+                            <p class="text-xs text-gray-300 line-clamp-3 leading-relaxed">${summaryText}</p>
                             <div class="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
-                                <span class="truncate max-w-[72%]">Necesita: ${m.whatINeed}</span>
+                                <span class="truncate max-w-[72%]">${m.whatINeed}</span>
                                 <span class="text-brand-lightRed font-bold shrink-0 group-hover:translate-x-0.5 transition-transform">Ver →</span>
                             </div>
                         </div>
                     `;
                 } else {
                     top3Html += `
-                        <div style="animation-delay: ${pos * 60}ms" class="dynamic-card rounded-2xl bg-black/40 border border-dashed border-white/10 p-5 flex flex-col items-center justify-center text-center space-y-1.5 min-h-[160px] select-none">
-                            <span class="px-2.5 py-0.5 rounded bg-white/5 text-gray-500 font-mono text-xs font-bold flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
-                            <p class="text-[11px] text-gray-600">Se asigna automáticamente por puntos y orden de registro</p>
+                        <div style="animation-delay: ${pos * 60}ms" class="dynamic-card rounded-2xl bg-brand-softSurface/50 border border-dashed border-white/10 p-5 flex flex-col items-center justify-center text-center space-y-1.5 min-h-[160px] select-none">
+                            <span class="px-2.5 py-0.5 rounded bg-white/5 text-gray-400 font-mono text-xs font-bold flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
+                            <p class="text-[11px] text-gray-500">Se asigna automáticamente por puntos y orden de registro</p>
                         </div>
                     `;
                 }
@@ -2640,11 +2849,12 @@
             for (let pos = 4; pos <= 15; pos++) {
                 const m = sorted[pos - 1];
                 if (m) {
+                    const summaryText = getDisplayAISummary(m);
                     podium4to15Html += `
-                        <div onclick="openMemberModal('${m.id}')" style="animation-delay: ${(pos - 3) * 35}ms" class="dynamic-card cursor-pointer p-4 rounded-2xl bg-brand-dark border border-white/15 hover:border-brand-red flex flex-col justify-between space-y-2.5">
+                        <div onclick="openMemberModal('${m.id}')" style="animation-delay: ${(pos - 3) * 35}ms" class="dynamic-card cursor-pointer p-4 rounded-2xl bg-brand-softSurface border border-white/10 hover:border-brand-red/60 flex flex-col justify-between space-y-2.5">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-2.5 min-w-0">
-                                    <span class="px-2 py-0.5 rounded bg-white/10 text-white font-mono text-xs font-black flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
+                                    <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white font-mono text-xs font-black flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
                                     <img src="${m.avatar}" alt="${m.name}" class="w-9 h-9 rounded-lg object-cover border border-white/10">
                                     <div class="min-w-0">
                                         <h4 class="text-xs sm:text-sm font-bold text-white truncate">${m.name}</h4>
@@ -2653,14 +2863,14 @@
                                 </div>
                                 <span class="font-mono text-xs font-bold text-brand-lightRed shrink-0">${m.points} pts</span>
                             </div>
-                            <p class="text-xs text-gray-400 line-clamp-2">${m.aiSummary}</p>
+                            <p class="text-xs text-gray-300 line-clamp-2 leading-relaxed">${summaryText}</p>
                         </div>
                     `;
                 } else {
                     podium4to15Html += `
-                        <div style="animation-delay: ${(pos - 3) * 35}ms" class="dynamic-card p-4 rounded-2xl bg-black/25 border border-dashed border-white/10 flex items-center justify-between select-none">
-                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-500 font-mono text-xs font-bold flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
-                            <span class="text-[11px] text-gray-600 font-mono">Automático por puntos</span>
+                        <div style="animation-delay: ${(pos - 3) * 35}ms" class="dynamic-card p-4 rounded-2xl bg-brand-softSurface/40 border border-dashed border-white/10 flex items-center justify-between select-none">
+                            <span class="px-2 py-0.5 rounded bg-white/5 text-gray-400 font-mono text-xs font-bold flex items-center">${CROWN_BADGE_SVG}#${pos}</span>
+                            <span class="text-[11px] text-gray-500 font-mono">Automático por puntos</span>
                         </div>
                     `;
                 }
@@ -2672,22 +2882,22 @@
             const outsideMembers = sorted.slice(15);
             if (outsideMembers.length === 0) {
                 outsideGrid.innerHTML = `
-                    <div class="sm:col-span-2 lg:col-span-3 p-4 rounded-2xl bg-black/30 border border-dashed border-white/10 text-center text-xs text-gray-500">
+                    <div class="sm:col-span-2 lg:col-span-3 p-4 rounded-2xl bg-brand-softSurface/40 border border-dashed border-white/10 text-center text-xs text-gray-400">
                         Aquí aparecen automáticamente los Flowreros (del puesto #16 en adelante, sin conexión privada ni derecho al voto).
                     </div>
                 `;
             } else {
                 outsideGrid.innerHTML = outsideMembers.map(m => `
-                    <div onclick="openMemberModal('${m.id}')" class="dynamic-card cursor-pointer p-3.5 rounded-2xl bg-black/40 border border-dashed border-white/10 hover:border-white/25 flex items-center justify-between">
+                    <div onclick="openMemberModal('${m.id}')" class="dynamic-card cursor-pointer p-3.5 rounded-2xl bg-brand-softSurface/70 border border-dashed border-white/10 hover:border-white/25 flex items-center justify-between">
                         <div class="flex items-center space-x-2.5 min-w-0">
                             <span class="text-xs font-mono text-gray-400 font-bold flex items-center">${PENGUIN_BADGE_SVG}#${m.rank}</span>
                             <img src="${m.avatar}" alt="${m.name}" class="w-8 h-8 rounded-lg object-cover grayscale">
                             <div class="min-w-0">
-                                <h4 class="text-xs font-bold text-gray-300 truncate">${m.name}</h4>
-                                <p class="text-[10px] text-gray-500 truncate">${m.sector}</p>
+                                <h4 class="text-xs font-bold text-gray-200 truncate">${m.name}</h4>
+                                <p class="text-[10px] text-gray-400 truncate">${m.sector}</p>
                             </div>
                         </div>
-                        <span class="text-xs font-mono text-gray-400 shrink-0">${m.points} pts</span>
+                        <span class="text-xs font-mono text-gray-300 shrink-0">${m.points} pts</span>
                     </div>
                 `).join('');
             }
@@ -2695,7 +2905,7 @@
             renderPollsSection();
         }
 
-        // Render Simple Polls for Top 15
+        // Render Simple Polls for Top 15 (Comfortable dark cards with soft coral accents)
         function renderPollsSection() {
             const canVote = isCurrentUserInTop15();
             const badge = document.getElementById('vote-privilege-badge');
@@ -2706,14 +2916,14 @@
                 const votedBy = p.votedBy || [];
                 const hasVoted = currentUser && votedBy.includes(currentUser.id);
                 return `
-                    <div class="p-4 rounded-xl bg-black/10 border border-black/20 flex flex-col justify-between space-y-3 text-black">
+                    <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col justify-between space-y-3 text-white">
                         <div>
-                            <span class="text-[10px] font-mono uppercase text-black/80 font-bold">${p.category}</span>
-                            <h4 class="text-xs sm:text-sm font-black text-black mt-0.5">${p.title}</h4>
+                            <span class="text-[10px] font-mono uppercase text-brand-lightRed font-bold">${p.category}</span>
+                            <h4 class="text-xs sm:text-sm font-bold text-gray-100 mt-0.5">${p.title}</h4>
                         </div>
-                        <div class="flex items-center justify-between pt-2 border-t border-black/15">
-                            <span class="text-xs font-mono font-bold text-black">${p.votes || 0} votos</span>
-                            <button onclick="castTop15Vote('${p.id}')" class="px-3 py-1 rounded-lg text-xs font-black transition-all ${hasVoted ? 'bg-black text-brand-red' : 'bg-black text-white hover:bg-black/80'}">
+                        <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                            <span class="text-xs font-mono font-bold text-gray-300">${p.votes || 0} votos</span>
+                            <button onclick="castTop15Vote('${p.id}')" class="px-3 py-1.5 rounded-lg text-xs font-black transition-all ${hasVoted ? 'bg-brand-red/20 border border-brand-red/40 text-brand-lightRed' : 'bg-brand-red hover:bg-brand-lightRed text-white'}">
                                 ${hasVoted ? 'Votado ✓' : 'Votar'}
                             </button>
                         </div>
@@ -2760,9 +2970,11 @@
             document.getElementById('modal-member-age').textContent = `${m.age} años`;
             document.getElementById('modal-member-points').textContent = `${m.points} pts`;
             document.getElementById('modal-member-sector').textContent = m.sector;
-            document.getElementById('modal-member-ai-bio').textContent = `"${m.aiSummary}"`;
-            document.getElementById('modal-member-value').textContent = m.whatIProvide;
-            document.getElementById('modal-member-need').textContent = m.whatINeed;
+
+            // Mostrar siempre versión resumida por IA
+            document.getElementById('modal-member-ai-bio').textContent = getDisplayAISummary(m);
+            document.getElementById('modal-member-value').textContent = cleanAndSynthesizeFragment(m.whatIProvide, 'value');
+            document.getElementById('modal-member-need').textContent = cleanAndSynthesizeFragment(m.whatINeed, 'need');
 
             // Mostrar u ocultar el bloque exclusivo de Control Manual de Puntos para el Anfitrión
             const hostPtsBox = document.getElementById('modal-host-points-control');
@@ -2781,7 +2993,7 @@
             const contactsBox = document.getElementById('modal-member-contacts-box');
 
             if (viewerAllowed) {
-                lockStatus.className = "text-[11px] font-mono text-white font-bold";
+                lockStatus.className = "text-[11px] font-mono text-emerald-400 font-bold";
                 lockStatus.textContent = "✓ Desbloqueado (Podio Top 15)";
 
                 const c = m.contacts || {};
@@ -2909,11 +3121,11 @@
                         <div class="text-xs">
                             <span class="font-bold text-white">${r.authorName}:</span>
                             <span class="text-gray-300 ml-1">${r.text}</span>
-                            ${r.isWinner ? `<span class="ml-2 px-2 py-0.5 rounded bg-brand-red text-black font-mono font-black text-[10px] uppercase">★ Ganador +0,5 pts</span>` : ''}
+                            ${r.isWinner ? `<span class="ml-2 px-2 py-0.5 rounded bg-brand-red text-white font-mono font-black text-[10px] uppercase">★ Ganador +0,5 pts</span>` : ''}
                         </div>
                         ${!member.needResolved ? (
                             canSelectWinner ? `
-                                <button type="button" onclick="awardHalfPointToHelper('${member.id}', '${r.id}')" class="px-3 py-1.5 rounded-lg bg-brand-red hover:bg-brand-lightRed text-black font-black text-xs shrink-0 transition-all shadow-md shadow-brand-red/20 flex items-center space-x-1">
+                                <button type="button" onclick="awardHalfPointToHelper('${member.id}', '${r.id}')" class="px-3 py-1.5 rounded-lg bg-brand-red hover:bg-brand-lightRed text-white font-black text-xs shrink-0 transition-all shadow-md shadow-brand-red/20 flex items-center space-x-1">
                                     <i class="fa-solid fa-check"></i>
                                     <span>Dar +0,5 pts</span>
                                 </button>
@@ -3040,7 +3252,6 @@
                 try {
                     cred = await signInWithEmailAndPassword(auth, email, pass);
                 } catch (loginErr) {
-                    // Si aún no existe la cuenta del Anfitrión en Firebase Auth, se registra de forma segura en el servidor de Google
                     if (email.toLowerCase() === HOST_EMAIL.toLowerCase() && (loginErr.code === 'auth/user-not-found' || loginErr.code === 'auth/invalid-credential')) {
                         cred = await createUserWithEmailAndPassword(auth, email, pass);
                         await saveMemberToCloud(DEFAULT_HOST_PROFILE);
@@ -3060,7 +3271,7 @@
                         points: 0,
                         joinedAt: Date.now(),
                         avatar: `https://placehold.co/200x200/151522/ffffff?text=MF`,
-                        aiSummary: "Completando perfil...",
+                        aiSummary: "✨ Síntesis IA: Emprendedor de la comunidad myflowxx completando su perfil B2B.",
                         whatIProvide: "Por definir",
                         whatINeed: "Por definir",
                         needCreatedAt: Date.now(),
@@ -3098,7 +3309,6 @@
                 await setPersistence(auth, remember ? browserLocalPersistence : browserSessionPersistence);
                 const cred = await createUserWithEmailAndPassword(auth, email, pass);
 
-                // Enviar correo oficial de confirmación de cuenta mediante Firebase Auth
                 await sendEmailVerification(cred.user).catch(() => {});
 
                 const newUser = {
@@ -3110,7 +3320,7 @@
                     points: 0,
                     joinedAt: Date.now(),
                     avatar: `https://placehold.co/200x200/151522/ffffff?text=${encodeURIComponent(name.substring(0, 2).toUpperCase())}`,
-                    aiSummary: "Completando perfil...",
+                    aiSummary: `✨ Síntesis IA: ${name} (21 años). Nuevo miembro en la red B2B myflowxx.`,
                     whatIProvide: "Por definir",
                     whatINeed: "Por definir",
                     needCreatedAt: Date.now(),
@@ -3167,8 +3377,8 @@
             document.getElementById('prof-name').value = currentUser.name || '';
             document.getElementById('prof-age').value = currentUser.age || 21;
             document.getElementById('prof-sector').value = currentUser.sector === 'Emprendedor' ? '' : (currentUser.sector || '');
-            document.getElementById('prof-value').value = currentUser.whatIProvide === 'Por definir' ? '' : (currentUser.whatIProvide || '');
-            document.getElementById('prof-need').value = currentUser.whatINeed === 'Por definir' ? '' : (currentUser.whatINeed || '');
+            document.getElementById('prof-value').value = currentUser.rawWhatIProvide || (currentUser.whatIProvide === 'Por definir' ? '' : (currentUser.whatIProvide || ''));
+            document.getElementById('prof-need').value = currentUser.rawWhatINeed || (currentUser.whatINeed === 'Por definir' ? '' : (currentUser.whatINeed || ''));
 
             const c = currentUser.contacts || {};
             document.getElementById('prof-linkedin').value = c.linkedin || '';
@@ -3221,23 +3431,28 @@
             reader.readAsDataURL(file);
         }
 
-        function generateExecutiveAISummary(name, age, sector, valueText) {
-            const cleanSector = sector.trim().replace(/\.$/, '');
-            const cleanValue = valueText.trim().replace(/\.$/, '');
-            const compactValue = cleanValue.length > 90 ? cleanValue.substring(0, 87).trim() + '...' : cleanValue;
-            return `${cleanSector} (${age}a) • ${compactValue}.`;
-        }
-
         async function handleSaveProfileWithAI(event) {
             event.preventDefault();
             if (!currentUser) return;
 
+            const btn = document.getElementById('save-profile-ai-btn');
+            const originalBtnHtml = btn ? btn.innerHTML : '';
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i><span>Sintetizando perfil con IA...</span>`;
+            }
+
             const name = document.getElementById('prof-name').value.trim();
             const age = parseInt(document.getElementById('prof-age').value, 10) || 21;
             const sector = document.getElementById('prof-sector').value.trim();
-            const valueText = document.getElementById('prof-value').value.trim();
-            const needText = document.getElementById('prof-need').value.trim();
+            const rawValueText = document.getElementById('prof-value').value.trim();
+            const rawNeedText = document.getElementById('prof-need').value.trim();
             const previewSrc = document.getElementById('profile-preview-avatar').src;
+
+            // Síntesis real mediante el motor IA en 3ª persona tanto para el resumen como para los campos públicos
+            const synthesizedValue = cleanAndSynthesizeFragment(rawValueText, 'value');
+            const synthesizedNeed = cleanAndSynthesizeFragment(rawNeedText, 'need');
+            const fullAiSummary = generateExecutiveAISummary(name, age, sector, rawValueText, rawNeedText);
 
             const newAvatar = uploadedAvatarDataUrl || previewSrc || currentUser.avatar;
 
@@ -3247,14 +3462,17 @@
             targetObj.name = name;
             targetObj.age = age;
             targetObj.sector = sector;
-            targetObj.whatIProvide = valueText;
-            if (targetObj.whatINeed !== needText) {
-                targetObj.whatINeed = needText;
+            targetObj.rawWhatIProvide = rawValueText;
+            targetObj.rawWhatINeed = rawNeedText;
+            targetObj.whatIProvide = synthesizedValue;
+
+            if (targetObj.whatINeed !== synthesizedNeed) {
+                targetObj.whatINeed = synthesizedNeed;
                 targetObj.needCreatedAt = Date.now();
                 targetObj.needResolved = false;
             }
             targetObj.avatar = newAvatar;
-            targetObj.aiSummary = generateExecutiveAISummary(name, age, sector, valueText);
+            targetObj.aiSummary = fullAiSummary;
             targetObj.contacts = {
                 linkedin: document.getElementById('prof-linkedin').value.trim(),
                 whatsapp: document.getElementById('prof-whatsapp').value.trim(),
@@ -3265,9 +3483,14 @@
             currentUser = targetObj;
             await saveMemberToCloud(targetObj);
 
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+
             closeEditProfileModal();
             renderNetworkingWorld();
-            showToast("Perfil y foto guardados en la nube en tiempo real.", "fa-solid fa-check text-white");
+            showToast("¡Perfil resumido por la IA y actualizado!", "fa-solid fa-wand-magic-sparkles text-brand-lightRed");
         }
 
         // Host Dashboard (myflowxx@gmail.com) & Notificaciones de +3 días
@@ -3363,7 +3586,7 @@
                 <div class="p-3.5 rounded-xl bg-black/50 border ${isOver3Days ? 'border-brand-red' : 'border-white/10'} space-y-2">
                     <div class="flex items-center justify-between">
                         <p class="text-xs font-bold text-white">${m.name}: <span class="text-gray-300 font-normal">"${m.whatINeed}"</span></p>
-                        <span class="text-[10px] font-mono px-2 py-0.5 rounded ${isOver3Days ? 'bg-brand-red text-black font-black' : 'bg-white/10 text-gray-300'}">
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded ${isOver3Days ? 'bg-brand-red text-white font-black' : 'bg-white/10 text-gray-300'}">
                             ${isOver3Days ? '⚠️ +3 días sin validar' : 'Activa (Puedes elegir ya)'}
                         </span>
                     </div>
@@ -3371,7 +3594,7 @@
                         ${(m.replies || []).map(r => `
                             <div class="flex items-center justify-between bg-white/5 p-2 rounded-lg text-xs gap-2">
                                 <span><strong>${r.authorName}:</strong> ${r.text}</span>
-                                <button type="button" onclick="awardHalfPointToHelper('${m.id}', '${r.id}')" class="px-3 py-1 rounded bg-brand-red hover:bg-brand-lightRed text-black font-black text-[11px] shrink-0">
+                                <button type="button" onclick="awardHalfPointToHelper('${m.id}', '${r.id}')" class="px-3 py-1 rounded bg-brand-red hover:bg-brand-lightRed text-white font-black text-[11px] shrink-0">
                                     Elegir y dar +0,5 pts
                                 </button>
                             </div>
