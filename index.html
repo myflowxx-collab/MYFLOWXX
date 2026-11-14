@@ -2365,7 +2365,7 @@
             try {
                 // Comprobar que hay un usuario autenticado (Firebase Auth o sesión activa de la app)
                 const fbUser = auth.currentUser;
-                const activeUid = (fbUser && fbUser.uid) ? fbUser.uid : (currentUser && currentUser.id ? currentUser.id : null);
+                const activeUid = fbUser ? fbUser.uid : null;
 
                 if (!activeUid) {
                     showToast("Inicia sesión para activar las notificaciones.", "fa-solid fa-lock");
@@ -2421,10 +2421,15 @@
 
                 // Si estamos en previsualización o falta el archivo firebase-messaging-sw.js en el servidor,
                 // registramos igualmente la suscripción activa del dispositivo y lanzamos notificación nativa
-                const finalToken = token || `web-native-${activeUid}-${Date.now()}`;
+                if (!token) {
+                    showToast("No se ha podido obtener el token de Firebase.", "fa-solid fa-triangle-exclamation");
+                    return;
+                }
+
+                const finalToken = token;
 
                 const tokenRef = push(
-                    ref(rtdb, `myflowxx/pushTokens/${activeUid}`)
+                    ref(rtdb, `pushTokens/${activeUid}`)
                 );
 
                 await set(tokenRef, {
