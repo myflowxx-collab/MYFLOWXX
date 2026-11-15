@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>myflowxx | Cuaderno de la Comunidad de Creadores</title>
+    <title>Comunidad de Jóvenes Emprendedores en España | Eventos y Networking</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Comunidad exclusiva de creadores y jóvenes emprendedores (16-28 años) en España. Eventos presenciales, networking real y grupo de WhatsApp.">
-    <meta name="keywords" content="myflowxx, networking madrid, jovenes emprendedores, creadores españa, comunidad exclusiva">
+    <!-- SEO Meta Tags Actualizados -->
+    <meta name="description" content="Forma parte de una comunidad de jóvenes emprendedores, creadores y profesionales que buscan crecer, conectar y vivir nuevas experiencias. Organizamos eventos exclusivos, viajes y encuentros de networking por España para crear conexiones reales, compartir ideas y generar oportunidades que van más allá de lo profesional. Además, contamos con nuestra propia app, donde podrás descubrir otros emprendedores, conseguir sus contactos y conectar directamente con personas que pueden abrirte nuevas puertas y oportunidades de negocio. Disfruta de experiencias únicas, conoce personas con tus mismas ambiciones, participa en eventos exclusivos y accede a premios y ventajas especiales por formar parte de la comunidad. Únete gratis y descubre todo lo que puede surgir cuando conectas con las personas adecuadas.">
+    <meta name="keywords" content="comunidad de jovenes emprendedores en españa, eventos y networking, myflowxx, networking madrid, jovenes emprendedores, creadores españa, comunidad exclusiva, app networking emprendedores">
+    <meta property="og:title" content="Comunidad de Jóvenes Emprendedores en España | Eventos y Networking">
+    <meta property="og:description" content="Forma parte de una comunidad de jóvenes emprendedores, creadores y profesionales que buscan crecer, conectar y vivir nuevas experiencias. Eventos exclusivos, viajes y nuestra propia app de networking en España. Únete gratis.">
+    <meta property="og:image" content="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg">
+    <link rel="icon" type="image/jpeg" href="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg">
 
     <!-- Google Fonts: Plus Jakarta Sans (Brand clean) & Caveat (Handwritten note style) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,6 +135,21 @@
             50% { opacity: 0.45; filter: blur(45px); }
         }
 
+        /* Bell Notification Signal Pulse */
+        @keyframes bellSignalRing {
+            0%, 100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0 0 rgba(224, 62, 62, 0.7); }
+            15% { transform: scale(1.12) rotate(12deg); }
+            30% { transform: scale(1.12) rotate(-12deg); box-shadow: 0 0 0 10px rgba(224, 62, 62, 0); }
+            45% { transform: scale(1.08) rotate(8deg); }
+            60% { transform: scale(1) rotate(0deg); }
+        }
+        .bell-signal-active {
+            animation: bellSignalRing 2.2s infinite;
+            border-color: #e03e3e !important;
+            background-color: rgba(224, 62, 62, 0.22) !important;
+            color: #ffffff !important;
+        }
+
         /* Portal Warp Transition Animation (Extended & Hyper-Dynamic) */
         @keyframes warpTunnel {
             0% { transform: scale(0.05) rotate(0deg); opacity: 0; border-width: 10px; }
@@ -166,7 +185,7 @@
             animation: portalFlashOut 2.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
-        /* Comfortable Dark World Grid for Networking App (Softened warm ambient glow) */
+        /* Comfortable Dark World Grid for Networking App */
         .cyber-world-bg {
             background-color: #07070b;
             background-image: 
@@ -229,11 +248,14 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-brand-black/85 backdrop-blur-md border-b border-white/5 transition-all">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between pl-10 md:pl-16">
 
-            <!-- Logo Hand-drawn Recreation -->
-            <a href="#" class="flex items-center group py-1 shrink-0" aria-label="myflowxx inicio">
-                <div class="h-9 sm:h-12 w-auto flex items-center">
+            <!-- Foto Logo + Hand-drawn Recreation -->
+            <a href="#" class="flex items-center space-x-2.5 group py-1 shrink-0" aria-label="myflowxx inicio">
+                <img src="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg" 
+                     alt="Logo-with-penguin-for-entrepreneurs-202606021533" 
+                     class="h-9 w-9 sm:h-11 sm:w-11 rounded-xl object-cover border border-brand-red/50 shadow-md shadow-brand-red/20 group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/100x100/e03e3e/ffffff?text=MF'">
+                <div class="h-8 sm:h-11 w-auto flex items-center">
                     <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full w-auto select-none group-hover:scale-105 transition-transform duration-300">
-                        <!-- Red Geometric Crown with 3 Hovering Dots -->
                         <g stroke="#e03e3e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="56" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
                             <circle cx="118" cy="18" r="3.6" fill="#e03e3e" stroke="none" />
@@ -244,8 +266,6 @@
                             <path d="M 72 82 L 118 29 L 164 82" />
                             <path d="M 72 82 L 164 82" />
                         </g>
-
-                        <!-- "my flow" Handwritten Cursive Typography -->
                         <g fill="none" stroke="#ffffff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M 62 120 C 62 108 72 101 81 101 C 89 101 93 108 94 118 C 96 108 103 101 112 101 C 122 101 127 109 127 122 L 126 126" />
                             <path d="M 130 112 C 132 118 135 125 142 125 C 148 125 152 118 153 108 L 153 125 C 153 148 147 175 130 196 C 123 205 116 208 112 201 C 109 194 116 179 135 160 C 150 145 164 128 178 114" />
@@ -255,8 +275,6 @@
                             <path d="M 314 114 C 307 114 302 120 302 126 C 302 133 308 137 317 137 C 327 137 332 128 332 121 C 332 114 324 111 316 114 C 326 113 336 113 343 117" />
                             <path d="M 346 119 C 347 127 350 135 357 135 C 363 135 367 127 369 119 C 371 127 375 135 382 135 C 390 135 397 124 402 113 C 405 106 409 104 414 107" />
                         </g>
-
-                        <!-- Red 'xx' with curved smile arc right above 'w' -->
                         <g stroke="#e03e3e" stroke-width="3.2" stroke-linecap="round">
                             <line x1="363" y1="87" x2="376" y2="100" />
                             <line x1="376" y1="87" x2="363" y2="100" />
@@ -264,8 +282,6 @@
                             <line x1="397" y1="87" x2="384" y2="100" />
                             <path d="M 364 104 Q 380 110 398 104" fill="none" />
                         </g>
-
-                        <!-- Red Line-Art Penguin -->
                         <g stroke="#e03e3e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
                             <path d="M 423 72 L 401 75 L 420 83" />
                             <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
@@ -301,7 +317,7 @@
                 </a>
             </nav>
 
-            <!-- Action Buttons (Added NETWORKING APP Portal Button) -->
+            <!-- Action Buttons -->
             <div class="flex items-center space-x-2 sm:space-x-2.5">
                 <button onclick="requestEnterNetworkingWorld()" class="px-3.5 py-2 rounded-full bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black shadow-lg shadow-brand-red/25 transition-all duration-300 flex items-center space-x-1.5 hover:scale-105 border border-white/10">
                     <i class="fa-solid fa-lock text-[10px]"></i>
@@ -322,9 +338,20 @@
     <!-- MAIN SKETCHBOOK CONTAINER -->
     <main class="relative z-10 pt-28 pb-24 px-4 sm:px-6 md:px-10 max-w-5xl mx-auto pl-10 md:pl-20">
 
-        <!-- SKETCH TITLE & LOGO HERO -->
+        <!-- SKETCH TITLE & FOTO LOGO HERO -->
         <section class="text-center mb-16 relative">
             <div class="inline-block relative max-w-xl mx-auto">
+                <!-- Foto Logo Oficial solicitada -->
+                <div class="flex justify-center mb-4">
+                    <a href="https://ibb.co/5VJFZbQ" target="_blank" rel="noopener noreferrer" class="inline-block group">
+                        <img src="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg" 
+                             alt="Logo-with-penguin-for-entrepreneurs-202606021533" 
+                             border="0"
+                             class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl object-cover border-2 border-brand-red shadow-2xl shadow-brand-red/25 mx-auto group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://placehold.co/160x160/e03e3e/ffffff?text=myflowxx'">
+                    </a>
+                </div>
+
                 <div class="flex items-center justify-center space-x-2 sm:space-x-4 my-2">
                     <svg class="w-5 h-5 sm:w-7 sm:h-7 text-brand-red animate-pulse shrink-0" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/>
@@ -390,8 +417,6 @@
              PASO 1: COMUNIDAD CREADORES 16-28 AÑOS (VÍDEO ORIGINAL)
              ========================================== -->
         <section id="paso-1" class="mb-24 relative">
-
-            <!-- Step Header Box (Numbered circle 1 + Box title) -->
             <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-8">
                 <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
                     1
@@ -406,7 +431,6 @@
                 </div>
             </div>
 
-            <!-- Hand-drawn arrow pointing down towards the video player -->
             <div class="flex justify-center -my-3">
                 <svg class="w-10 h-16 text-brand-red animate-bounce" viewBox="0 0 50 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M25 5 Q22 40 25 70" />
@@ -414,14 +438,9 @@
                 </svg>
             </div>
 
-            <!-- Video Player & Interactive WhatsApp Flow Container -->
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center pt-4">
-
-                <!-- Left: Vertical 9:16 Reel Player Frame -->
                 <div class="md:col-span-6 flex justify-center">
                     <div class="relative w-full max-w-[320px] rounded-3xl bg-brand-dark border-2 border-white/20 hover:border-brand-red p-3 shadow-2xl shadow-brand-red/10 transition-all duration-300 group">
-
-                        <!-- Reel Frame Top Bar -->
                         <div class="flex items-center justify-between pb-2 px-2 border-b border-white/10">
                             <div class="flex space-x-1.5 items-center">
                                 <span class="w-2.5 h-2.5 rounded-full bg-brand-red/80"></span>
@@ -434,9 +453,7 @@
                             </div>
                         </div>
 
-                        <!-- 9:16 Video Player Container -->
                         <div class="relative mt-2.5 aspect-[9/16] w-full rounded-2xl bg-black overflow-hidden border border-white/10 flex items-center justify-center shadow-inner group/player">
-
                             <video id="main-reel-video" 
                                    src="video.mp4" 
                                    playsinline 
@@ -446,7 +463,6 @@
                                 Tu navegador no soporta la reproducción de este vídeo.
                             </video>
 
-                            <!-- Central Play Overlay Button -->
                             <div id="video-play-overlay-1" 
                                  onclick="toggleVideoPlay(1)" 
                                  class="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center cursor-pointer transition-opacity duration-300 z-10">
@@ -458,7 +474,6 @@
                                 </p>
                             </div>
 
-                            <!-- Floating Bottom Controls Bar -->
                             <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20 flex items-center justify-between opacity-90 hover:opacity-100 transition-opacity">
                                 <button type="button" onclick="toggleVideoPlay(1)" class="text-white hover:text-brand-lightRed p-1 text-sm focus:outline-none" aria-label="Play/Pausa">
                                     <i id="control-play-icon-1" class="fa-solid fa-play"></i>
@@ -485,14 +500,11 @@
                                     <input type="file" accept="video/*" onchange="loadLocalVideo(event, 1)" class="hidden">
                                 </label>
                             </div>
-
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Guided Flow -> Arrow to WhatsApp -->
                 <div class="md:col-span-6 flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-
                     <div class="flex items-center space-x-3">
                         <svg class="hidden md:block w-16 h-8 text-brand-red" viewBox="0 0 80 40" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 20 Q45 15 70 20" />
@@ -510,26 +522,20 @@
                         </svg>
                     </div>
 
-                    <!-- Sketch Oval WhatsApp Button -->
                     <div class="flex items-center justify-center md:justify-start">
                         <button onclick="goToWhatsAppGroup()" class="group relative px-9 py-4 sketch-pill bg-brand-dark hover:bg-emerald-500/10 border-2 border-emerald-500 text-emerald-400 font-extrabold text-lg flex items-center space-x-3 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/20">
                             <i class="fab fa-whatsapp text-2xl text-emerald-400"></i>
                             <span class="tracking-wide">WhatsApp</span>
                         </button>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ==========================================
              PASO 2: SECCIÓN EVENTO #001
              ========================================== -->
         <section id="paso-2" class="mb-24 relative pt-6 border-t border-white/5">
-
-            <!-- Step Header Box (Numbered circle 2 + Box title) -->
             <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-8">
                 <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
                     2
@@ -548,7 +554,6 @@
                 </div>
             </div>
 
-            <!-- Hand-drawn arrow pointing down towards the video player -->
             <div class="flex justify-center -my-3">
                 <svg class="w-10 h-16 text-brand-red animate-bounce" viewBox="0 0 50 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M25 5 Q22 40 25 70" />
@@ -556,13 +561,8 @@
                 </svg>
             </div>
 
-            <!-- Horizontal (16:9) Video Player & Text Block -->
             <div class="max-w-4xl mx-auto pt-6 space-y-8">
-
-                <!-- Horizontal 16:9 Video Player Frame -->
                 <div class="w-full rounded-3xl bg-brand-dark border-2 border-white/20 hover:border-brand-red p-3 sm:p-4 shadow-2xl shadow-brand-red/10 transition-all duration-300 group">
-
-                    <!-- Reel Frame Top Bar -->
                     <div class="flex items-center justify-between pb-2.5 px-2 border-b border-white/10">
                         <div class="flex space-x-1.5 items-center">
                             <span class="w-2.5 h-2.5 rounded-full bg-brand-red/80"></span>
@@ -575,9 +575,7 @@
                         </div>
                     </div>
 
-                    <!-- 16:9 Aspect Ratio Horizontal Video Container -->
                     <div class="relative mt-3 aspect-video w-full rounded-2xl bg-black overflow-hidden border border-white/10 flex items-center justify-center shadow-inner group/player">
-
                         <video id="evento-001-video" 
                                src="evento-001-1_vxouVfor.mp4" 
                                playsinline 
@@ -587,7 +585,6 @@
                             Tu navegador no soporta la reproducción de este vídeo.
                         </video>
 
-                        <!-- Central Play Overlay Button -->
                         <div id="video-play-overlay-2" 
                              onclick="toggleVideoPlay(2)" 
                              class="absolute inset-0 bg-black/45 backdrop-blur-[2px] flex flex-col items-center justify-center cursor-pointer transition-opacity duration-300 z-10">
@@ -599,7 +596,6 @@
                             </p>
                         </div>
 
-                        <!-- Floating Bottom Controls Bar -->
                         <div class="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-20 flex items-center justify-between opacity-90 hover:opacity-100 transition-opacity">
                             <button type="button" onclick="toggleVideoPlay(2)" class="text-white hover:text-brand-lightRed p-1 text-sm focus:outline-none" aria-label="Play/Pausa">
                                 <i id="control-play-icon-2" class="fa-solid fa-play"></i>
@@ -626,11 +622,9 @@
                                 <input type="file" accept="video/*" onchange="loadLocalVideo(event, 2)" class="hidden">
                             </label>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- Text Block Requested: Exact Copy -->
                 <div class="p-6 sm:p-8 rounded-3xl bg-brand-dark/95 border-2 border-white/10 hover:border-brand-red/60 notebook-card transition-all text-center space-y-3">
                     <p class="font-extrabold text-xl sm:text-2xl text-white tracking-wide leading-snug">
                         Personas brutales con un valor real.
@@ -639,17 +633,13 @@
                         Por donde entraron salieron con la motivación al cien y con nuevos contactos que determinarán su patrimonio
                     </p>
                 </div>
-
             </div>
-
         </section>
 
         <!-- ==========================================
-             PASO 3: EVENTO #002 (BLOQUEADO HASTA 20 DE SEPTIEMBRE + PREVIEW ANFITRIÓN OCULTO)
+             PASO 3: EVENTO #002
              ========================================== -->
         <section id="paso-3" class="mb-24 relative pt-6 border-t border-white/5">
-
-            <!-- Step Header Box (Numbered circle 3 + Evento #002) -->
             <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-10">
                 <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
                     3
@@ -665,8 +655,6 @@
             </div>
 
             <div class="max-w-2xl mx-auto text-center space-y-6">
-
-                <!-- 1. VISTA INICIAL: BOTÓN COMPRAR ENTRADA (DISPONIBLE 20 DE SEPTIEMBRE) -->
                 <div id="evento-002-initial-card" class="p-8 sm:p-12 rounded-3xl bg-brand-dark/90 border-2 border-dashed border-brand-red/50 relative shadow-2xl shadow-brand-red/10 notebook-card space-y-6">
                     <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-lightRed font-mono text-xs font-bold uppercase tracking-widest">
                         <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
@@ -696,7 +684,6 @@
                     </div>
                 </div>
 
-                <!-- 2. VISTA BLOQUEO 20 DE SEPTIEMBRE + ACCESO PREVIEW ANFITRIÓN / MIEMBROS -->
                 <div id="evento-002-pin-card" class="hidden p-8 sm:p-10 rounded-3xl bg-brand-dark/95 border-2 border-brand-red/60 relative shadow-2xl shadow-brand-red/15 notebook-card space-y-6">
                     <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-brand-red/15 border border-brand-red/30 text-brand-lightRed font-mono text-xs font-bold uppercase">
                         <i class="fa-solid fa-calendar-lock"></i>
@@ -724,9 +711,7 @@
                     </div>
                 </div>
 
-                <!-- 3. PANEL DESBLOQUEADO: EVENTO #002 YA DISPONIBLE -->
                 <div id="evento-002-unlocked-panel" class="hidden p-6 sm:p-10 rounded-3xl bg-brand-dark border-2 border-brand-red shadow-2xl shadow-brand-red/15 notebook-card text-left space-y-6">
-
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/10">
                         <div>
                             <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-black uppercase">
@@ -737,7 +722,6 @@
                         </div>
                     </div>
 
-                    <!-- Información clave minimalista -->
                     <div class="space-y-3 text-sm sm:text-base text-gray-200 leading-relaxed">
                         <p class="p-3.5 rounded-2xl bg-black/50 border border-white/10 font-bold text-white flex items-center space-x-3">
                             <i class="fa-solid fa-users text-brand-red text-lg shrink-0"></i>
@@ -777,13 +761,11 @@
                         </div>
                     </div>
 
-                    <!-- BLOQUE DE COMPRA DE ENTRADAS (SE OCULTA EN SOLD OUT) -->
                     <div id="evento-002-tickets-form-box" class="pt-4 border-t border-white/10 space-y-5">
                         <h4 class="text-base sm:text-lg font-black text-white uppercase">Elige tu entrada:</h4>
 
                         <form onsubmit="handleBuyEvento002Ticket(event)" class="space-y-4">
                             <div class="grid grid-cols-1 gap-3">
-                                <!-- Opción 1: 8€ -->
                                 <label class="flex items-center justify-between p-4 rounded-2xl bg-black/60 border-2 border-white/15 hover:border-brand-red cursor-pointer transition-all">
                                     <div class="flex items-center space-x-3">
                                         <input type="radio" name="ticket_option" value="8€ - Café + bizcocho" data-price="8€" required checked class="accent-brand-red w-4 h-4">
@@ -792,7 +774,6 @@
                                     <span class="px-3 py-1 rounded-xl bg-brand-red text-white font-mono font-black text-sm">8€</span>
                                 </label>
 
-                                <!-- Opción 2: 7,5€ -->
                                 <label class="flex items-center justify-between p-4 rounded-2xl bg-black/60 border-2 border-white/15 hover:border-brand-red cursor-pointer transition-all">
                                     <div class="flex items-center space-x-3">
                                         <input type="radio" name="ticket_option" value="7,5€ - Café especial (matcha, frapuccino...) + bizcocho" data-price="7,5€" class="accent-brand-red w-4 h-4">
@@ -801,7 +782,6 @@
                                     <span class="px-3 py-1 rounded-xl bg-brand-red text-white font-mono font-black text-sm">7,5€</span>
                                 </label>
 
-                                <!-- Opción 3: 10€ -->
                                 <label class="flex items-center justify-between p-4 rounded-2xl bg-black/60 border-2 border-white/15 hover:border-brand-red cursor-pointer transition-all">
                                     <div class="flex items-center space-x-3">
                                         <input type="radio" name="ticket_option" value="10€ - Café especial + comida" data-price="10€" class="accent-brand-red w-4 h-4">
@@ -811,7 +791,6 @@
                                 </label>
                             </div>
 
-                            <!-- Nombre del comprador -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Tu Nombre y Apellidos *</label>
@@ -823,7 +802,6 @@
                                 </div>
                             </div>
 
-                            <!-- Instrucciones claras de Bizum al 623179849 -->
                             <div class="p-4 rounded-2xl bg-brand-softSurface border border-brand-softRedBorder text-gray-200 space-y-2">
                                 <div class="flex items-center justify-between">
                                     <span class="text-xs font-mono uppercase font-black text-brand-lightRed">Pago directo por Bizum</span>
@@ -843,7 +821,6 @@
                         </form>
                     </div>
 
-                    <!-- CARTEL DE SOLD OUT CUANDO LLEGA A 14 ENTRADAS -->
                     <div id="evento-002-soldout-box" class="hidden p-8 rounded-2xl bg-brand-softSurface text-white text-center space-y-2 border-2 border-brand-red/50">
                         <span class="px-3 py-1 rounded-full bg-brand-red/20 text-brand-lightRed font-mono text-xs font-black uppercase">Aforo Completo</span>
                         <h4 class="text-3xl sm:text-4xl font-black uppercase tracking-tight">SOLD OUT</h4>
@@ -851,15 +828,12 @@
                             nos vemos en el #003 collab
                         </p>
                     </div>
-
                 </div>
-
             </div>
-
         </section>
 
         <!-- ==========================================
-             NUEVO APARTADO: PORTAL A NETWORKING APP (DESPUÉS DE LOS EVENTOS)
+             APARTADO: PORTAL A NETWORKING APP
              ========================================== -->
         <section id="networking-section" class="mb-24 relative pt-6 border-t border-white/5">
             <div class="max-w-2xl mx-auto">
@@ -873,7 +847,6 @@
                         NETWORKING APP
                     </h2>
 
-                    <!-- Exact 2-sentence explanation -->
                     <p class="text-sm sm:text-base text-gray-300 max-w-xl mx-auto leading-relaxed">
                         El ranking de emprendedores donde sumas puntos asistiendo a eventos, viajes y ayudando a otros miembros. Entrar en el <strong class="text-white">Top 15 del Podio</strong> te permite contactar por privado con cualquiera y votar los próximos viajes y eventos.
                     </p>
@@ -890,11 +863,9 @@
         </section>
 
         <!-- ==========================================
-             PASO 4: PREGUNTAS FRECUENTES (AL FINAL)
+             PASO 4: PREGUNTAS FRECUENTES
              ========================================== -->
         <section id="paso-4" class="mb-20 relative pt-6 border-t border-white/5">
-
-            <!-- Step Header Box (Numbered circle 4 + Box title) -->
             <div class="flex items-center space-x-4 max-w-2xl mx-auto mb-10">
                 <div class="h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-brand-red text-brand-lightRed font-hand text-3xl font-bold flex items-center justify-center shrink-0 bg-brand-black shadow-lg shadow-brand-red/10 animate-wiggle">
                     4
@@ -909,13 +880,9 @@
                 </div>
             </div>
 
-            <!-- FAQ NOTEBOOK CARDS GRID -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-
-                <!-- FAQ Card 1 -->
                 <div class="group p-6 rounded-2xl bg-brand-dark border-2 border-white/10 hover:border-brand-red transition-all duration-300 shadow-lg hover:shadow-brand-red/10 cursor-pointer relative overflow-hidden" onclick="toggleFaqCard(this)">
                     <div class="absolute -right-1 -bottom-1 w-full h-full rounded-2xl border-2 border-brand-red/20 -z-10 pointer-events-none"></div>
-
                     <div class="flex items-start space-x-3 mb-3">
                         <div class="h-8 w-8 rounded-full bg-brand-red/15 text-brand-lightRed flex items-center justify-center font-bold text-sm shrink-0 mt-0.5 group-hover:bg-brand-red group-hover:text-white transition-colors">
                             <i class="fa-solid fa-question"></i>
@@ -924,7 +891,6 @@
                             ¿Puedo entrar si aún no tengo ningún proyecto montado?
                         </h3>
                     </div>
-
                     <div class="faq-card-content max-h-24 sm:max-h-28 group-hover:max-h-96 overflow-hidden transition-all duration-500 text-sm text-gray-400 font-light leading-relaxed pl-11">
                         <p>
                             ¡Claro que sí! Cero dramas, aquí no te pedimos currículum ni que tengas una empresa facturando. Con que tengas curiosidad, ganas de aprender cosas nuevas, moverte y rodearte de peña que va en tu misma onda, encajas de sobra.
@@ -936,10 +902,8 @@
                     </div>
                 </div>
 
-                <!-- FAQ Card 2 -->
                 <div class="group p-6 rounded-2xl bg-brand-dark border-2 border-white/10 hover:border-brand-red transition-all duration-300 shadow-lg hover:shadow-brand-red/10 cursor-pointer relative overflow-hidden" onclick="toggleFaqCard(this)">
                     <div class="absolute -right-1 -bottom-1 w-full h-full rounded-2xl border-2 border-brand-red/20 -z-10 pointer-events-none"></div>
-
                     <div class="flex items-start space-x-3 mb-3">
                         <div class="h-8 w-8 rounded-full bg-brand-red/15 text-brand-lightRed flex items-center justify-center font-bold text-sm shrink-0 mt-0.5 group-hover:bg-brand-red group-hover:text-white transition-colors">
                             <i class="fa-solid fa-question"></i>
@@ -948,7 +912,6 @@
                             ¿Es totalmente gratis?
                         </h3>
                     </div>
-
                     <div class="faq-card-content max-h-24 sm:max-h-28 group-hover:max-h-96 overflow-hidden transition-all duration-500 text-sm text-gray-400 font-light leading-relaxed pl-11">
                         <p>
                             Sí, 100%. Estar en la comunidad y en el grupo de WhatsApp no te va a costar un duro. Cuando montemos algún plan o evento presencial (como las quedadas, barbacoas o actividades), simplemente cubrimos los costes de lo que comamos o hagamos entre los que vayamos, y apuntarte siempre es opcional.
@@ -960,10 +923,8 @@
                     </div>
                 </div>
 
-                <!-- FAQ Card 3 -->
                 <div class="group p-6 rounded-2xl bg-brand-dark border-2 border-white/10 hover:border-brand-red transition-all duration-300 shadow-lg hover:shadow-brand-red/10 cursor-pointer relative overflow-hidden" onclick="toggleFaqCard(this)">
                     <div class="absolute -right-1 -bottom-1 w-full h-full rounded-2xl border-2 border-brand-red/20 -z-10 pointer-events-none"></div>
-
                     <div class="flex items-start space-x-3 mb-3">
                         <div class="h-8 w-8 rounded-full bg-brand-red/15 text-brand-lightRed flex items-center justify-center font-bold text-sm shrink-0 mt-0.5 group-hover:bg-brand-red group-hover:text-white transition-colors">
                             <i class="fa-solid fa-question"></i>
@@ -972,7 +933,6 @@
                             ¿Cuáles son los canales de comunicación?
                         </h3>
                     </div>
-
                     <div class="faq-card-content max-h-24 sm:max-h-28 group-hover:max-h-96 overflow-hidden transition-all duration-500 text-sm text-gray-400 font-light leading-relaxed pl-11">
                         <p>
                             El grupo de WhatsApp es nuestro punto de encuentro diario: para contarnos las rayadas del día a día, celebrar cuando a alguien le sale algo bien, pasarnos contactos y echarnos un cable con ideas. Y además, organizamos quedadas presenciales en Madrid para desvirtualizarnos, charlar cara a cara y hacer piña de verdad sin postureos.
@@ -984,10 +944,8 @@
                     </div>
                 </div>
 
-                <!-- FAQ Card 4 -->
                 <div class="group p-6 rounded-2xl bg-brand-dark border-2 border-white/10 hover:border-brand-red transition-all duration-300 shadow-lg hover:shadow-brand-red/10 cursor-pointer relative overflow-hidden" onclick="toggleFaqCard(this)">
                     <div class="absolute -right-1 -bottom-1 w-full h-full rounded-2xl border-2 border-brand-red/20 -z-10 pointer-events-none"></div>
-
                     <div class="flex items-start space-x-3 mb-3">
                         <div class="h-8 w-8 rounded-full bg-brand-red/15 text-brand-lightRed flex items-center justify-center font-bold text-sm shrink-0 mt-0.5 group-hover:bg-brand-red group-hover:text-white transition-colors">
                             <i class="fa-solid fa-question"></i>
@@ -996,7 +954,6 @@
                             ¿Cuáles son los requisitos y cómo entro?
                         </h3>
                     </div>
-
                     <div class="faq-card-content max-h-24 sm:max-h-28 group-hover:max-h-96 overflow-hidden transition-all duration-500 text-sm text-gray-400 font-light leading-relaxed pl-11">
                         <p>
                             Solo dos cosas: tener entre <strong class="text-white">16 y 28 años</strong> y sobre todo ganas de aportar y sumar buen rollo. Para entrar solo tienes que responder a las preguntas de 1 minuto y te metes directo al grupo de WhatsApp.
@@ -1007,57 +964,43 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
     </main>
 
-    <!-- FOOTER WITH SIGNATURE -->
+    <!-- FOOTER WITH SIGNATURE, PHOTO LOGO & SEO TEXT -->
     <footer class="border-t border-white/5 bg-brand-black py-12 px-6 text-center relative z-10 pl-10 md:pl-20">
         <div class="max-w-4xl mx-auto flex flex-col items-center space-y-6">
 
-            <!-- Scalable Exact Logo Footer -->
-            <div class="w-48 sm:w-56">
-                <svg viewBox="0 0 540 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto select-none opacity-90 hover:opacity-100 transition-opacity">
-                    <g stroke="#e03e3e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="56" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
-                        <circle cx="118" cy="18" r="3.6" fill="#e03e3e" stroke="none" />
-                        <circle cx="180" cy="33" r="3.2" fill="#e03e3e" stroke="none" />
-                        <path d="M 72 82 L 56 46 L 110 82" />
-                        <path d="M 126 82 L 180 46 L 164 82" />
-                        <path d="M 56 46 L 118 84 L 180 46" />
-                        <path d="M 72 82 L 118 29 L 164 82" />
-                        <path d="M 72 82 L 164 82" />
-                    </g>
+            <!-- Foto Logo en el Footer -->
+            <div class="flex flex-col items-center space-y-3">
+                <a href="https://ibb.co/5VJFZbQ" target="_blank" rel="noopener noreferrer">
+                    <img src="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg" 
+                         alt="Logo-with-penguin-for-entrepreneurs-202606021533" 
+                         border="0"
+                         class="w-16 h-16 rounded-2xl object-cover border border-brand-red/40 shadow-lg mx-auto"
+                         onerror="this.src='https://placehold.co/120x120/e03e3e/ffffff?text=MF'">
+                </a>
+            </div>
 
-                    <g fill="none" stroke="#ffffff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M 62 120 C 62 108 72 101 81 101 C 89 101 93 108 94 118 C 96 108 103 101 112 101 C 122 101 127 109 127 122 L 126 126" />
-                        <path d="M 130 112 C 132 118 135 125 142 125 C 148 125 152 118 153 108 L 153 125 C 153 148 147 175 130 196 C 123 205 116 208 112 201 C 109 194 116 179 135 160 C 150 145 164 128 178 114" />
-                        <path d="M 278 40 C 275 35 268 40 263 56 C 255 83 246 128 238 168 C 233 192 227 208 221 206 C 217 205 220 188 230 162" />
-                        <path d="M 235 124 C 248 123 263 121 275 119" />
-                        <path d="M 270 125 C 278 112 289 74 296 74 C 301 74 298 92 293 113 C 290 125 292 130 299 128" />
-                        <path d="M 314 114 C 307 114 302 120 302 126 C 302 133 308 137 317 137 C 327 137 332 128 332 121 C 332 114 324 111 316 114 C 326 113 336 113 343 117" />
-                        <path d="M 346 119 C 347 127 350 135 357 135 C 363 135 367 127 369 119 C 371 127 375 135 382 135 C 390 135 397 124 402 113 C 405 106 409 104 414 107" />
-                    </g>
-
-                    <g stroke="#e03e3e" stroke-width="3.2" stroke-linecap="round">
-                        <line x1="363" y1="87" x2="376" y2="100" />
-                        <line x1="376" y1="87" x2="363" y2="100" />
-                        <line x1="384" y1="87" x2="397" y2="100" />
-                        <line x1="397" y1="87" x2="384" y2="100" />
-                        <path d="M 364 104 Q 380 110 398 104" fill="none" />
-                    </g>
-
-                    <g stroke="#e03e3e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                        <path d="M 423 72 L 401 75 L 420 83" />
-                        <path d="M 423 72 C 427 67 435 66 443 69 C 452 72 458 83 458 98 C 458 124 466 160 484 186 L 487 189 C 484 190 472 192 463 189 C 460 188 459 184 457 181 L 452 189 L 428 189 C 425 186 429 180 435 178" />
-                        <path d="M 420 83 C 426 91 428 99 426 109 C 420 134 417 159 423 183 L 428 189" />
-                        <path d="M 436 98 C 445 110 449 135 440 168 C 438 174 436 180 439 183" />
-                        <path d="M 430 116 C 432 135 431 155 427 172" />
-                    </g>
-                </svg>
+            <!-- Bloque SEO Semántico Solicitado -->
+            <div class="max-w-3xl mx-auto p-6 rounded-2xl bg-brand-dark/60 border border-white/5 text-left space-y-2.5 text-xs text-gray-400 leading-relaxed">
+                <h2 class="text-sm font-extrabold text-white uppercase tracking-wide">
+                    Comunidad de Jóvenes Emprendedores en España | Eventos y Networking
+                </h2>
+                <p>
+                    Forma parte de una comunidad de jóvenes emprendedores, creadores y profesionales que buscan crecer, conectar y vivir nuevas experiencias. Organizamos eventos exclusivos, viajes y encuentros de networking por España para crear conexiones reales, compartir ideas y generar oportunidades que van más allá de lo profesional.
+                </p>
+                <p>
+                    Además, contamos con nuestra propia app, donde podrás descubrir otros emprendedores, conseguir sus contactos y conectar directamente con personas que pueden abrirte nuevas puertas y oportunidades de negocio.
+                </p>
+                <p>
+                    Disfruta de experiencias únicas, conoce personas con tus mismas ambiciones, participa en eventos exclusivos y accede a premios y ventajas especiales por formar parte de la comunidad.
+                </p>
+                <p class="text-brand-lightRed font-semibold">
+                    Únete gratis y descubre todo lo que puede surgir cuando conectas con las personas adecuadas.
+                </p>
             </div>
 
             <div class="flex items-center space-x-5">
@@ -1076,11 +1019,32 @@
         </div>
     </footer>
 
+    <!-- BANNER DE ACEPTAR COOKIES -->
+    <div id="cookie-consent-banner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[98] hidden flex-col p-5 rounded-3xl bg-brand-dark/95 backdrop-blur-xl border-2 border-brand-red/50 shadow-2xl space-y-3.5">
+        <div class="flex items-start space-x-3">
+            <div class="w-10 h-10 rounded-2xl bg-brand-red/15 border border-brand-red/40 text-brand-lightRed flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-cookie-bite text-lg"></i>
+            </div>
+            <div class="text-left space-y-1">
+                <h4 class="text-sm font-black text-white uppercase tracking-wide">Uso de Cookies en myflowxx</h4>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                    Utilizamos cookies propias y de sesión para guardar tu acceso, recordar tu perfil en el ranking y mejorar tu experiencia en la comunidad.
+                </p>
+            </div>
+        </div>
+        <div class="flex items-center justify-end space-x-2 pt-1">
+            <button type="button" onclick="rejectCookiesBanner()" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-xs font-bold transition-colors">
+                Solo esenciales
+            </button>
+            <button type="button" onclick="acceptCookiesBanner()" class="px-5 py-2 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-brand-red/25 transition-all">
+                Aceptar cookies
+            </button>
+        </div>
+    </div>
+
     <!-- REGISTRATION QUESTIONNAIRE MODAL (ORIGINAL WHATSAPP QUIZ) -->
     <div id="registration-modal" class="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4 py-6 bg-brand-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="relative w-full max-w-xl max-h-[92vh] flex flex-col rounded-3xl bg-brand-dark border-2 border-brand-red/40 shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 notebook-card" id="registration-modal-box">
-
-            <!-- Sticky Modal Header -->
             <div class="p-5 sm:p-6 border-b border-white/10 flex items-start justify-between bg-brand-dark/95 backdrop-blur-sm sticky top-0 z-20">
                 <div class="pr-6">
                     <div class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-lightRed text-xs font-bold uppercase tracking-wider mb-2">
@@ -1099,12 +1063,8 @@
                 </button>
             </div>
 
-            <!-- Scrollable Form Body -->
             <div class="p-5 sm:p-7 overflow-y-auto space-y-6 text-left">
-
                 <form id="whatsapp-quiz-form" onsubmit="handleRegistrationSubmit(event)" class="space-y-6">
-
-                    <!-- PREGUNTA 1: Proceso del proyecto -->
                     <div class="space-y-2.5">
                         <label class="block text-sm font-bold text-white">
                             1. ¿En qué proceso de tu proyecto estás? <span class="text-brand-red">*</span>
@@ -1133,7 +1093,6 @@
                         </div>
                     </div>
 
-                    <!-- PREGUNTA 2: Entorno diario -->
                     <div class="space-y-2.5 pt-2 border-t border-white/5">
                         <label class="block text-sm font-bold text-white">
                             2. ¿En tu día a día te rodeas de personas con tu misma mentalidad, personas con objetivos similares a los tuyos? <span class="text-brand-red">*</span>
@@ -1150,7 +1109,6 @@
                         </div>
                     </div>
 
-                    <!-- PREGUNTA 3: Motivación y hueco -->
                     <div class="space-y-2 pt-2 border-t border-white/5">
                         <label for="motivation" class="block text-sm font-bold text-white">
                             3. Dime muy cortito qué es lo que más te motiva de unirte a esta comunidad y por qué crees que te tenemos que hacer un hueco: <span class="text-brand-red">*</span>
@@ -1158,7 +1116,6 @@
                         <textarea id="motivation" name="motivation" rows="3" required class="w-full bg-brand-black/90 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-red transition-colors resize-none" placeholder="Escribe aquí en 2-3 líneas..."></textarea>
                     </div>
 
-                    <!-- SECCIÓN FINAL DE DATOS PERSONALES -->
                     <div class="pt-4 border-t border-dashed border-white/15 space-y-4">
                         <div class="p-3.5 rounded-xl bg-brand-red/5 border border-brand-red/20 text-center">
                             <p class="font-hand text-xl text-brand-lightRed font-bold">
@@ -1195,19 +1152,16 @@
                         </div>
                     </div>
 
-                    <!-- Botón de Envío Directo por WhatsApp -->
                     <button type="submit" id="quiz-submit-btn" class="w-full py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-base shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center space-x-2 cursor-pointer">
                         <i class="fab fa-whatsapp text-xl"></i>
                         <span>Enviar Respuestas por WhatsApp</span>
                     </button>
                 </form>
 
-                <!-- Estado de Espera / Confirmación -->
                 <div id="quiz-success" class="hidden py-6 flex flex-col items-center justify-center text-center space-y-5">
                     <div class="h-16 w-16 rounded-full bg-brand-red/15 border-2 border-brand-red text-brand-lightRed text-3xl flex items-center justify-center animate-wiggle">
                         <i class="fa-solid fa-hourglass-half"></i>
                     </div>
-
                     <div class="space-y-2">
                         <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-lightRed text-xs font-bold uppercase tracking-wider">
                             <i class="fa-solid fa-check"></i>
@@ -1215,8 +1169,6 @@
                         </span>
                         <h4 class="text-2xl sm:text-3xl font-black text-white pt-1">¡Candidatura recibida!</h4>
                     </div>
-
-                    <!-- Mensaje de espera con flow -->
                     <div class="w-full p-6 sm:p-7 rounded-2xl bg-black/60 border-2 border-dashed border-brand-red/40 text-center space-y-3">
                         <p class="font-hand text-2xl sm:text-3xl text-brand-lightRed font-bold leading-snug">
                             Espera a ser atendido con flow para poder entrar a la comunidad
@@ -1225,16 +1177,13 @@
                             Revisamos cada mensaje uno a uno para mantener el nivel y la vibra del grupo. Te responderemos personalmente por WhatsApp con tu acceso si eres seleccionado.
                         </p>
                     </div>
-
                     <div class="pt-2">
                         <a href="#" id="retry-send-link" target="_blank" class="text-xs text-gray-400 hover:text-brand-lightRed transition-colors underline font-medium">
                             ¿No se te abrió WhatsApp automáticamente? Pulsa aquí para reenviar el mensaje
                         </a>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -1242,10 +1191,7 @@
          PORTAL WARP ANIMATION OVERLAY ("TRANSPORTARSE A OTRO MUNDO")
          ============================================================================ -->
     <div id="portal-warp-overlay" class="fixed inset-0 z-[80] hidden items-center justify-center bg-black overflow-hidden pointer-events-none">
-        <!-- Radial Red Vortex Glow -->
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(224,62,62,0.22)_0%,rgba(5,5,7,0.96)_60%,#000000_100%)]"></div>
-
-        <!-- Dynamic Concentric 3D Tunnel Rings -->
         <div class="relative flex items-center justify-center w-full h-full">
             <div class="w-44 h-44 rounded-full border-4 border-brand-red warp-ring" style="animation-delay: 0s;"></div>
             <div class="w-44 h-44 rounded-full border-2 border-white/70 absolute warp-ring" style="animation-delay: 0.35s;"></div>
@@ -1253,7 +1199,6 @@
             <div class="w-44 h-44 rounded-full border border-dashed border-white/60 absolute warp-ring" style="animation-delay: 1.05s;"></div>
             <div class="w-44 h-44 rounded-full border-2 border-brand-red absolute warp-ring" style="animation-delay: 1.4s;"></div>
 
-            <!-- Hyperspace Speed Rays -->
             <div class="absolute inset-0 flex items-center justify-center">
                 <div class="w-0.5 h-16 bg-gradient-to-t from-transparent via-brand-red to-white absolute warp-line" style="--angle: 0deg; animation-delay: 0.05s;"></div>
                 <div class="w-0.5 h-20 bg-gradient-to-t from-transparent via-brand-red to-white absolute warp-line" style="--angle: 45deg; animation-delay: 0.25s;"></div>
@@ -1265,7 +1210,6 @@
                 <div class="w-0.5 h-20 bg-gradient-to-t from-transparent via-brand-red to-white absolute warp-line" style="--angle: 315deg; animation-delay: 0.45s;"></div>
             </div>
 
-            <!-- Center Brand Crown + Dynamic Status + Progress Bar -->
             <div class="text-center z-20 px-6 max-w-md w-full space-y-4 portal-core-anim">
                 <div class="w-20 h-14 mx-auto flex items-center justify-center">
                     <svg viewBox="0 0 150 85" class="w-full h-full" fill="none">
@@ -1291,7 +1235,6 @@
                     </h3>
                 </div>
 
-                <!-- Dynamic Progress Bar -->
                 <div class="w-56 sm:w-64 h-1.5 bg-white/15 rounded-full overflow-hidden mx-auto border border-white/10">
                     <div id="portal-progress-bar" class="h-full bg-brand-red w-0 transition-all duration-300 ease-out shadow-[0_0_12px_#e03e3e]"></div>
                 </div>
@@ -1300,11 +1243,11 @@
     </div>
 
     <!-- ============================================================================
-         NETWORKING APP FULL-SCREEN WORLD (TONOS CÓMODOS Y COHESIVOS)
+         NETWORKING APP FULL-SCREEN WORLD
          ============================================================================ -->
     <div id="networking-app-world" class="fixed inset-0 z-[70] hidden flex-col cyber-world-bg text-white overflow-y-auto overflow-x-hidden selection:bg-brand-red">
 
-        <!-- Minimalist Sticky Top Bar inside the Networking World (100% Adaptado a Móvil y Ordenador sin cortes) -->
+        <!-- Sticky Top Bar inside the Networking World -->
         <div class="sticky top-0 z-40 bg-brand-black/95 backdrop-blur-xl border-b border-white/10 px-2.5 sm:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-1.5 sm:gap-3 w-full max-w-full">
             <button onclick="exitNetworkingWorld()" class="px-2.5 sm:px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-300 hover:text-white flex items-center space-x-1.5 shrink-0 transition-all">
                 <i class="fa-solid fa-arrow-left text-brand-lightRed"></i>
@@ -1317,7 +1260,7 @@
 
             <!-- User Auth / Actions Right Controls -->
             <div class="flex items-center space-x-1 sm:space-x-2 shrink-0">
-                <!-- Host Exclusive Button (Con contador de notificaciones pendientes) -->
+                <!-- Host Exclusive Button -->
                 <button id="host-admin-btn" onclick="openHostDashboardModal()" class="hidden px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-brand-red/15 border border-brand-red/40 text-white text-xs font-black items-center space-x-1 sm:space-x-1.5 transition-all hover:bg-brand-red/25 shrink-0" title="Panel Anfitrión">
                     <i class="fa-solid fa-crown text-brand-lightRed"></i>
                     <span class="hidden md:inline">Panel Anfitrión</span>
@@ -1331,22 +1274,53 @@
 
                 <!-- Logged In User Profile Pill -->
                 <div id="nav-user-pill" class="hidden items-center space-x-1 sm:space-x-2 shrink-0">
-                    <button onclick="openEditProfileModal()" class="px-2 sm:px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center space-x-1.5 sm:space-x-2 transition-all shrink-0">
+                    <button onclick="openEditProfileModal()" class="relative px-2 sm:px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 flex items-center space-x-1.5 sm:space-x-2 transition-all shrink-0">
                         <img id="nav-user-avatar" src="https://placehold.co/80x80/e03e3e/ffffff?text=MF" alt="Avatar" class="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover shrink-0">
                         <span id="nav-user-name" class="text-[11px] sm:text-xs font-bold max-w-[58px] sm:max-w-[110px] truncate">Mi Perfil</span>
                         <span id="nav-user-points" class="px-1.5 py-0.5 rounded bg-brand-red/25 border border-brand-red/40 text-brand-lightRed text-[10px] font-black shrink-0">0 pts</span>
+                        <span id="nav-profile-notif-badge" class="hidden -top-1 -right-1 absolute w-4 h-4 rounded-full bg-brand-red text-white font-mono text-[9px] font-black flex items-center justify-center shadow">0</span>
                     </button>
                     <button
                         id="nav-push-btn"
                         type="button"
                         onclick="enableMyflowxxPush()"
-                        class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-brand-red/20 border border-white/10 text-gray-300 hover:text-white text-xs flex items-center justify-center shrink-0 transition-all"
-                        title="Activar notificaciones"
+                        class="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-brand-red/20 border border-white/10 text-gray-300 hover:text-white text-xs flex items-center justify-center shrink-0 transition-all"
+                        title="Activar notificaciones: Estate atento a que nadie te quite el puesto y entérate de cuando alguien responde a tu duda"
                         aria-label="Activar notificaciones">
                         <i class="fa-solid fa-bell"></i>
+                        <span id="nav-push-signal-dot" class="hidden absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-brand-red animate-ping"></span>
                     </button>
                     <button onclick="logoutNetworkingUser()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white text-xs flex items-center justify-center shrink-0 transition-all" title="Salir" aria-label="Salir">
                         <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECORDATORIO SEÑALADO DE VEZ EN CUANDO PARA ACTIVAR NOTIFICACIONES -->
+        <div id="push-reminder-banner" class="hidden max-w-5xl w-full mx-auto px-4 sm:px-6 pt-5">
+            <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-brand-red/20 via-brand-softSurface to-brand-red/15 border-2 border-brand-red shadow-xl shadow-brand-red/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-start space-x-3.5">
+                    <div class="w-10 h-10 rounded-2xl bg-brand-red text-white flex items-center justify-center shrink-0 shadow-lg shadow-brand-red/30 animate-bounce">
+                        <i class="fa-solid fa-bell text-base"></i>
+                    </div>
+                    <div class="space-y-0.5 text-left">
+                        <div class="flex items-center space-x-2">
+                            <span class="px-2 py-0.5 rounded bg-brand-red text-white font-mono text-[10px] font-black uppercase">Importante</span>
+                            <h4 class="text-xs sm:text-sm font-black text-white uppercase tracking-wide">Activa las notificaciones de la comunidad</h4>
+                        </div>
+                        <p class="text-xs sm:text-sm text-gray-200 font-semibold leading-snug">
+                            ¿Para qué sirven? <strong class="text-brand-lightRed">Estate atento a que nadie te quite el puesto y entérate de cuando alguien responde a tu duda.</strong>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 w-full sm:w-auto justify-end shrink-0">
+                    <button type="button" onclick="dismissPushReminderTemporarily()" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-xs font-bold transition-colors">
+                        Más tarde
+                    </button>
+                    <button type="button" onclick="enableMyflowxxPush()" class="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-brand-red/30 transition-all flex items-center space-x-1.5">
+                        <i class="fa-solid fa-bell"></i>
+                        <span>Activar Ahora</span>
                     </button>
                 </div>
             </div>
@@ -1374,25 +1348,25 @@
                 </p>
             </div>
 
-            <!-- MINIMALIST 2-COLUMN RULES: POINTS & PODIUM vs FLOWREROS (COMFORTABLE DARK SURFACE + SOFT CORAL ACCENTS) -->
+            <!-- MINIMALIST 2-COLUMN RULES: POINTS (ORDENADO DE MÁS A MENOS: 10, 5, 0.5) & PODIUM vs FLOWREROS -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Box 1: Points -->
+                <!-- Box 1: Points (Ordenado de más a menos puntos) -->
                 <div class="p-5 sm:p-6 rounded-2xl bg-brand-softSurface text-gray-100 border border-brand-softRedBorder space-y-3 dynamic-card shadow-lg">
                     <div class="flex items-center space-x-2">
                         <span class="w-2 h-2 rounded-full bg-brand-lightRed"></span>
-                        <p class="text-xs font-mono uppercase tracking-wider text-brand-lightRed font-black">Cómo sumar puntos</p>
+                        <p class="text-xs font-mono uppercase tracking-wider text-brand-lightRed font-black">Cómo sumar puntos (De más a menos)</p>
+                    </div>
+                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-white/10 font-medium">
+                        <span class="text-gray-200">Venir al viaje</span>
+                        <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+10 pts</span>
                     </div>
                     <div class="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-white/10 font-medium">
                         <span class="text-gray-200">Asistir a 1 evento myflow</span>
                         <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+5 pts</span>
                     </div>
-                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-white/10 font-medium">
+                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 font-medium">
                         <span class="text-gray-200">Ayudar al problema actual de un compañero</span>
                         <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+0,5 pts</span>
-                    </div>
-                    <div class="flex items-center justify-between text-xs sm:text-sm py-2 font-medium">
-                        <span class="text-gray-200">Venir al viaje</span>
-                        <span class="font-mono font-bold text-brand-lightRed bg-brand-red/15 border border-brand-red/30 px-2.5 py-0.5 rounded-lg">+10 pts</span>
                     </div>
                 </div>
 
@@ -1488,7 +1462,7 @@
             </div>
 
             <!-- ==========================================
-                 VOTACIÓN SIMPLE (SOLO TOP 15 - DISEÑO CÓMODO Y ELEGANTE)
+                 VOTACIÓN SIMPLE (SOLO TOP 15)
                  ========================================== -->
             <div class="p-6 rounded-2xl bg-brand-softSurface text-white border border-brand-softRedBorder space-y-4 shadow-lg">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -1516,7 +1490,6 @@
                 </button>
             </div>
 
-            <!-- Tabs -->
             <div class="grid grid-cols-2 gap-2 p-1 rounded-xl bg-black/60 border border-white/10" id="auth-tabs">
                 <button type="button" id="tab-login-btn" onclick="switchAuthTab('login')" class="py-2 rounded-lg text-xs font-extrabold bg-brand-red text-white transition-all">
                     Iniciar Sesión
@@ -1526,7 +1499,6 @@
                 </button>
             </div>
 
-            <!-- LOGIN FORM -->
             <form id="net-login-form" onsubmit="handleNetLogin(event)" class="space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Tu Correo Electrónico</label>
@@ -1550,38 +1522,31 @@
                 </button>
             </form>
 
-            <!-- REGISTER STEP 1: CREDENTIALS -->
             <form id="net-register-form" onsubmit="handleNetRegisterStep1(event)" class="hidden space-y-4">
                 <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-300">
                     Tu correo es <strong>100% privado</strong> (nadie lo verá).
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Nombre con el que quieres que te lean *</label>
                     <input type="text" id="reg-displayname" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red" placeholder="Ej: Álex Rivera">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Correo electrónico (Privado) *</label>
                     <input type="email" id="reg-email" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red" placeholder="alex@tuproyecto.com">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Crea una contraseña *</label>
                     <input type="password" id="reg-password" required minlength="6" class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red" placeholder="Mínimo 6 caracteres">
                 </div>
-
                 <label class="flex items-center space-x-2 text-xs text-gray-300 cursor-pointer">
                     <input type="checkbox" id="reg-remember" checked class="accent-brand-red rounded">
                     <span>Guardar mi contraseña en este dispositivo</span>
                 </label>
-
                 <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm shadow-lg shadow-brand-red/20 transition-all">
                     Crear cuenta y recibir confirmación
                 </button>
             </form>
 
-            <!-- PASSWORD RECOVERY FORM -->
             <form id="net-recover-form" onsubmit="handleNetRecover(event)" class="hidden space-y-4">
                 <p class="text-xs text-gray-300 leading-relaxed">
                     Introduce el correo con el que te registraste y te enviaremos un enlace e instrucciones de recuperación al instante.
@@ -1598,7 +1563,6 @@
                 </button>
             </form>
 
-            <!-- EMAIL CONFIRMATION DISPATCH SCREEN -->
             <div id="net-email-confirmation-step" class="hidden text-center space-y-4 py-3">
                 <div class="w-12 h-12 rounded-full bg-brand-red/20 border border-brand-red text-brand-lightRed flex items-center justify-center mx-auto text-xl">
                     <i class="fa-solid fa-envelope-circle-check"></i>
@@ -1615,89 +1579,106 @@
     </div>
 
     <!-- ============================================================================
-         MODAL: CONFIGURAR / EDITAR PERFIL LINKEDIN B2B + RESUMEN AUTOMÁTICO CON IA
+         MODAL: CONFIGURAR / EDITAR PERFIL + HISTORIAL DE NOTIFICACIONES ACUMULADAS
          ============================================================================ -->
     <div id="net-onboarding-modal" class="fixed inset-0 z-[95] hidden items-center justify-center px-3 sm:px-4 py-6 bg-black/95 backdrop-blur-md">
         <div class="relative w-full max-w-xl max-h-[92vh] flex flex-col rounded-3xl bg-brand-dark border border-white/15 shadow-2xl overflow-hidden">
             <div class="p-5 border-b border-white/10 flex items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <i class="fa-solid fa-wand-magic-sparkles text-brand-lightRed"></i>
-                    <h3 class="text-lg font-black text-white uppercase">Tu Perfil de Emprendedor (Síntesis IA)</h3>
+                    <h3 class="text-lg font-black text-white uppercase">Tu Perfil & Notificaciones</h3>
                 </div>
                 <button onclick="closeEditProfileModal()" class="text-gray-400 hover:text-white p-2 rounded-lg bg-white/5">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <form id="net-profile-form" onsubmit="handleSaveProfileWithAI(event)" class="p-5 overflow-y-auto space-y-4 text-left">
-                <div class="p-3 rounded-xl bg-brand-red/10 border border-brand-softRedBorder text-xs text-gray-200 flex items-start space-x-2.5">
-                    <i class="fa-solid fa-robot text-brand-lightRed mt-0.5"></i>
-                    <span>Escribe con tus propias palabras o suelta un texto largo: <strong>la IA analizará lo que escribas, eliminará el relleno y redactará un resumen ejecutivo en 3ª persona</strong> tanto de tu perfil como de lo que aportas y necesitas.</span>
+            <div class="p-5 overflow-y-auto space-y-6 text-left">
+
+                <!-- HISTORIAL DE NOTIFICACIONES ACUMULADAS EN EL PERFIL -->
+                <div class="p-4 rounded-2xl bg-black/60 border border-brand-softRedBorder space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-bell text-brand-lightRed text-sm"></i>
+                            <h4 class="text-xs font-mono uppercase tracking-wider text-white font-black">Historial de Notificaciones Acumuladas</h4>
+                            <span id="profile-notif-count-pill" class="px-2 py-0.5 rounded-full bg-brand-red text-white font-mono text-[10px] font-black">0</span>
+                        </div>
+                        <button type="button" onclick="clearMyNotificationsHistory()" class="text-[11px] text-gray-400 hover:text-brand-lightRed underline font-semibold">
+                            Marcar leídas / Limpiar
+                        </button>
+                    </div>
+                    <p class="text-[11px] text-gray-400 leading-snug">
+                        Aquí se guardan los avisos cuando alguien responde a tu duda, recibes +0,5 pts o cambia tu puesto en el ranking.
+                    </p>
+                    <div id="profile-notifications-history-list" class="space-y-2 max-h-44 overflow-y-auto pr-1"></div>
                 </div>
 
-                <!-- Avatar + Nombre + Edad + Sector -->
-                <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                    <div class="sm:col-span-3 flex flex-col items-center space-y-2">
-                        <img id="profile-preview-avatar" src="https://placehold.co/160x160/151522/ffffff?text=FOTO" alt="Preview" class="w-16 h-16 rounded-2xl object-cover border border-white/20">
-                        <label for="prof-avatar-input" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-brand-red text-[11px] font-bold text-white cursor-pointer transition-colors">
-                            Subir foto
-                        </label>
-                        <input id="prof-avatar-input" type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="hidden">
+                <!-- FORMULARIO DE PERFIL CON IA -->
+                <form id="net-profile-form" onsubmit="handleSaveProfileWithAI(event)" class="space-y-4">
+                    <div class="p-3 rounded-xl bg-brand-red/10 border border-brand-softRedBorder text-xs text-gray-200 flex items-start space-x-2.5">
+                        <i class="fa-solid fa-robot text-brand-lightRed mt-0.5"></i>
+                        <span>Escribe con tus propias palabras o suelta un texto largo: <strong>la IA analizará lo que escribas, eliminará el relleno y redactará un resumen ejecutivo en 3ª persona</strong> tanto de tu perfil como de lo que aportas y necesitas.</span>
                     </div>
 
-                    <div class="sm:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-300 mb-1">Nombre *</label>
-                            <input type="text" id="prof-name" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:border-brand-red focus:outline-none">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+                        <div class="sm:col-span-3 flex flex-col items-center space-y-2">
+                            <img id="profile-preview-avatar" src="https://placehold.co/160x160/151522/ffffff?text=FOTO" alt="Preview" class="w-16 h-16 rounded-2xl object-cover border border-white/20">
+                            <label for="prof-avatar-input" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-brand-red text-[11px] font-bold text-white cursor-pointer transition-colors">
+                                Subir foto
+                            </label>
+                            <input id="prof-avatar-input" type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="hidden">
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-300 mb-1">Edad *</label>
-                            <input type="number" id="prof-age" min="16" max="35" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="21">
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label class="block text-xs font-bold text-gray-300 mb-1">Sector *</label>
-                            <input type="text" id="prof-sector" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Ej: Agencia IA, E-commerce, Contenido...">
+
+                        <div class="sm:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 mb-1">Nombre *</label>
+                                <input type="text" id="prof-name" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:border-brand-red focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-300 mb-1">Edad *</label>
+                                <input type="number" id="prof-age" min="16" max="35" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="21">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-bold text-gray-300 mb-1">Sector *</label>
+                                <input type="text" id="prof-sector" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Ej: Agencia IA, E-commerce, Contenido...">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Qué aportas -->
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué aportas a este mundo? (La IA lo resumirá automáticamente) *</label>
-                    <textarea id="prof-value" rows="3" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Cuéntanos libremente qué haces, en qué eres fuerte, qué proyectos llevas o cómo puedes ayudar a otros..."></textarea>
-                </div>
-
-                <!-- Qué necesitas actualmente -->
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué necesitas actualmente? (Público para que te ayuden por +0,5 pts) *</label>
-                    <textarea id="prof-need" rows="2" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Explica tu problema actual, qué perfil buscas o qué bloqueo tienes ahora mismo..."></textarea>
-                </div>
-
-                <!-- Canales de Contacto B2B -->
-                <div class="space-y-2 pt-2 border-t border-white/10">
-                    <span class="text-xs font-bold text-gray-400">Opciones de contacto (Solo podrán verte y escribirte los del Top 15)</span>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        <input type="text" id="prof-linkedin" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="LinkedIn (URL o usuario)">
-                        <input type="text" id="prof-whatsapp" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="WhatsApp (Ej: 34600000000)">
-                        <input type="text" id="prof-instagram" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="Instagram (@usuario)">
-                        <input type="email" id="prof-contact-email" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="Correo de contacto B2B (Opcional)">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué aportas a este mundo? (La IA lo resumirá automáticamente) *</label>
+                        <textarea id="prof-value" rows="3" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Cuéntanos libremente qué haces, en qué eres fuerte, qué proyectos llevas o cómo puedes ayudar a otros..."></textarea>
                     </div>
-                </div>
 
-                <button type="submit" id="save-profile-ai-btn" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm transition-all flex items-center justify-center space-x-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    <span>Resumir con IA y Guardar Perfil</span>
-                </button>
-            </form>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 mb-1">¿Qué necesitas actualmente? (Público para que te ayuden por +0,5 pts) *</label>
+                        <textarea id="prof-need" rows="2" required class="w-full bg-black/60 border border-white/15 rounded-xl px-3.5 py-2 text-sm text-white focus:border-brand-red focus:outline-none" placeholder="Explica tu problema actual, qué perfil buscas o qué bloqueo tienes ahora mismo..."></textarea>
+                    </div>
+
+                    <div class="space-y-2 pt-2 border-t border-white/10">
+                        <span class="text-xs font-bold text-gray-400">Opciones de contacto (Solo podrán verte y escribirte los del Top 15)</span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <input type="text" id="prof-linkedin" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="LinkedIn (URL o usuario)">
+                            <input type="text" id="prof-whatsapp" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="WhatsApp (Ej: 34600000000)">
+                            <input type="text" id="prof-instagram" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="Instagram (@usuario)">
+                            <input type="email" id="prof-contact-email" class="w-full bg-black/60 border border-white/15 rounded-xl px-3 py-2 text-xs text-white" placeholder="Correo de contacto B2B (Opcional)">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="save-profile-ai-btn" class="w-full py-3.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm transition-all flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Resumir con IA y Guardar Perfil</span>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
     <!-- ============================================================================
-         MODAL: FICHA DE EMPRENDEDOR (PERFIL + CONTACTO PRIVADO + AYUDA +0.5 PTS)
+         MODAL: FICHA DE EMPRENDEDOR (PERFIL + CONTACTO PRIVADO + AYUDA +0.5 PTS + EXPULSIÓN ANFITRIÓN)
          ============================================================================ -->
     <div id="net-member-modal" class="fixed inset-0 z-[90] hidden items-center justify-center px-3 sm:px-4 py-6 bg-black/90 backdrop-blur-md">
         <div class="relative w-full max-w-xl max-h-[92vh] flex flex-col rounded-3xl bg-brand-dark border border-white/15 shadow-2xl overflow-hidden">
-            <!-- Header -->
             <div class="p-5 border-b border-white/10 flex items-start justify-between">
                 <div class="flex items-center space-x-3.5">
                     <img id="modal-member-avatar" src="" alt="Avatar" class="w-14 h-14 rounded-2xl object-cover border border-white/20">
@@ -1717,9 +1698,7 @@
                 </button>
             </div>
 
-            <!-- Body -->
             <div class="p-5 overflow-y-auto space-y-5 text-left">
-                <!-- Resumen Ejecutivo IA Destacado -->
                 <div class="p-3.5 rounded-2xl bg-brand-red/10 border border-brand-softRedBorder space-y-1">
                     <div class="flex items-center space-x-1.5 text-[10px] font-mono uppercase tracking-wider text-brand-lightRed font-bold">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -1728,26 +1707,24 @@
                     <p id="modal-member-ai-bio" class="text-xs sm:text-sm text-gray-100 leading-relaxed font-medium"></p>
                 </div>
 
-                <!-- EXCLUSIVO ANFITRIÓN: CONTROL MANUAL DE PUNTOS DESDE CADA PERFIL -->
+                <!-- EXCLUSIVO ANFITRIÓN: CONTROL MANUAL DE PUNTOS + ELIMINAR DEL PODIO / EXPULSAR -->
                 <div id="modal-host-points-control" class="hidden p-4 rounded-2xl bg-brand-softSurface text-white border border-brand-softRedBorder space-y-3 shadow-xl">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono uppercase font-black text-brand-lightRed flex items-center space-x-1.5">
                             <i class="fa-solid fa-crown"></i>
-                            <span>Control Manual de Puntos (Solo Anfitrión)</span>
+                            <span>Control Anfitrión (Puntos y Expulsión)</span>
                         </span>
                         <span id="modal-host-current-pts" class="px-2 py-0.5 rounded bg-brand-red/20 border border-brand-red/40 text-brand-lightRed font-mono text-xs font-black">0 pts</span>
                     </div>
 
-                    <!-- Botones rápidos para sumar o restar puntos -->
                     <div class="flex flex-wrap gap-1.5">
-                        <button type="button" onclick="hostModifyMemberPoints(0.5)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+0.5 pts (Ayuda)</button>
-                        <button type="button" onclick="hostModifyMemberPoints(5)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+5 pts (Evento)</button>
                         <button type="button" onclick="hostModifyMemberPoints(10)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+10 pts (Viaje)</button>
+                        <button type="button" onclick="hostModifyMemberPoints(5)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+5 pts (Evento)</button>
+                        <button type="button" onclick="hostModifyMemberPoints(0.5)" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-brand-red text-white font-mono text-xs font-bold transition-colors">+0.5 pts (Ayuda)</button>
                         <button type="button" onclick="hostModifyMemberPoints(-0.5)" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 font-mono text-xs font-bold transition-colors">-0.5 pts</button>
                         <button type="button" onclick="hostModifyMemberPoints(-5)" class="px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-gray-300 font-mono text-xs font-bold transition-colors">-5 pts</button>
                     </div>
 
-                    <!-- Campo libre para fijar o sumar/restar cantidad personalizada -->
                     <div class="flex items-center gap-2 pt-1">
                         <input type="number" step="0.5" id="host-custom-points-input" placeholder="Ej: 15 o -2" class="w-full bg-black/85 border border-white/15 text-white rounded-xl px-3 py-2 text-xs font-mono focus:outline-none">
                         <button type="button" onclick="hostAddCustomPoints()" class="px-3 py-2 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-xs whitespace-nowrap">
@@ -1757,9 +1734,19 @@
                             Fijar Total
                         </button>
                     </div>
+
+                    <div class="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+                        <button type="button" onclick="hostRemoveMemberFromPodium()" class="flex-1 py-2 px-3 rounded-xl bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black font-black text-xs transition-all flex items-center justify-center space-x-1.5">
+                            <i class="fa-solid fa-arrow-down-wide-short"></i>
+                            <span>Quitar del Podio (0 pts)</span>
+                        </button>
+                        <button type="button" onclick="hostExpelMemberProfile()" class="flex-1 py-2 px-3 rounded-xl bg-red-600/25 hover:bg-red-600 border border-red-500/40 text-red-300 hover:text-white font-black text-xs transition-all flex items-center justify-center space-x-1.5">
+                            <i class="fa-solid fa-user-slash"></i>
+                            <span>Eliminar y Expulsar</span>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Qué aporta (Resumido con IA) -->
                 <div class="space-y-1">
                     <span class="text-[11px] font-mono uppercase text-gray-400 font-bold flex items-center gap-1.5">
                         <i class="fa-solid fa-bolt text-brand-lightRed text-[10px]"></i>
@@ -1768,7 +1755,6 @@
                     <p id="modal-member-value" class="text-sm text-gray-100 leading-relaxed bg-white/[0.03] border border-white/10 p-3 rounded-xl"></p>
                 </div>
 
-                <!-- Contacto Directo (Gated to Top 15) -->
                 <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-2.5">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-bold uppercase text-white">Contacto Privado Directo</span>
@@ -1777,7 +1763,7 @@
                     <div id="modal-member-contacts-box"></div>
                 </div>
 
-                <!-- Qué necesita actualmente + Respuestas (+0.5 puntos) -->
+                <!-- Qué necesita actualmente + Respuestas (+0.5 puntos) (PROHIBIDO COMENTAR EN EL PROPIO PERFIL) -->
                 <div class="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-3.5">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-bold uppercase text-brand-lightRed flex items-center gap-1.5">
@@ -1790,6 +1776,12 @@
                     <p id="modal-member-need" class="text-sm font-bold text-white bg-white/5 p-3 rounded-xl border border-white/5"></p>
 
                     <div id="modal-help-replies-list" class="space-y-2 max-h-48 overflow-y-auto"></div>
+
+                    <!-- Aviso cuando el usuario está viendo su propio perfil -->
+                    <div id="modal-self-comment-blocked" class="hidden p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-400 text-center font-medium">
+                        <i class="fa-solid fa-ban text-brand-lightRed mr-1"></i>
+                        No puedes escribir comentarios en tu propio perfil. Desde aquí puedes elegir la mejor respuesta de tus compañeros para otorgarle <strong>+0,5 pts</strong>.
+                    </div>
 
                     <form id="modal-help-form" onsubmit="submitHelpReply(event)" class="space-y-2 pt-2 border-t border-white/10">
                         <textarea id="help-reply-input" rows="2" required class="w-full bg-black/70 border border-white/15 rounded-xl px-3 py-2 text-xs text-white focus:border-brand-red focus:outline-none" placeholder="Responde con una ayuda de valor para sumar +0,5 puntos..."></textarea>
@@ -1847,7 +1839,7 @@
             <div class="p-5 border-b border-white/10 flex items-center justify-between">
                 <div>
                     <h3 class="text-base sm:text-lg font-black text-white uppercase">Panel del Anfitrión</h3>
-                    <p class="text-xs text-gray-400">myflowxx@gmail.com • Gestión de puntos, dudas (+0,5 pts) y aforo</p>
+                    <p class="text-xs text-gray-400">myflowxx@gmail.com • Gestión de puntos, expulsiones, dudas (+0,5 pts) y aforo</p>
                 </div>
                 <button onclick="closeHostDashboardModal()" class="text-gray-400 hover:text-white p-2 rounded-lg bg-white/5">
                     <i class="fa-solid fa-xmark"></i>
@@ -1855,11 +1847,11 @@
             </div>
 
             <div class="p-5 overflow-y-auto space-y-6 text-left">
-                <!-- Quick tip for manual points -->
+                <!-- Quick tip for manual points & expulsion -->
                 <div class="p-4 rounded-2xl bg-brand-softSurface border border-brand-softRedBorder text-gray-100 font-bold text-xs sm:text-sm flex items-center justify-between gap-3">
                     <div>
-                        <p class="font-black uppercase text-brand-lightRed">Gestión manual de puntos activa</p>
-                        <p class="text-xs font-medium text-gray-300 mt-0.5">Haz clic sobre cualquier usuario del ranking para sumarle o quitarle puntos (+5 evento, +10 viaje, +0,5 ayuda o cantidad libre).</p>
+                        <p class="font-black uppercase text-brand-lightRed">Gestión manual de puntos, Podio 3 y Expulsiones</p>
+                        <p class="text-xs font-medium text-gray-300 mt-0.5">Haz clic sobre cualquier usuario del ranking o usa los botones directos en las tarjetas del Top 3 Podio para quitarles del podio o expulsarles definitivamente.</p>
                     </div>
                     <i class="fa-solid fa-sliders text-2xl text-brand-lightRed shrink-0"></i>
                 </div>
@@ -1910,6 +1902,46 @@
     <script>
         // Enlace y teléfono del organizador
         const ADMIN_PHONE = "34623179849";
+
+        // ==========================================
+        // BANNER DE ACEPTAR COOKIES
+        // ==========================================
+        function checkCookieConsentBanner() {
+            try {
+                const status = localStorage.getItem('myflowxx_cookie_consent');
+                const banner = document.getElementById('cookie-consent-banner');
+                if (!status && banner) {
+                    banner.classList.remove('hidden');
+                    banner.classList.add('flex');
+                }
+            } catch (_) {}
+        }
+
+        function acceptCookiesBanner() {
+            try {
+                localStorage.setItem('myflowxx_cookie_consent', 'accepted');
+            } catch (_) {}
+            const banner = document.getElementById('cookie-consent-banner');
+            if (banner) {
+                banner.classList.add('hidden');
+                banner.classList.remove('flex');
+            }
+            showToast("Preferencias de cookies guardadas.", "fa-solid fa-cookie-bite text-brand-lightRed");
+        }
+
+        function rejectCookiesBanner() {
+            try {
+                localStorage.setItem('myflowxx_cookie_consent', 'essential_only');
+            } catch (_) {}
+            const banner = document.getElementById('cookie-consent-banner');
+            if (banner) {
+                banner.classList.add('hidden');
+                banner.classList.remove('flex');
+            }
+            showToast("Solo cookies esenciales activadas.", "fa-solid fa-check text-gray-300");
+        }
+
+        window.addEventListener('DOMContentLoaded', checkCookieConsentBanner);
 
         // Helper Global Toast (accesible desde ambos bloques de script)
         function showToast(message, iconClass = "fa-solid fa-bolt text-brand-lightRed") {
@@ -2331,6 +2363,7 @@
             set,
             get,
             update,
+            remove,
             onValue,
             push
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
@@ -2340,7 +2373,7 @@
             isSupported
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-messaging.js";
 
-        // Configuración oficial de tu proyecto Firebase myflowxx-app
+        // Configuración oficial de tu proyecto Firebase myflowxx-app (Intacta)
         const _kParts = ["AIza", "SyCv87Ta8Vx", "DtaWSmoI8dCoO", "VeL9PwkLyvk"];
         const firebaseConfig = {
             apiKey: _kParts.join(""),
@@ -2358,7 +2391,7 @@
         const rtdb = getDatabase(app);
 
         // ==========================================
-        // MYFLOWXX PUSH NOTIFICATIONS
+        // MYFLOWXX PUSH NOTIFICATIONS (INTACTAS) + RECORDATORIO SEÑALADO DE VEZ EN CUANDO
         // ==========================================
 
         window.enableMyflowxxPush = async function () {
@@ -2419,8 +2452,6 @@
                     }
                 }
 
-                // Si estamos en previsualización o falta el archivo firebase-messaging-sw.js en el servidor,
-                // registramos igualmente la suscripción activa del dispositivo y lanzamos notificación nativa
                 if (!token) {
                     showToast("No se ha podido obtener el token de Firebase.", "fa-solid fa-triangle-exclamation");
                     return;
@@ -2440,16 +2471,30 @@
                     userAgent: navigator.userAgent
                 });
 
-                // Marcar visualmente la campana como activada
+                // Marcar visualmente la campana como activada y ocultar el recordatorio
                 const bellBtn = document.getElementById('nav-push-btn');
+                const bellDot = document.getElementById('nav-push-signal-dot');
+                const reminderBanner = document.getElementById('push-reminder-banner');
                 if (bellBtn) {
+                    bellBtn.classList.remove('bell-signal-active');
                     bellBtn.classList.add('border-brand-red', 'text-brand-lightRed', 'bg-brand-red/15');
+                }
+                if (bellDot) bellDot.classList.add('hidden');
+                if (reminderBanner) reminderBanner.classList.add('hidden');
+
+                if (currentUser) {
+                    addNotificationToMemberHistory(
+                        currentUser,
+                        "🔔 Notificaciones Push activadas: te avisaremos si alguien te quita el puesto o responde a tu duda.",
+                        "system"
+                    );
+                    await saveMemberToCloud(currentUser);
                 }
 
                 // Enviar notificación de prueba inmediata si el navegador lo permite
                 try {
                     new Notification("myflowxx NETWORK", {
-                        body: "¡Notificaciones activadas! Recibirás avisos de eventos, viajes y dudas.",
+                        body: "¡Notificaciones activadas! Estate atento a que nadie te quite el puesto y entérate de cuando alguien responde a tu duda.",
                     });
                 } catch (_) {}
 
@@ -2466,6 +2511,49 @@
             }
         };
 
+        // Recordatorio periódico de vez en cuando para activar las notificaciones señaladas
+        let pushReminderDismissedUntil = 0;
+
+        function checkPeriodicPushSignalReminder() {
+            const reminderBanner = document.getElementById('push-reminder-banner');
+            const bellBtn = document.getElementById('nav-push-btn');
+            const bellDot = document.getElementById('nav-push-signal-dot');
+
+            const isGranted = ("Notification" in window) && Notification.permission === "granted";
+
+            if (isGranted) {
+                if (reminderBanner) reminderBanner.classList.add('hidden');
+                if (bellBtn) bellBtn.classList.remove('bell-signal-active');
+                if (bellDot) bellDot.classList.add('hidden');
+                return;
+            }
+
+            // Señalar siempre la campana si aún no están activadas
+            if (bellBtn) bellBtn.classList.add('bell-signal-active');
+            if (bellDot) bellDot.classList.remove('hidden');
+
+            // Mostrar el banner recordatorio de vez en cuando si no ha sido pospuesto recientemente
+            if (Date.now() > pushReminderDismissedUntil) {
+                if (reminderBanner) reminderBanner.classList.remove('hidden');
+            }
+        }
+
+        function dismissPushReminderTemporarily() {
+            pushReminderDismissedUntil = Date.now() + 90000; // Vuelve a recordar de vez en cuando (a los 90 segundos)
+            const reminderBanner = document.getElementById('push-reminder-banner');
+            if (reminderBanner) reminderBanner.classList.add('hidden');
+            showToast("Recuerda activar la campana 🔔 para que nadie te quite el puesto y enterarte cuando respondan tu duda.", "fa-solid fa-bell text-brand-lightRed");
+        }
+        window.dismissPushReminderTemporarily = dismissPushReminderTemporarily;
+
+        // Comprobar de vez en cuando (cada 95 segundos) mientras está en la Networking App
+        setInterval(() => {
+            const world = document.getElementById('networking-app-world');
+            if (world && !world.classList.contains('hidden')) {
+                checkPeriodicPushSignalReminder();
+            }
+        }, 95000);
+
         const HOST_EMAIL = "myflowxx@gmail.com";
 
         let currentUser = null;
@@ -2473,6 +2561,7 @@
         let uploadedAvatarDataUrl = "";
         let networkingWorldUnlockedInSession = false;
         let hostNotifiedOverdueInSession = false;
+        let previousRanksMap = {};
 
         window.isCurrentHostLoggedIn = function() {
             return Boolean(currentUser && (currentUser.email || '').toLowerCase() === HOST_EMAIL.toLowerCase());
@@ -2493,7 +2582,8 @@
             needCreatedAt: Date.now(),
             needResolved: false,
             contacts: { linkedin: "", whatsapp: "34623179849", instagram: "@myflowxx", email: "myflowxx@gmail.com" },
-            replies: []
+            replies: [],
+            notificationsHistory: []
         };
 
         let membersDirectory = [DEFAULT_HOST_PROFILE];
@@ -2503,6 +2593,107 @@
             { id: "p2", category: "Viaje (+10 pts)", title: "Casa Rural + Mastermind en el Norte", votes: 0, votedBy: [] },
             { id: "p3", category: "Evento (+5 pts)", title: "Rooftop Privado + Networking en Madrid", votes: 0, votedBy: [] }
         ];
+
+        // ==========================================
+        // HISTORIAL DE NOTIFICACIONES ACUMULADAS EN EL PERFIL
+        // ==========================================
+        function addNotificationToMemberHistory(memberObj, text, type = 'info') {
+            if (!memberObj) return;
+            if (!Array.isArray(memberObj.notificationsHistory)) {
+                memberObj.notificationsHistory = [];
+            }
+            memberObj.notificationsHistory.unshift({
+                id: 'notif-' + Date.now() + '-' + Math.random().toString(36).substring(2, 6),
+                text: text,
+                type: type,
+                createdAt: Date.now(),
+                read: false
+            });
+            // Mantener últimas 50 notificaciones acumuladas
+            if (memberObj.notificationsHistory.length > 50) {
+                memberObj.notificationsHistory = memberObj.notificationsHistory.slice(0, 50);
+            }
+        }
+
+        function formatRelativeTime(timestamp) {
+            if (!timestamp) return '';
+            const diffSec = Math.max(1, Math.floor((Date.now() - timestamp) / 1000));
+            if (diffSec < 60) return 'Hace unos segundos';
+            const diffMin = Math.floor(diffSec / 60);
+            if (diffMin < 60) return `Hace ${diffMin} min`;
+            const diffHours = Math.floor(diffMin / 60);
+            if (diffHours < 24) return `Hace ${diffHours} h`;
+            const diffDays = Math.floor(diffHours / 24);
+            return `Hace ${diffDays} d`;
+        }
+
+        function updateProfileNotificationBadges() {
+            const navBadge = document.getElementById('nav-profile-notif-badge');
+            const modalPill = document.getElementById('profile-notif-count-pill');
+
+            if (!currentUser) {
+                if (navBadge) navBadge.classList.add('hidden');
+                if (modalPill) modalPill.textContent = '0';
+                return;
+            }
+
+            const history = Array.isArray(currentUser.notificationsHistory) ? currentUser.notificationsHistory : [];
+            const unreadCount = history.filter(n => !n.read).length;
+
+            if (navBadge) {
+                if (unreadCount > 0) {
+                    navBadge.textContent = unreadCount;
+                    navBadge.classList.remove('hidden');
+                } else {
+                    navBadge.classList.add('hidden');
+                }
+            }
+            if (modalPill) {
+                modalPill.textContent = String(history.length);
+            }
+        }
+
+        function renderProfileNotificationsHistory() {
+            const listEl = document.getElementById('profile-notifications-history-list');
+            if (!listEl || !currentUser) return;
+
+            const history = Array.isArray(currentUser.notificationsHistory) ? currentUser.notificationsHistory : [];
+            updateProfileNotificationBadges();
+
+            if (history.length === 0) {
+                listEl.innerHTML = `
+                    <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-gray-500 text-center">
+                        Aún no tienes notificaciones acumuladas. Aquí verás cuando alguien responda a tu duda, te den +0,5 pts o cambie tu puesto en el ranking.
+                    </div>
+                `;
+                return;
+            }
+
+            listEl.innerHTML = history.map(item => `
+                <div class="p-3 rounded-xl ${item.read ? 'bg-white/[0.03] border-white/10' : 'bg-brand-red/15 border-brand-red/50'} border flex items-start justify-between gap-2.5">
+                    <div class="flex items-start space-x-2.5 text-xs">
+                        <i class="fa-solid ${item.type === 'rank' ? 'fa-ranking-star text-amber-400' : item.type === 'reply' ? 'fa-comment-dots text-brand-lightRed' : 'fa-bell text-emerald-400'} mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="${item.read ? 'text-gray-300' : 'text-white font-bold'} leading-snug">${item.text}</p>
+                            <span class="text-[10px] font-mono text-gray-500">${formatRelativeTime(item.createdAt)}</span>
+                        </div>
+                    </div>
+                    ${!item.read ? `<span class="w-2 h-2 rounded-full bg-brand-red shrink-0 mt-1"></span>` : ''}
+                </div>
+            `).join('');
+        }
+
+        async function clearMyNotificationsHistory() {
+            if (!currentUser) return;
+            if (Array.isArray(currentUser.notificationsHistory)) {
+                currentUser.notificationsHistory.forEach(n => { n.read = true; });
+            }
+            await saveMemberToCloud(currentUser);
+            renderProfileNotificationsHistory();
+            updateProfileNotificationBadges();
+            showToast("Notificaciones marcadas como leídas.", "fa-solid fa-check text-emerald-400");
+        }
+        window.clearMyNotificationsHistory = clearMyNotificationsHistory;
 
         // ==========================================
         // MOTOR DE SÍNTESIS EJECUTIVA IA (REESCRIBE Y RESUME EL TEXTO DEL USUARIO)
@@ -2628,6 +2819,7 @@
                     aiSummary: getDisplayAISummary(m),
                     contacts: m.contacts || { linkedin: "", whatsapp: "", instagram: "", email: "" },
                     replies: Array.isArray(m.replies) ? m.replies : (m.replies ? Object.values(m.replies) : []),
+                    notificationsHistory: Array.isArray(m.notificationsHistory) ? m.notificationsHistory : (m.notificationsHistory ? Object.values(m.notificationsHistory) : []),
                     redeemedQrs: Array.isArray(m.redeemedQrs) ? m.redeemedQrs : (m.redeemedQrs ? Object.values(m.redeemedQrs) : [])
                 }));
                 membersDirectory = list.length > 0 ? list : [DEFAULT_HOST_PROFILE];
@@ -2635,6 +2827,23 @@
                 saveMemberToCloud(DEFAULT_HOST_PROFILE);
                 membersDirectory = [DEFAULT_HOST_PROFILE];
             }
+
+            // Detectar si alguien ha adelantado al usuario en el puesto y acumularlo en su historial
+            const sortedNow = getSortedMembers();
+            sortedNow.forEach(m => {
+                const prevRank = previousRanksMap[m.id];
+                if (typeof prevRank === 'number' && m.rank > prevRank) {
+                    if (currentUser && currentUser.id === m.id) {
+                        addNotificationToMemberHistory(
+                            m,
+                            `⚠️ ¡Atención! Has bajado del puesto #${prevRank} al puesto #${m.rank}. Suma puntos ayudando a compañeros o asistiendo a eventos.`,
+                            'rank'
+                        );
+                        saveMemberToCloud(m);
+                    }
+                }
+                previousRanksMap[m.id] = m.rank;
+            });
 
             if (currentUser) {
                 const updatedMe = membersDirectory.find(m => m.id === currentUser.id || (m.email && m.email.toLowerCase() === currentUser.email.toLowerCase()));
@@ -2764,6 +2973,7 @@
                 world.classList.add('flex');
                 document.body.style.overflow = 'hidden';
                 renderNetworkingWorld();
+                checkPeriodicPushSignalReminder();
             }, 1750);
 
             setTimeout(() => {
@@ -2805,6 +3015,7 @@
         // Render Entire Networking App (Slots 1..15 always visible, filled as users join)
         function renderNetworkingWorld() {
             const sorted = getSortedMembers();
+            const isHost = window.isCurrentHostLoggedIn();
 
             const authBtn = document.getElementById('nav-auth-btn');
             const userPill = document.getElementById('nav-user-pill');
@@ -2821,7 +3032,9 @@
                 document.getElementById('nav-user-name').textContent = `${currentUser.name} (#${currentUser.rank || '-'})`;
                 document.getElementById('nav-user-points').textContent = `${currentUser.points} pts`;
 
-                if ((currentUser.email || '').toLowerCase() === HOST_EMAIL.toLowerCase()) {
+                updateProfileNotificationBadges();
+
+                if (isHost) {
                     hostBtn.classList.remove('hidden');
                     hostBtn.classList.add('flex');
                     updateHostPendingBadge();
@@ -2837,13 +3050,26 @@
                 hostBtn.classList.remove('flex');
             }
 
-            // Render Top 3 Slots (#1, #2, #3)
+            // Render Top 3 Slots (#1, #2, #3) + Botones rápidos del Anfitrión para quitar del podio o expulsar
             const top3Container = document.getElementById('top-3-podium-grid');
             let top3Html = '';
             for (let pos = 1; pos <= 3; pos++) {
                 const m = sorted[pos - 1];
                 if (m) {
                     const summaryText = getDisplayAISummary(m);
+                    const hostControlsHtml = (isHost && m.id !== 'host-diego') ? `
+                        <div class="pt-2 border-t border-white/10 flex items-center justify-between gap-2" onclick="event.stopPropagation()">
+                            <button type="button" onclick="hostQuickDropFromPodium('${m.id}', event)" class="flex-1 py-1.5 px-2 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black text-[10px] font-black transition-all flex items-center justify-center space-x-1" title="Quitar del Podio (0 pts)">
+                                <i class="fa-solid fa-arrow-down"></i>
+                                <span>Bajar Podio</span>
+                            </button>
+                            <button type="button" onclick="hostQuickExpelMember('${m.id}', event)" class="flex-1 py-1.5 px-2 rounded-lg bg-red-600/25 hover:bg-red-600 text-red-300 hover:text-white text-[10px] font-black transition-all flex items-center justify-center space-x-1" title="Eliminar perfil y expulsar">
+                                <i class="fa-solid fa-user-xmark"></i>
+                                <span>Expulsar</span>
+                            </button>
+                        </div>
+                    ` : '';
+
                     top3Html += `
                         <div onclick="openMemberModal('${m.id}')" style="animation-delay: ${pos * 60}ms" class="dynamic-card cursor-pointer group rounded-2xl bg-brand-softSurface border ${pos === 1 ? 'border-brand-red/60' : 'border-white/15'} hover:border-brand-red/70 p-5 flex flex-col justify-between space-y-3">
                             <div class="flex items-center justify-between">
@@ -2862,6 +3088,7 @@
                                 <span class="truncate max-w-[72%]">${m.whatINeed}</span>
                                 <span class="text-brand-lightRed font-bold shrink-0 group-hover:translate-x-0.5 transition-transform">Ver →</span>
                             </div>
+                            ${hostControlsHtml}
                         </div>
                     `;
                 } else {
@@ -3056,7 +3283,7 @@
             document.getElementById('modal-member-value').textContent = cleanAndSynthesizeFragment(m.whatIProvide, 'value');
             document.getElementById('modal-member-need').textContent = cleanAndSynthesizeFragment(m.whatINeed, 'need');
 
-            // Mostrar u ocultar el bloque exclusivo de Control Manual de Puntos para el Anfitrión
+            // Mostrar u ocultar el bloque exclusivo de Control Manual de Puntos y Expulsión para el Anfitrión
             const hostPtsBox = document.getElementById('modal-host-points-control');
             const hostPtsBadge = document.getElementById('modal-host-current-pts');
             if (window.isCurrentHostLoggedIn()) {
@@ -3068,7 +3295,19 @@
                 hostPtsBox.classList.add('hidden');
             }
 
-            const viewerAllowed = isCurrentUserInTop15() || (currentUser && currentUser.id === m.id);
+            // Prohibir escribir comentarios en propio perfil de cada uno
+            const isOwnProfile = Boolean(currentUser && (currentUser.id === m.id || (currentUser.email && m.email && currentUser.email.toLowerCase() === m.email.toLowerCase())));
+            const helpForm = document.getElementById('modal-help-form');
+            const selfBlockedNotice = document.getElementById('modal-self-comment-blocked');
+            if (isOwnProfile) {
+                if (helpForm) helpForm.classList.add('hidden');
+                if (selfBlockedNotice) selfBlockedNotice.classList.remove('hidden');
+            } else {
+                if (helpForm) helpForm.classList.remove('hidden');
+                if (selfBlockedNotice) selfBlockedNotice.classList.add('hidden');
+            }
+
+            const viewerAllowed = isCurrentUserInTop15() || isOwnProfile;
             const lockStatus = document.getElementById('modal-contact-lock-status');
             const contactsBox = document.getElementById('modal-member-contacts-box');
 
@@ -3121,7 +3360,7 @@
             activeMemberModalId = null;
         }
 
-        // Funciones exclusivas del Anfitrión para añadir, quitar o fijar puntos manualmente desde el perfil
+        // Funciones exclusivas del Anfitrión para añadir, quitar, fijar puntos, quitar del podio o expulsar
         async function hostModifyMemberPoints(delta) {
             if (!window.isCurrentHostLoggedIn() || !activeMemberModalId) return;
             const target = membersDirectory.find(m => m.id === activeMemberModalId);
@@ -3129,6 +3368,7 @@
 
             const updatedPts = Math.max(0, Number(((target.points || 0) + Number(delta)).toFixed(1)));
             target.points = updatedPts;
+            addNotificationToMemberHistory(target, `👑 El Anfitrión ha ajustado tus puntos a ${updatedPts} pts.`, 'rank');
             await saveMemberToCloud(target);
 
             document.getElementById('modal-member-points').textContent = `${updatedPts} pts`;
@@ -3162,6 +3402,7 @@
 
             const updatedPts = Number(val.toFixed(1));
             target.points = updatedPts;
+            addNotificationToMemberHistory(target, `👑 El Anfitrión ha fijado tus puntos en ${updatedPts} pts.`, 'rank');
             await saveMemberToCloud(target);
 
             document.getElementById('modal-member-points').textContent = `${updatedPts} pts`;
@@ -3170,6 +3411,71 @@
             renderNetworkingWorld();
             showToast(`Total de ${target.name} fijado en ${updatedPts} pts.`, "fa-solid fa-check text-white");
         }
+
+        // Quitar a un miembro del Podio (pone 0 puntos y lo envía al final de la cola)
+        async function hostRemoveMemberFromPodium(targetIdParam) {
+            if (!window.isCurrentHostLoggedIn()) return;
+            const targetId = targetIdParam || activeMemberModalId;
+            if (!targetId) return;
+
+            const target = membersDirectory.find(m => m.id === targetId);
+            if (!target) return;
+
+            target.points = 0;
+            target.joinedAt = Date.now() + 999999; // Lo mueve al último lugar
+            addNotificationToMemberHistory(target, `⚠️ Has sido retirado del Podio por el Anfitrión (0 pts).`, 'rank');
+            await saveMemberToCloud(target);
+
+            if (activeMemberModalId === targetId) {
+                document.getElementById('modal-member-points').textContent = `0 pts`;
+                document.getElementById('modal-host-current-pts').textContent = `0 pts`;
+            }
+            renderNetworkingWorld();
+            showToast(`${target.name} ha sido retirado del Podio.`, "fa-solid fa-arrow-down-wide-short text-amber-400");
+        }
+
+        // Eliminar perfil y expulsar definitivamente de Firebase
+        async function hostExpelMemberProfile(targetIdParam) {
+            if (!window.isCurrentHostLoggedIn()) return;
+            const targetId = targetIdParam || activeMemberModalId;
+            if (!targetId) return;
+
+            if (targetId === 'host-diego') {
+                showToast("No puedes expulsar el perfil principal de Anfitrión.", "fa-solid fa-shield-halved text-brand-red");
+                return;
+            }
+
+            const target = membersDirectory.find(m => m.id === targetId);
+            const targetName = target ? target.name : "Usuario";
+
+            try {
+                await remove(ref(rtdb, `myflowxx/members/${targetId}`));
+                membersDirectory = membersDirectory.filter(m => m.id !== targetId);
+                if (activeMemberModalId === targetId) {
+                    closeMemberModal();
+                }
+                renderNetworkingWorld();
+                showToast(`Perfil de ${targetName} eliminado y expulsado de la plataforma.`, "fa-solid fa-user-xmark text-brand-red");
+            } catch (err) {
+                console.warn("Error al eliminar miembro:", err.message);
+                showToast("No se pudo expulsar el perfil. Inténtalo de nuevo.", "fa-solid fa-triangle-exclamation text-brand-red");
+            }
+        }
+
+        function hostQuickDropFromPodium(memberId, event) {
+            if (event) event.stopPropagation();
+            hostRemoveMemberFromPodium(memberId);
+        }
+
+        function hostQuickExpelMember(memberId, event) {
+            if (event) event.stopPropagation();
+            hostExpelMemberProfile(memberId);
+        }
+
+        window.hostRemoveMemberFromPodium = hostRemoveMemberFromPodium;
+        window.hostExpelMemberProfile = hostExpelMemberProfile;
+        window.hostQuickDropFromPodium = hostQuickDropFromPodium;
+        window.hostQuickExpelMember = hostQuickExpelMember;
 
         function renderMemberHelpReplies(member) {
             const listEl = document.getElementById('modal-help-replies-list');
@@ -3227,12 +3533,18 @@
                 return;
             }
 
+            const targetMember = membersDirectory.find(m => m.id === activeMemberModalId);
+            if (!targetMember) return;
+
+            // Prohibición estricta de comentar en el propio perfil
+            if (currentUser.id === targetMember.id || (currentUser.email && targetMember.email && currentUser.email.toLowerCase() === targetMember.email.toLowerCase())) {
+                showToast("No puedes escribir comentarios ni responder en tu propio perfil.", "fa-solid fa-ban text-brand-red");
+                return;
+            }
+
             const input = document.getElementById('help-reply-input');
             const text = input.value.trim();
             if (!text || !activeMemberModalId) return;
-
-            const targetMember = membersDirectory.find(m => m.id === activeMemberModalId);
-            if (!targetMember) return;
 
             if (!Array.isArray(targetMember.replies)) targetMember.replies = [];
             targetMember.replies.push({
@@ -3243,6 +3555,13 @@
                 createdAt: Date.now(),
                 isWinner: false
             });
+
+            // Guardar en el historial de notificaciones acumuladas del dueño de la duda
+            addNotificationToMemberHistory(
+                targetMember,
+                `💬 ${currentUser.name} ha respondido a tu duda: "${text.substring(0, 80)}"`,
+                'reply'
+            );
 
             input.value = '';
             await saveMemberToCloud(targetMember);
@@ -3265,6 +3584,11 @@
             const helper = membersDirectory.find(m => m.id === reply.authorId);
             if (helper) {
                 helper.points = Number(((helper.points || 0) + 0.5).toFixed(1));
+                addNotificationToMemberHistory(
+                    helper,
+                    `🏆 ¡${member.name} ha elegido tu ayuda! Has sumado +0,5 pts (Total: ${helper.points} pts).`,
+                    'rank'
+                );
                 await saveMemberToCloud(helper);
                 showToast(`¡+0,5 puntos sumados a ${helper.name}!`, "fa-solid fa-trophy text-brand-lightRed");
             }
@@ -3358,6 +3682,15 @@
                         needResolved: false,
                         contacts: { linkedin: "", whatsapp: "", instagram: "", email: "" },
                         replies: [],
+                        notificationsHistory: [
+                            {
+                                id: 'notif-welcome-' + Date.now(),
+                                text: "👋 Bienvenido a myflowxx NETWORK. Activa la campana de notificaciones para enterarte si alguien te quita el puesto o responde a tu duda.",
+                                type: "system",
+                                createdAt: Date.now(),
+                                read: false
+                            }
+                        ],
                         redeemedQrs: []
                     };
                     await saveMemberToCloud(found);
@@ -3367,6 +3700,7 @@
                 closeAuthModal();
                 renderNetworkingWorld();
                 checkAndNotifyHostOverdueQuestions();
+                checkPeriodicPushSignalReminder();
                 showToast(`¡Bienvenido, ${currentUser.name}!`, "fa-solid fa-bolt text-brand-lightRed");
             } catch (err) {
                 showToast("Correo o contraseña incorrectos (mín. 6 caracteres).", "fa-solid fa-circle-exclamation text-brand-red");
@@ -3407,6 +3741,15 @@
                     needResolved: false,
                     contacts: { linkedin: "", whatsapp: "", instagram: "", email: "" },
                     replies: [],
+                    notificationsHistory: [
+                        {
+                            id: 'notif-welcome-' + Date.now(),
+                            text: "🚀 Cuenta creada en myflowxx NETWORK. Activa las notificaciones para estar atento a que nadie te quite el puesto y enterarte cuando respondan tu duda.",
+                            type: "system",
+                            createdAt: Date.now(),
+                            read: false
+                        }
+                    ],
                     redeemedQrs: []
                 };
 
@@ -3451,7 +3794,7 @@
             showToast("Sesión cerrada.", "fa-solid fa-check text-gray-300");
         }
 
-        // Profile Editor & AI Summarizer
+        // Profile Editor & AI Summarizer + Historial de Notificaciones
         function openEditProfileModal() {
             if (!currentUser) return;
             document.getElementById('prof-name').value = currentUser.name || '';
@@ -3467,6 +3810,8 @@
             document.getElementById('prof-contact-email').value = c.email || '';
             document.getElementById('profile-preview-avatar').src = currentUser.avatar;
             uploadedAvatarDataUrl = currentUser.avatar;
+
+            renderProfileNotificationsHistory();
 
             const modal = document.getElementById('net-onboarding-modal');
             modal.classList.remove('hidden');
