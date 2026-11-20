@@ -202,6 +202,17 @@
             animation: portalFlashOut 2.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
+        /* Ticket Unlock Transition Animation */
+        @keyframes ticketPopFloat {
+            0% { transform: scale(0.75) rotate(-4deg) translateY(16px); opacity: 0; }
+            30% { transform: scale(1.03) rotate(0deg) translateY(0); opacity: 1; }
+            75% { transform: scale(1) rotate(0deg) translateY(0); opacity: 1; }
+            100% { transform: scale(1.08) translateY(-10px); opacity: 0; }
+        }
+        .ticket-unlock-anim {
+            animation: ticketPopFloat 1.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
         /* Comfortable Dark World Grid for Networking App */
         .cyber-world-bg {
             background-color: #07070b;
@@ -672,13 +683,7 @@
                         </p>
                     </div>
 
-                    <div class="w-24 h-0.5 bg-brand-red/40 mx-auto rounded-full"></div>
-
-                    <p class="text-sm sm:text-base text-gray-300 max-w-md mx-auto leading-relaxed">
-                        Entrada única de <strong class="text-white">10€</strong> (coworking + café + bocata de jamón serrano con tomate). Sin beneficio alguno: cubre únicamente los gastos del evento.
-                    </p>
-
-                    <div class="pt-2">
+                    <div class="pt-1">
                         <button onclick="openEvento002Landing()" class="px-10 sm:px-12 py-4.5 rounded-full bg-brand-red hover:bg-brand-lightRed text-white font-black text-base shadow-xl shadow-brand-red/25 transition-all duration-300 hover:scale-105 inline-flex items-center space-x-3 cursor-pointer group">
                             <span>Entrar</span>
                             <i class="fa-solid fa-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
@@ -826,111 +831,104 @@
     </main>
 
     <!-- ============================================================================
-         LANDING PAGE DEDICADA: EVENTO #002 (PANTALLA COMPLETA DIRECTA PARA COMPRAR)
+         TRANSICIÓN DE TICKET: "002 DESBLOQUEADO"
          ============================================================================ -->
-    <div id="evento-002-landing-page" class="fixed inset-0 z-[75] hidden flex-col bg-brand-black notebook-grid text-white overflow-y-auto overflow-x-hidden selection:bg-brand-red">
-        <!-- Sticky Top Header de la Landing del Evento #002 -->
-        <div class="sticky top-0 z-40 bg-brand-black/95 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between gap-3">
-            <button type="button" onclick="closeEvento002Landing()" class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-300 hover:text-white flex items-center space-x-2 transition-all cursor-pointer">
-                <i class="fa-solid fa-arrow-left text-brand-lightRed"></i>
-                <span>Volver a la web</span>
-            </button>
+    <div id="ticket-002-transition-overlay" class="fixed inset-0 z-[85] hidden items-center justify-center bg-black/95 backdrop-blur-xl px-4 pointer-events-none">
+        <div class="ticket-unlock-anim relative w-full max-w-sm rounded-3xl bg-brand-dark border-2 border-dashed border-brand-red p-8 text-center shadow-2xl shadow-brand-red/25 notebook-card space-y-4">
+            <!-- Muescas laterales estilo ticket físico -->
+            <div class="w-6 h-6 rounded-full bg-black border-r-2 border-brand-red absolute -left-3.5 top-1/2 -translate-y-1/2"></div>
+            <div class="w-6 h-6 rounded-full bg-black border-l-2 border-brand-red absolute -right-3.5 top-1/2 -translate-y-1/2"></div>
 
-            <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
-                <span class="font-black text-xs sm:text-sm uppercase tracking-wider text-white">EVENTO <span class="text-brand-lightRed">#002</span></span>
+            <div class="w-14 h-14 rounded-2xl bg-brand-red/15 border border-brand-red/40 text-brand-lightRed flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-ticket"></i>
             </div>
 
-            <a href="#comprar-entrada-002" class="px-4 py-2.5 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-brand-red/25 transition-all">
+            <div class="space-y-1">
+                <span class="block text-[11px] font-mono uppercase tracking-[0.25em] text-gray-400">Acceso Confirmado</span>
+                <h3 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+                    002 <span class="text-brand-lightRed">DESBLOQUEADO</span>
+                </h3>
+            </div>
+
+            <div class="pt-3 border-t border-dashed border-white/15 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                <span>MYFLOWXX PASS</span>
+                <span class="text-emerald-400 font-bold">MÁX. 15 PLAZAS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================================
+         LANDING PAGE DEDICADA: EVENTO #002 (ESTILO MINIMALISTA Y DIRECTO PARA COMPRAR)
+         ============================================================================ -->
+    <div id="evento-002-landing-page" class="fixed inset-0 z-[75] hidden flex-col bg-brand-black notebook-grid text-white overflow-y-auto overflow-x-hidden selection:bg-brand-red">
+        <!-- Sticky Top Header Minimalista -->
+        <div class="sticky top-0 z-40 bg-brand-black/95 backdrop-blur-xl border-b border-white/10 px-4 sm:px-8 py-3.5 flex items-center justify-between gap-3">
+            <button type="button" onclick="closeEvento002Landing()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-300 hover:text-white flex items-center space-x-2 transition-all cursor-pointer">
+                <i class="fa-solid fa-arrow-left text-brand-lightRed"></i>
+                <span>Volver</span>
+            </button>
+
+            <span class="font-mono text-xs uppercase tracking-widest text-gray-300 font-bold">
+                EVENTO <span class="text-brand-lightRed">#002</span>
+            </span>
+
+            <a href="#comprar-entrada-002" class="px-4 py-2 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white text-xs font-black uppercase tracking-wider transition-all">
                 Comprar 10€
             </a>
         </div>
 
-        <!-- Contenido Principal de la Landing del Evento #002 -->
-        <div class="max-w-3xl w-full mx-auto px-4 sm:px-8 py-10 sm:py-14 space-y-10">
+        <!-- Contenido Minimalista de la Landing del Evento #002 -->
+        <div class="max-w-2xl w-full mx-auto px-4 sm:px-8 py-12 sm:py-16 space-y-12">
 
-            <!-- Hero de la Landing -->
-            <div class="text-center space-y-5">
-                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-red/15 border border-brand-red/35 text-brand-lightRed font-mono text-xs font-black uppercase tracking-widest">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Acceso limitado a 15 personas en total</span>
-                </div>
+            <!-- Hero Minimalista -->
+            <div class="text-center space-y-4">
+                <span class="inline-block px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-brand-lightRed font-mono text-xs uppercase tracking-widest">
+                    Acceso limitado • 15 personas en total
+                </span>
 
-                <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight uppercase leading-none">
-                    EVENTO <span class="text-brand-red">#002</span>
+                <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight uppercase">
+                    EVENTO #002
                 </h1>
 
-                <p class="font-hand text-2xl sm:text-4xl text-brand-lightRed font-bold leading-snug max-w-2xl mx-auto">
-                    "Grupos pequeños, máx. 15 personas, para mantener esa calidad en las relaciones, esa personalización y que seas tú, no un número."
+                <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xl mx-auto">
+                    Mantenemos nuestro lema: <strong class="text-white">grupos pequeños de máximo 15 personas</strong> para conservar esa calidad en las relaciones, esa personalización y que seas tú, no un número.
                 </p>
             </div>
 
-            <!-- Tarjeta de Ubicación Exacta -->
-            <div class="p-6 sm:p-8 rounded-3xl bg-brand-dark/95 border-2 border-white/15 hover:border-brand-red/60 transition-all shadow-2xl notebook-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-                <div class="flex items-start space-x-4">
-                    <div class="w-12 h-12 rounded-2xl bg-brand-red/15 border border-brand-red/40 text-brand-lightRed flex items-center justify-center shrink-0 text-xl">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div class="space-y-1 text-left">
-                        <span class="block text-xs font-mono uppercase tracking-wider text-brand-lightRed font-black">Ubicación del Encuentro</span>
-                        <h2 class="text-lg sm:text-2xl font-black text-white">Nanu café coworking</h2>
-                        <p class="text-sm sm:text-base text-gray-300 font-medium">
-                            Calle de Suero de Quiñones 13 (Chamartín, 28002, Madrid)
-                        </p>
-                    </div>
-                </div>
-                <a href="https://www.google.com/maps/search/?api=1&query=Calle+de+Suero+de+Qui%C3%B1ones+13+28002+Madrid" target="_blank" rel="noopener noreferrer" class="px-4 py-3 rounded-xl bg-white/5 hover:bg-brand-red border border-white/15 hover:border-brand-red text-xs font-black text-white uppercase tracking-wider transition-all shrink-0 flex items-center space-x-2">
-                    <i class="fa-solid fa-map-location-dot"></i>
-                    <span>Abrir en Maps</span>
-                </a>
-            </div>
+            <!-- Programa Minimalista (Todos los puntos con el mismo estilo limpio y equilibrado) -->
+            <div class="space-y-4 text-left">
+                <span class="block text-xs font-mono uppercase tracking-widest text-gray-400">Qué haremos en el encuentro</span>
 
-            <!-- Descripción Completa: Qué haremos en el Evento #002 -->
-            <div class="p-7 sm:p-9 rounded-3xl bg-brand-dark/95 border-2 border-white/10 shadow-2xl notebook-card space-y-6 text-left">
-                <div class="space-y-2 border-b border-white/10 pb-5">
-                    <span class="text-xs font-mono uppercase tracking-wider text-brand-lightRed font-black">¿Qué va a pasar en el Evento #002?</span>
-                    <h3 class="text-2xl sm:text-3xl font-black text-white">Un encuentro diseñado para aportar valor real</h3>
-                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed">
-                        Queremos seguir manteniendo nuestro lema: <strong class="text-white">grupos pequeños de máximo 15 personas</strong> para conservar esa calidad en las relaciones, esa cercanía y personalización donde <strong class="text-brand-lightRed">eres tú, no un número</strong>.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 gap-4">
-                    <!-- Punto 1: 3 Charlas de valor -->
-                    <div class="p-5 rounded-2xl bg-black/55 border border-white/10 flex items-start space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-red/20 border border-brand-red/40 text-brand-lightRed font-black flex items-center justify-center shrink-0 mt-0.5">
-                            1
-                        </div>
+                <div class="divide-y divide-white/10 rounded-2xl bg-brand-dark/80 border border-white/10">
+                    <!-- Punto 1: 3 Charlas -->
+                    <div class="p-5 sm:p-6 flex items-start space-x-4">
+                        <span class="font-mono text-xs font-bold text-brand-lightRed pt-1">01</span>
                         <div class="space-y-1">
-                            <h4 class="text-base sm:text-lg font-black text-white">3 Charlas de Valor con aprendizaje real</h4>
-                            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                                Tendremos <strong class="text-white">3 charlas de valor</strong> pensadas para que de cada una salgas con un aprendizaje práctico y aplicable desde el primer minuto.
+                            <h3 class="text-base font-bold text-white">3 charlas de valor</h3>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                                Cada charla está pensada para que salgas con un aprendizaje claro y práctico.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Punto 2: Coworking real con ordenadores -->
-                    <div class="p-5 rounded-2xl bg-black/55 border border-white/10 flex items-start space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-red/20 border border-brand-red/40 text-brand-lightRed font-black flex items-center justify-center shrink-0 mt-0.5">
-                            2
-                        </div>
+                    <!-- Punto 2: Coworking -->
+                    <div class="p-5 sm:p-6 flex items-start space-x-4">
+                        <span class="font-mono text-xs font-bold text-brand-lightRed pt-1">02</span>
                         <div class="space-y-1">
-                            <h4 class="text-base sm:text-lg font-black text-white">Coworking en vivo: trae tu ordenador y tus dudas</h4>
-                            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                                Haremos <strong class="text-white">coworking juntos</strong>: llevaremos ordenadores, veremos ideas, detectaremos nuevas oportunidades, nos pasaremos contactos, daremos <strong class="text-white">feedback directo a tu proyecto</strong> y le daremos vueltas entre todos. <strong class="text-brand-lightRed">Ven con todas tus dudas para preguntar.</strong>
+                            <h3 class="text-base font-bold text-white">Coworking en vivo y feedback</h3>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                                Llevaremos ordenadores, veremos ideas, nuevas oportunidades, nos pasaremos contactos, daremos feedback de tu proyecto y le daremos vueltas. Ven con todas tus dudas para preguntar.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Punto 3: Presentación de la nueva app de myflow -->
-                    <div class="p-5 rounded-2xl bg-gradient-to-r from-brand-red/15 to-black/60 border border-brand-red/40 flex items-start space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-brand-red text-white font-black flex items-center justify-center shrink-0 mt-0.5 shadow-lg shadow-brand-red/30">
-                            ★
-                        </div>
+                    <!-- Punto 3: Presentación app myflow (mismo estilo minimalista que el resto) -->
+                    <div class="p-5 sm:p-6 flex items-start space-x-4">
+                        <span class="font-mono text-xs font-bold text-brand-lightRed pt-1">03</span>
                         <div class="space-y-1">
-                            <h4 class="text-base sm:text-lg font-black text-white">Presentación exclusiva de la nueva app de myflow</h4>
-                            <p class="text-xs sm:text-sm text-gray-200 leading-relaxed">
-                                Aparte os presentaré la <strong class="text-white">nueva app de myflow</strong> para que entendáis qué ventajas os puede dar en vuestro día a día. Y por supuesto, <strong class="text-brand-lightRed font-bold">por ser de los primeros tendréis una ventaja :)</strong>
+                            <h3 class="text-base font-bold text-white">Presentación de la nueva app de myflow</h3>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                                Os presentaré la nueva app de myflow para que entendáis qué ventajas os puede dar, y por supuesto, por ser de los primeros tendréis una ventaja :)
                             </p>
                         </div>
                     </div>
@@ -938,84 +936,73 @@
             </div>
 
             <!-- BLOQUE DIRECTO DE COMPRA DE ENTRADA ÚNICA (10€) -->
-            <div id="comprar-entrada-002" class="p-7 sm:p-10 rounded-3xl bg-brand-dark border-2 border-brand-red shadow-2xl shadow-brand-red/20 notebook-card text-left space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/10">
-                    <div>
-                        <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 font-mono text-xs font-black uppercase">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span>Plazas limitadas (15 máx.)</span>
-                        </span>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase mt-2">Compra tu Entrada Única</h3>
+            <div id="comprar-entrada-002" class="p-6 sm:p-8 rounded-2xl bg-brand-dark/90 border border-white/15 text-left space-y-6">
+                <div class="flex items-center justify-between gap-4 pb-5 border-b border-white/10">
+                    <div class="space-y-1">
+                        <span class="text-xs font-mono uppercase tracking-wider text-brand-lightRed">Entrada Única</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Reserva tu plaza</h3>
+                        <p class="text-xs sm:text-sm text-gray-400">Acceso al coworking + café + bocata de jamón serrano</p>
                     </div>
-
-                    <div class="px-5 py-3 rounded-2xl bg-brand-red text-white text-center shrink-0 shadow-lg shadow-brand-red/30">
-                        <span class="block text-[10px] font-mono uppercase tracking-wider opacity-90">Entrada Única</span>
-                        <span class="text-3xl font-black leading-none">10€</span>
+                    <div class="text-right shrink-0">
+                        <span class="text-3xl sm:text-4xl font-black text-white">10€</span>
                     </div>
                 </div>
 
-                <!-- Qué incluye la entrada única -->
-                <div class="p-5 rounded-2xl bg-black/60 border-2 border-brand-red/50 space-y-2">
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm sm:text-base font-black text-white">Acceso completo al Evento #002</span>
-                        <span class="px-3 py-1 rounded-lg bg-brand-red/20 border border-brand-red/40 text-brand-lightRed font-mono font-black text-xs">10€ TODO INCLUIDO</span>
-                    </div>
-                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                        Incluye <strong class="text-white">acceso al coworking + café + bocata de jamón serrano</strong>, las 3 charlas de valor, sesión de coworking/feedback y acceso prioritario a la presentación de la app de myflow.
-                    </p>
-                </div>
-
-                <!-- Aviso transparente sin beneficio -->
-                <div class="p-4.5 rounded-2xl bg-amber-500/10 border border-amber-500/35 flex items-start space-x-3.5 text-amber-200">
-                    <i class="fa-solid fa-circle-info text-amber-400 text-lg mt-0.5 shrink-0"></i>
-                    <p class="text-xs sm:text-sm leading-relaxed">
-                        <strong class="text-white">Transparencia total:</strong> Este evento <strong class="underline text-white">no tiene beneficio ninguno</strong>; el importe de la entrada es íntegramente para cubrir los gastos totales de hacer el evento (espacio coworking, café y bocata).
-                    </p>
-                </div>
+                <!-- Aviso transparente minimalista -->
+                <p class="text-xs text-gray-400 leading-relaxed border-l-2 border-brand-red/60 pl-3.5">
+                    Este evento <strong class="text-gray-200">no tiene beneficio ninguno</strong>; el importe es únicamente para cubrir los gastos totales de hacer el evento.
+                </p>
 
                 <!-- Formulario Directo de Compra -->
-                <div id="evento-002-tickets-form-box" class="space-y-5 pt-2">
-                    <form onsubmit="handleBuyEvento002Ticket(event)" class="space-y-5">
+                <div id="evento-002-tickets-form-box" class="space-y-4">
+                    <form onsubmit="handleBuyEvento002Ticket(event)" class="space-y-4">
                         <input type="hidden" name="ticket_option" value="10€ - Acceso coworking + café + bocata de jamón serrano">
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                             <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1.5">Tu Nombre y Apellidos *</label>
-                                <input type="text" id="ticket-buyer-name" required placeholder="Ej: Alex García" class="w-full bg-black/75 border border-white/20 focus:border-brand-red rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none">
+                                <label class="block text-xs font-medium text-gray-400 mb-1.5">Nombre y apellidos *</label>
+                                <input type="text" id="ticket-buyer-name" required placeholder="Ej: Alex García" class="w-full bg-black/60 border border-white/15 focus:border-brand-red rounded-xl px-4 py-3 text-sm text-white focus:outline-none">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase mb-1.5">Tu Teléfono (desde el que haces Bizum) *</label>
-                                <input type="tel" id="ticket-buyer-phone" required placeholder="Ej: 600 000 000" class="w-full bg-black/75 border border-white/20 focus:border-brand-red rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none">
+                                <label class="block text-xs font-medium text-gray-400 mb-1.5">Teléfono (Bizum) *</label>
+                                <input type="tel" id="ticket-buyer-phone" required placeholder="Ej: 600 000 000" class="w-full bg-black/60 border border-white/15 focus:border-brand-red rounded-xl px-4 py-3 text-sm text-white focus:outline-none">
                             </div>
                         </div>
 
-                        <div class="p-4.5 rounded-2xl bg-brand-softSurface border border-brand-softRedBorder text-gray-200 space-y-2.5">
-                            <div class="flex items-center justify-between flex-wrap gap-2">
-                                <span class="text-xs font-mono uppercase font-black text-brand-lightRed">Reserva directa por Bizum (10€)</span>
-                                <button type="button" onclick="copyBizumPhone()" class="px-3 py-1.5 rounded-lg bg-brand-red/20 border border-brand-red/40 text-white text-xs font-mono font-bold hover:bg-brand-red/30 cursor-pointer">
-                                    Copiar 623179849
-                                </button>
-                            </div>
-                            <p class="text-xs sm:text-sm font-medium leading-relaxed">
-                                Al pulsar el botón de abajo se copiará automáticamente el número <strong class="underline text-white">623179849</strong> para hacer el Bizum de <strong class="text-white">10€</strong> y se abrirá WhatsApp con tu reserva lista para confirmarte tu plaza entre los 15 asistentes.
-                            </p>
+                        <div class="flex items-center justify-between text-xs text-gray-400 pt-1">
+                            <span>Bizum directo: <strong class="text-white font-mono">623 179 849</strong></span>
+                            <button type="button" onclick="copyBizumPhone()" class="text-brand-lightRed hover:underline font-mono cursor-pointer">
+                                Copiar número
+                            </button>
                         </div>
 
-                        <button type="submit" class="w-full py-4.5 rounded-2xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-base uppercase tracking-wide shadow-xl shadow-brand-red/30 transition-all cursor-pointer flex items-center justify-center space-x-2.5 hover:scale-[1.01]">
-                            <i class="fa-solid fa-ticket"></i>
-                            <span>Reservar mi Plaza por 10€ (Bizum 623 179 849)</span>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm uppercase tracking-wider transition-all cursor-pointer">
+                            Comprar Entrada • 10€
                         </button>
                     </form>
                 </div>
 
                 <!-- Caja SOLD OUT cuando se llenan las 15 plazas -->
-                <div id="evento-002-soldout-box" class="hidden p-9 rounded-2xl bg-brand-softSurface text-white text-center space-y-3 border-2 border-brand-red/50">
-                    <span class="px-3.5 py-1 rounded-full bg-brand-red/20 text-brand-lightRed font-mono text-xs font-black uppercase">15 / 15 Plazas Completas</span>
-                    <h4 class="text-3xl sm:text-4xl font-black uppercase tracking-tight">SOLD OUT</h4>
-                    <p class="font-hand text-2xl sm:text-3xl text-brand-lightRed font-bold">
+                <div id="evento-002-soldout-box" class="hidden p-8 rounded-xl bg-black/50 text-white text-center space-y-2 border border-white/10">
+                    <span class="text-xs font-mono text-brand-lightRed uppercase">15 / 15 Plazas Completas</span>
+                    <h4 class="text-3xl font-black uppercase tracking-tight">SOLD OUT</h4>
+                    <p class="font-hand text-2xl text-brand-lightRed font-bold">
                         nos vemos en el #003 collab
                     </p>
                 </div>
+            </div>
+
+            <!-- Ubicación y botón de Maps al final (estilo minimalista) -->
+            <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left">
+                <div class="space-y-1">
+                    <span class="block text-[11px] font-mono uppercase tracking-wider text-gray-500">Ubicación</span>
+                    <p class="text-sm font-bold text-white">Nanu café coworking</p>
+                    <p class="text-xs text-gray-400">Calle de Suero de Quiñones 13 (Chamartín, 28002)</p>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calle+de+Suero+de+Qui%C3%B1ones+13+28002+Madrid" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-gray-200 hover:text-white transition-all inline-flex items-center space-x-2 w-fit shrink-0">
+                    <i class="fa-solid fa-location-dot text-brand-lightRed"></i>
+                    <span>Abrir en Maps</span>
+                </a>
             </div>
 
         </div>
@@ -2636,27 +2623,6 @@
         const BIZUM_NUMBER = "623179849";
         window.globalEvento002Sold = 0;
 
-        function openEvento002Landing() {
-            const landing = document.getElementById('evento-002-landing-page');
-            if (!landing) return;
-            landing.classList.remove('hidden');
-            landing.classList.add('flex');
-            landing.scrollTop = 0;
-            document.body.style.overflow = 'hidden';
-            updateEvento002SeatsUI();
-        }
-
-        function closeEvento002Landing() {
-            const landing = document.getElementById('evento-002-landing-page');
-            if (!landing) return;
-            landing.classList.add('hidden');
-            landing.classList.remove('flex');
-            document.body.style.overflow = '';
-        }
-
-        window.openEvento002Landing = openEvento002Landing;
-        window.closeEvento002Landing = closeEvento002Landing;
-
         function getEvento002TicketsSold() {
             return typeof window.globalEvento002Sold === 'number' ? window.globalEvento002Sold : 0;
         }
@@ -2684,11 +2650,58 @@
             if (sold >= EVENTO_002_MAX_TICKETS) {
                 if (formBox) formBox.classList.add('hidden');
                 if (soldOutBox) soldOutBox.classList.remove('hidden');
-                if (headerSub) headerSub.textContent = "SOLD OUT, nos vemos en el #003 collab";
+                if (headerSub) headerSub.textContent = "SOLD OUT • Nos vemos en el #003";
             } else {
                 if (formBox) formBox.classList.remove('hidden');
                 if (soldOutBox) soldOutBox.classList.add('hidden');
                 if (headerSub) headerSub.textContent = "Nanu Café Coworking • Madrid (Máx. 15 personas)";
+            }
+        }
+        window.updateEvento002SeatsUI = updateEvento002SeatsUI;
+
+        function closeEvento002Landing() {
+            const landing = document.getElementById('evento-002-landing-page');
+            if (landing) {
+                landing.classList.add('hidden');
+                landing.classList.remove('flex');
+            }
+            document.body.style.overflow = '';
+        }
+        window.closeEvento002Landing = closeEvento002Landing;
+
+        function openEvento002Landing() {
+            const ticketOverlay = document.getElementById('ticket-002-transition-overlay');
+            const landing = document.getElementById('evento-002-landing-page');
+            if (!landing) return;
+
+            document.body.style.overflow = 'hidden';
+
+            if (ticketOverlay) {
+                const animBox = ticketOverlay.querySelector('.ticket-unlock-anim');
+                ticketOverlay.classList.remove('hidden');
+                ticketOverlay.classList.add('flex');
+                if (animBox) {
+                    animBox.classList.remove('ticket-unlock-anim');
+                    void animBox.offsetWidth;
+                    animBox.classList.add('ticket-unlock-anim');
+                }
+
+                setTimeout(() => {
+                    landing.classList.remove('hidden');
+                    landing.classList.add('flex');
+                    landing.scrollTop = 0;
+                    updateEvento002SeatsUI();
+                }, 1150);
+
+                setTimeout(() => {
+                    ticketOverlay.classList.add('hidden');
+                    ticketOverlay.classList.remove('flex');
+                }, 1550);
+            } else {
+                landing.classList.remove('hidden');
+                landing.classList.add('flex');
+                landing.scrollTop = 0;
+                updateEvento002SeatsUI();
             }
         }
 
