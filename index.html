@@ -6,11 +6,11 @@
     <title>Comunidad de Jóvenes Emprendedores en España | Eventos y Networking</title>
 
     <!-- SEO Meta Tags Actualizados -->
-    <meta name="description" content="Forma parte de una comunidad de jóvenes emprendedores, creadores y profesionales que buscan crecer, conectar y vivir nuevas experiencias. Organizamos eventos exclusivos, viajes y encuentros de networking por España para crear conexiones reales, compartir ideas y generar oportunidades que van más allá de lo profesional. Además, contamos con nuestra propia app, donde podrás descubrir otros emprendedores, conseguir sus contactos y conectar directamente con personas que pueden abrirte nuevas puertas y oportunidades de negocio. Disfruta de experiencias únicas, conoce personas con tus mismas ambiciones, participa en eventos exclusivos y accede a premios y ventajas especiales por formar parte de la comunidad. Únete gratis y descubre todo lo que puede surgir cuando conectas con las personas adecuadas.">
-    <meta name="keywords" content="comunidad de jovenes emprendedores en españa, eventos y networking, myflowxx, networking madrid, jovenes emprendedores, creadores españa, comunidad exclusiva, app networking emprendedores">
-    <meta property="og:title" content="Comunidad de Jóvenes Emprendedores en España | Eventos y Networking">
-    <meta property="og:description" content="Forma parte de una comunidad de jóvenes emprendedores, creadores y profesionales que buscan crecer, conectar y vivir nuevas experiencias. Eventos exclusivos, viajes y nuestra propia app de networking en España. Únete gratis.">
-    <meta property="og:image" content="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg">
+    <meta property="og:title" content="Evento #002 | Comunidad de Jóvenes Emprendedores en España">
+    <meta property="og:description" content="Acceso limitado a 15 personas en Nanu Café Coworking (Madrid). Entrada única 10€ (coworking + café + bocata de jamón serrano). Compra tu plaza aquí.">
+    <meta property="og:image" content="https://i.ibb.co/ZzSjYnZg/Crear-colaboracion-de-dos-logos-57e58fcb.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://i.ibb.co/ZzSjYnZg/Crear-colaboracion-de-dos-logos-57e58fcb.jpg">
     <link rel="icon" type="image/jpeg" href="https://i.ibb.co/HQ9dZ5c/Logo-with-penguin-for-entrepreneurs-202606021533.jpg">
 
     <!-- Google Fonts: Plus Jakarta Sans (Brand clean) & Caveat (Handwritten note style) -->
@@ -881,7 +881,7 @@
         <div class="max-w-2xl w-full mx-auto px-4 sm:px-8 py-12 sm:py-16 space-y-12">
 
             <!-- Hero Minimalista -->
-            <div class="text-center space-y-4">
+            <div class="text-center space-y-5">
                 <span class="inline-block px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-brand-lightRed font-mono text-xs uppercase tracking-widest">
                     Acceso limitado • 15 personas en total
                 </span>
@@ -889,6 +889,13 @@
                 <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight uppercase">
                     EVENTO #002
                 </h1>
+
+                <!-- Imagen de colaboración añadida -->
+                <div class="max-w-md mx-auto pt-1">
+                    <a href="https://ibb.co/chwBCGm8" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-2xl border border-white/10 shadow-xl">
+                        <img src="https://i.ibb.co/ZzSjYnZg/Crear-colaboracion-de-dos-logos-57e58fcb.jpg" alt="Crear-colaboracion-de-dos-logos-57e58fcb" border="0" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x340/13131d/ffffff?text=EVENTO+%23002'">
+                    </a>
+                </div>
 
                 <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-xl mx-auto">
                     Mantenemos nuestro lema: <strong class="text-white">grupos pequeños de máximo 15 personas</strong> para conservar esa calidad en las relaciones, esa personalización y que seas tú, no un número.
@@ -940,7 +947,7 @@
                 <div class="flex items-center justify-between gap-4 pb-5 border-b border-white/10">
                     <div class="space-y-1">
                         <span class="text-xs font-mono uppercase tracking-wider text-brand-lightRed">Entrada Única</span>
-                        <h3 class="text-xl sm:text-2xl font-black text-white">Compra tu plaza aquuí</h3>
+                        <h3 class="text-xl sm:text-2xl font-black text-white">Compra tu plaza aquí</h3>
                         <p class="text-xs sm:text-sm text-gray-400">Acceso al coworking + café + bocata de jamón serrano</p>
                     </div>
                     <div class="text-right shrink-0">
@@ -977,7 +984,7 @@
                         </div>
 
                         <button type="submit" class="w-full py-4 rounded-xl bg-brand-red hover:bg-brand-lightRed text-white font-black text-sm uppercase tracking-wider transition-all cursor-pointer">
-                            Comprar Entrada • 10€
+                            Compra tu plaza aquí • 10€
                         </button>
                     </form>
                 </div>
@@ -2666,17 +2673,21 @@
                 landing.classList.remove('flex');
             }
             document.body.style.overflow = '';
+            if (window.location.hash === '#evento-002' || window.location.hash === '#comprar-entrada-002') {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
         }
         window.closeEvento002Landing = closeEvento002Landing;
 
-        function openEvento002Landing() {
+        function openEvento002Landing(skipTransition = false) {
             const ticketOverlay = document.getElementById('ticket-002-transition-overlay');
             const landing = document.getElementById('evento-002-landing-page');
             if (!landing) return;
 
             document.body.style.overflow = 'hidden';
+            history.replaceState(null, '', '#evento-002');
 
-            if (ticketOverlay) {
+            if (ticketOverlay && !skipTransition) {
                 const animBox = ticketOverlay.querySelector('.ticket-unlock-anim');
                 ticketOverlay.classList.remove('hidden');
                 ticketOverlay.classList.add('flex');
@@ -2704,6 +2715,24 @@
                 updateEvento002SeatsUI();
             }
         }
+
+        function copyEvento002ShareLink() {
+            const shareUrl = `${window.location.origin}${window.location.pathname}#evento-002`;
+            const tempInput = document.createElement('input');
+            tempInput.value = shareUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast("Enlace directo copiado. Al pegarlo en WhatsApp mostrará la imagen del Evento #002.", "fab fa-whatsapp text-emerald-400");
+        }
+        window.copyEvento002ShareLink = copyEvento002ShareLink;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#evento-002' || window.location.hash === '#comprar-entrada-002') {
+                openEvento002Landing(true);
+            }
+        });
 
         function hostAdjustTickets(delta) {
             setEvento002TicketsSold(getEvento002TicketsSold() + delta);
@@ -2736,11 +2765,12 @@
 
             if (currentSold >= EVENTO_002_MAX_TICKETS) {
                 updateEvento002SeatsUI();
-                showToast("SOLD OUT, nos vemos en el #003 collab", "fa-solid fa-ban text-brand-red");
+                showToast("SOLD OUT, nos vemos en el #003", "fa-solid fa-ban text-brand-red");
                 return;
             }
 
-            const ticketDesc = "10€ - Entrada única (Acceso coworking + café + bocata de jamón serrano)";
+            const selectedInput = document.querySelector('input[name="ticket_option"]');
+            const ticketDesc = selectedInput ? selectedInput.value : "10€ - Acceso coworking + café + bocata de jamón serrano";
             const buyerName = document.getElementById('ticket-buyer-name').value.trim();
             const buyerPhone = document.getElementById('ticket-buyer-phone').value.trim();
 
@@ -2753,13 +2783,13 @@
                 `👤 *Asistente:* ${buyerName}\n` +
                 `📱 *Móvil Bizum:* ${buyerPhone}\n` +
                 `☕ *Entrada:* ${ticketDesc}\n` +
-                `📍 *Lugar:* Nanu café coworking. Calle de Suero de Quiñones 13 (Chamartín, 28002)\n` +
-                `💸 *Bizum enviado al:* ${BIZUM_NUMBER} (10€ - confirmar plaza por este chat)`;
+                `📍 *Lugar:* Nanu café coworking, Calle de Suero de Quiñones 13 (Chamartín, 28002)\n` +
+                `💸 *Bizum enviado al:* ${BIZUM_NUMBER} (pago pendiente, confirmar por este mismo chat)`;
 
             const waTicketUrl = `https://api.whatsapp.com/send?phone=${ADMIN_PHONE}&text=${encodeURIComponent(ticketMsg)}`;
             window.open(waTicketUrl, '_blank');
 
-            showToast("¡Plaza solicitada! Envía tu Bizum de 10€ al 623 179 849 y confírmalo en WhatsApp.", "fa-solid fa-ticket text-emerald-400");
+            showToast("¡Entrada solicitada! Envía tu Bizum al 623 179 849 y confírmalo por el chat.", "fa-solid fa-ticket text-emerald-400");
         }
     </script>
 
@@ -2811,10 +2841,6 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const rtdb = getDatabase(app);
-
-        // ==========================================
-        // MYFLOWXX PUSH NOTIFICATIONS
-        // ==========================================
 
         window.enableMyflowxxPush = async function () {
             try {
@@ -2914,11 +2940,8 @@
                 } catch (_) {}
 
                 showToast("¡Notificaciones activadas correctamente!", "fa-solid fa-bell text-emerald-400");
-                console.log("MYFLOWXX Push activado correctamente.");
-
             } catch (error) {
                 console.error("Error activando Push:", error);
-
                 showToast(
                     "No se han podido activar las notificaciones. Revisa los permisos del navegador.",
                     "fa-solid fa-triangle-exclamation"
